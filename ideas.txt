@@ -20,18 +20,18 @@ Overall: May seperate out info into a lot of seperate tables, one with basic inf
 Redirect to different possible pages to increase interactiveness
 search field
 
-db scheme
+db schema
 
-ACCOUNTS:
-AccountID | UserName | FName | LName | HomeTown {| list of artists/etc}
+Accounts:
+AccountID | UserName | FName | LName | Hometown {| list of artists/etc}
 
-ARTISTS
+Artists:
 ArtistID | BandName | Website | Origin/location  | Members | Image URL
 
-LOCATIONS:
-LocationID | VenueName | HallLocation [City | State]  | MaxCapacity {| Rating if time allows}
+Venues:
+VenueID | VenueName | VenueCity | VenueState  | MaxCapacity {| Rating if time allows}
 
-EVENT: (connecting table)
+Events: (connecting table)
 fkey(ArtistID) | fkey(LocationID) | Eventdate | Time | TicketPrice | (Headliner? Y/N)
 
 FAVORITE ARTISTS: (connecting table)
