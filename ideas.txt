@@ -22,6 +22,51 @@ search field
 
 db schema
 
+Accounts
+	accid    : INT(6) UNSIGNED AUTOINCREMENT PRIMARY KEY
+	uname    : VARCHAR(32) NOT NULL
+	password : VARCHAR(40) NOT NULL **HASH**
+	fname    : VARCHAR(25) 
+	lname    : VARCHAR(25) 
+	home     : VARCHAR(25)
+	
+Artists
+	artid    : INT(6) UNSIGNED AUTOINCREMENT PRIMARY KEY
+	bname    : VARCHAR(50) NOT NULL
+	website  : VARCHAR(50)
+	origin   : VARCHAR(25)
+	members  : VARCHAR(200)
+	imgurl   : VARCHAR(100)
+	
+Venues
+	vid      : INT(6) UNSIGNED AUTOINCREMENT PRIMARY KEY
+	vname    : VARCHAR(50) NOT NULL
+	vcity    : VARCHAR(25)
+	vstate   : VARCHAR(25)
+	maxcap   : INT(5) UNSIGNED
+
+Events
+	evid     : INT(6) UNSIGNED AUTOINCREMENT PRIMARY KEY
+	fk_artid : INT(6) UNSIGNED (fk to artist table)
+	fk_vid   : INT(6) UNSIGNED (fk to venue table)
+	edate    : DATE
+	etime    : VARCHAR(5) (HH:mm)
+	price    : DECIMAL(5,2)
+	head     : TINYINT(1) (1 if headlining band, 0 if not)
+	
+FavArtists
+	fk_accid : INT(6) UNSIGNED (fk to account table)
+	fk_artid : INT(6) UNSIGNED (fk to artist table)
+
+FavVenues
+	fk_accid : INT(6) UNSIGNED (fk to account table)
+	fk_vid   : INT(6) UNSIGNED (fo to venue table)
+
+
+On value readin - eg create account - any blank fields should be set null and that value passed
+	
+	
+	
 Accounts:
 AccountID | UserName | FName | LName | Hometown {| list of artists/etc}
 
