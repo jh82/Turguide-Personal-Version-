@@ -71,6 +71,7 @@ function setUpEventHandlers() {
 
 function whenTurGuideLogoClicked() {
 	console.log('turguide Logo Clicked!');
+	testAJAXCall();
 }
 
 function whenArtistsClicked() {
@@ -91,7 +92,7 @@ function whenLoginClicked() {
 }
 
 function setUpMainLogoAnimation() {
-	var upDown = 1;
+/*	var upDown = 1;
 	var leftRight = 1;
 	var upDownCounter = 0;
 	var leftRightCounter = 0;
@@ -140,7 +141,7 @@ function setUpMainLogoAnimation() {
 			leftRightCounter = 0;
 		}
 		$('body').css({backgroundColor:'rgb('+R+', '+G+', '+B+')'});
-	}, intervalTime);
+	}, intervalTime);*/
 }
 
 function replaceLogin() {
@@ -155,6 +156,21 @@ function replaceLogin() {
 	$('#loginButton').replaceWith(loginFormDiv);
 }
 
-var randomInt = function(max) {
+function randomInt(max) {
 	return Math.floor(Math.random() * max);
+}
+
+function testAJAXCall() {
+	var url_base = "wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj/index.html";
+	$.ajax(url_base + "/testfunctions.php",
+	       {type: "GET",
+		       dataType: "json",
+		       success: function(result, status, xhr) {
+				   alert("AJAX call successful!");
+		       },
+			   error: function(xhr,status,error) {
+				   alert("AJAX call failed!");
+			   }
+		   }
+	      });
 }
