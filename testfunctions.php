@@ -1,7 +1,7 @@
 <?php
 
  include 'functions.php';
-
+		
 $servername = 'classroom.cs.unc.edu';
 $username   = 'gibsonb';
 $password   = 'zDpjelCQeho=\~*UbH,"';
@@ -14,7 +14,15 @@ if ($conn->connect_error) {
 }
 
 $testartid = 5;
+//header("Access-Control-Allow-Origin: *;Content-type: application/json");
 print getArtistInfo($testartid,$conn);
 
+$testvid = 8;
+		
+print getVenueInfo($testvid,$conn);
+
+$testeid = 14;
+		
+print getEventInfo($testeid,$conn);
 
 ?>
