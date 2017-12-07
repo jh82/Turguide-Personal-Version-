@@ -4,6 +4,8 @@ $('document').ready(function() {
 	fillInAccountPreview();
 	makeMainReady();
 	fillInAllTitles();
+	fillInFavoriteArtists();
+	fillInFavoriteVenues();
 	setUpEventHandlers();
 	
 })
@@ -47,6 +49,16 @@ function fillInAllTitles() {
 	fillInTitle($('#favoriteVenues'), 'Favorite Venues');
 }
 
+function fillInFavoriteArtists() {
+	var favoriteArtistsDiv = $('#favoriteArtists');
+	favoriteArtistsDiv.append('<button id="viewAllArtistsButton">View All Artists</button>');
+}
+
+function fillInFavoriteVenues() {
+	var favoriteVenuesDiv = $('#favoriteVenues');
+	favoriteVenuesDiv.append('<button id="viewAllVenuesButton">View All Venues</button>');
+}
+
 function setUpEventHandlers() {
 	$('#turGuideLogo').on('click', function() {
 		whenTurGuideLogoClicked();
@@ -66,6 +78,14 @@ function setUpEventHandlers() {
 	
 	$('#logOff').on('click', function() {
 		whenLogOffClicked();
+	});
+	
+	$('#viewAllArtistsButton').on('click', function() {
+		whenViewAllArtistsClicked();
+	});
+	
+	$('#viewAllVenuesButton').on('click', function() {
+		whenViewAllVenuesClicked();
 	});
 	
 }
@@ -88,6 +108,14 @@ function whenAccountSettingsClicked() {
 
 function whenLogOffClicked() {
 	console.log('Log Off Clicked!');
+}
+
+function whenViewAllArtistsClicked() {
+	console.log('View All Artists Clicked!');
+}
+
+function whenViewAllVenuesClicked() {
+	console.log('View All Venues Clicked!');
 }
 
 function randomInt(max) {
