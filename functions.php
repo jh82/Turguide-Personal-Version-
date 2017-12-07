@@ -29,7 +29,10 @@ function getArtistInfo($artid, $server)
 		
 		
 		//TODO Do we want to include any event info here? upcoming, etc?
+
 		//print json_encode($artinfo);
+		//header("Access-Control-Allow-Origin: *");
+		//header("Content-type: application/json");
 		
 		return json_encode($artinfo);
 	}	
@@ -57,9 +60,11 @@ function getVenueInfo($venid,$server)
 		$veninfo->vstate = $rarr["vstate"];
 		$veninfo->maxcap = $rarr["maxcap"];
 		
-		print json_encode($artinfo);
+		//header("Access-Control-Allow-Origin: *");
+		//header("Content-type: application/json");
+		//print json_encode($veninfo);
 		
-		return json_encode($artinfo);
+		return json_encode($veninfo);
 	}
 }
 
@@ -68,12 +73,12 @@ function getEventInfo($evid,$server)
 {
 	$result = $server->query("SELECT *
 						FROM Events
-						WHERE Events.vid=$evid
+						WHERE Events.evid=$evid
 						");
 	//if query fails
 	if(!$result)
 	{
-		print "GETEVENT FAILURE!";
+		print "GETEVENT FAILURE 1!";
 		return null;
 	}
 	else
@@ -93,20 +98,41 @@ function getEventInfo($evid,$server)
 		$etime = $rarr["etime"];
 		$venid = $rarr["fk_vid"];
 		
+		$arrartists = array();
+		$arrheadliners = array();
+		
 		$allartids = $server->query("
-				SELECT Events.fk_artid
+				SELECT Events.fk_artid, Events.head
 				FROM Events
 				WHERE Events.edate='$edate'
 				AND Events.etime= '$etime'
-				AND Events.fk_vid='$venid'
+				AND Events.fk_vid=$venid
 				");
+			
 		if(!$allartids)
 		{ print "NO OTHER ARTISTS";
 		}
 		else
 		{
-			foreach($allartists.fetch_array() as $curartid)
+			
+			while( $tempart = $allartids->fetch_row())
 			{
+				$tempid = $tempart[0]; //the artist id
+				$headline = $tempart[1]; //if they're a headliner
+				$curinfo = $server->query("
+					SELECT Artists.bname
+					From Artists
+					WHERE Artists.artid='$tempid'
+					");
+				
+				if ($headline==1)
+				{
+					$arrheadliners[] = $curinfo->fetch_array()[0];
+				}
+				else
+				{
+					$arrartists[] = $curinfo->fetch_array()[0];
+				}
 				//get the artist names here
 			}
 		}
@@ -115,9 +141,11 @@ function getEventInfo($evid,$server)
 				FROM Venues
 				WHERE Venues.vid=$venid
 						");
-		$venname = $veninfo.fetch_array()[0];
-		$vencity = $veninfo.fetch_array()[1];
-		$venstate= $veninfo.fetch_array()[2];
+		$venname = $veninfo->fetch_array()[0];
+		$vencity = $veninfo->fetch_array()[1];
+		$venstate= $veninfo->fetch_array()[2];
+		print "TEST  ";
+		print $veninfo->fetch_array();
 		
 		$outinfo->edate = $edate;
 		$outinfo->etime = $etime;
@@ -125,20 +153,21 @@ function getEventInfo($evid,$server)
 		$outinfo->vcity = $vencity;
 		$outinfo->vstate= $venstate;
 		$outinfo->price = $rarr["price"];
+		$outinfo->headliners = $arrheadliners;
+		$outinfo->otherbands = $arrartists;
 		
 		//artists will be an array
 		//headliner will be a seperate field
 		
 		//TODO artists output, incl headlining info
+		//header("Access-Control-Allow-Origin: *");
+		//header("Content-type: application/json");
+		//print json_encode($outinfo);
 		
 		return json_encode($outinfo);
 		
 		
 	}
-				
-		
-	
-	
 	
 	
 }
