@@ -3,8 +3,8 @@ $('document').ready(function() {
 	fillInHeader();
 	makeMainReady();
 	fillInAllTitles();
-	fillInMainLogo();
 	setUpEventHandlers();
+	fillInAccountPreview();
 })
 
 function makeDOMReady() {
@@ -20,6 +20,13 @@ function fillInHeader() {
 	headerNode.append('<button id="artistsButton">Artists</button>');
 	headerNode.append('<button id="venuesButton">Venues</button>');
 	headerNode.append('<div id="accountPreviewArea"></div>');
+}
+
+function fillInAccountPreview() {
+	var accountPreviewDiv = $('#accountPreviewArea');
+	accountPreviewDiv.append('<img id="avatar" src="fakeAvatar.png">');
+	accountPreviewDiv.append('<button id="accountSettings">Account Settings</button>');
+	accountPreviewDiv.append('<button id="logOff">Log Off</button>');
 }
 
 function makeMainReady() {
