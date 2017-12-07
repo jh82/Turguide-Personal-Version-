@@ -2,17 +2,6 @@
 //TODO Split into seperate functions that can do URL parsing for the data
 
 
-$servername = 'classroom.cs.unc.edu';
-$username   = 'gibsonb';
-$password   = 'zDpjelCQeho=\~*UbH,"';
-$dbname     = 'gibsonbdb';
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 //Write all of the PHP insert functions here for use later, including passed in values
 
 //Gets all the info about an artist and [returns JSON-encoded data]
@@ -40,7 +29,7 @@ function getArtistInfo($artid, $server)
 		
 		
 		//TODO Do we want to include any event info here? upcoming, etc?
-		print json_encode($artinfo);
+		//print json_encode($artinfo);
 		
 		return json_encode($artinfo);
 	}	
@@ -136,6 +125,9 @@ function getEventInfo($evid,$server)
 		$outinfo->vcity = $vencity;
 		$outinfo->vstate= $venstate;
 		$outinfo->price = $rarr["price"];
+		
+		//artists will be an array
+		//headliner will be a seperate field
 		
 		//TODO artists output, incl headlining info
 		
