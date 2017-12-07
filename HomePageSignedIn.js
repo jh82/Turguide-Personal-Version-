@@ -19,16 +19,14 @@ function fillInHeader() {
 	headerNode.append('<img id="turGuideLogo" src="türguideLogo.png">');
 	headerNode.append('<button id="artistsButton">Artists</button>');
 	headerNode.append('<button id="venuesButton">Venues</button>');
-	headerNode.append('<button id="signUpButton">Sign Up</button>');
-	headerNode.append('<button id="loginButton">Login</button>');
+	headerNode.append('<div id="accountPreviewArea"></div>');
 }
 
 function makeMainReady() {
 	var mainNode = $('main');
-	mainNode.append('<div id="mainLogo"></div>');
-	mainNode.append('<div id="randomArtist"></div>');
-	mainNode.append('<div id="eventsRightNow"></div>');
-	mainNode.append('<div id="randomVenue"></div>');
+	mainNode.append('<div id="eventsHappeningSoon"></div>');
+	mainNode.append('<div id="favoriteArtists"></div>');
+	mainNode.append('<div id="favoriteVenues"></div>');
 }
 
 function fillInTitle(divNode, titleString) {
@@ -36,14 +34,9 @@ function fillInTitle(divNode, titleString) {
 }
 
 function fillInAllTitles() {
-	fillInTitle($('#randomArtist'), 'Random Artists');
-	fillInTitle($('#eventsRightNow'), 'Events Happening Right Now!!!!!!');
-	fillInTitle($('#randomVenue'), 'Random Venues');
-}
-
-function fillInMainLogo() {
-	var mainLogoNode = $('#mainLogo');
-	mainLogoNode.append('<img src="türguideLogoFull.png">');
+	fillInTitle($('#eventsHappeningSoon'), 'Events Happening Right Now');
+	fillInTitle($('#favoriteArtists'), 'Favorite Artists');
+	fillInTitle($('#favoriteVenues'), 'Favorite Venues');
 }
 
 function setUpEventHandlers() {
@@ -59,18 +52,10 @@ function setUpEventHandlers() {
 		whenVenuesClicked();
 	});
 	
-	$('#signUpButton').on('click', function() {
-		whenSignUpClicked();
-	});
-
-	$('#loginButton').on('click', function() {
-		whenLoginClicked();
-	});
 }
 
 function whenTurGuideLogoClicked() {
 	console.log('turguide Logo Clicked!');
-	//testAJAXCall();
 }
 
 function whenArtistsClicked() {
@@ -83,23 +68,6 @@ function whenVenuesClicked() {
 
 function whenSignUpClicked() {
 	console.log('Sign Up Clicked!');
-}
-
-function whenLoginClicked() {
-	console.log('Login Clicked!');
-	replaceLogin();
-}
-
-function replaceLogin() {
-	var loginFormDiv = '<div id="loginDiv">\
-												<form action="">\
-													Username:<input type="text" name="username">\
-													Password:<input type="password" name="password">	\
-													Remember Me<input type="checkbox">\
-													<button>Login</button>\
-												</form>\
-											</div>';
-	$('#loginButton').replaceWith(loginFormDiv);
 }
 
 function randomInt(max) {
