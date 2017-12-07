@@ -141,11 +141,17 @@ function getEventInfo($evid,$server)
 				FROM Venues
 				WHERE Venues.vid=$venid
 						");
+		$temp = $veninfo->fetch_assoc();
+		$venname = $temp["vname"];
+		$vencity = $temp["vcity"];
+		$venstate = $temp["vstate"];
+		/*
 		$venname = $veninfo->fetch_array()[0];
 		$vencity = $veninfo->fetch_array()[1];
 		$venstate= $veninfo->fetch_array()[2];
-		print "TEST  ";
-		print $veninfo->fetch_array();
+		*/
+		//print "TEST  ";
+		//print $veninfo->fetch_array();
 		
 		$outinfo->edate = $edate;
 		$outinfo->etime = $etime;
