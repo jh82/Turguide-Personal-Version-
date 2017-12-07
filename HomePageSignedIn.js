@@ -1,10 +1,11 @@
 $('document').ready(function() {
 	makeDOMReady();
 	fillInHeader();
+	fillInAccountPreview();
 	makeMainReady();
 	fillInAllTitles();
 	setUpEventHandlers();
-	fillInAccountPreview();
+	
 })
 
 function makeDOMReady() {
@@ -59,6 +60,14 @@ function setUpEventHandlers() {
 		whenVenuesClicked();
 	});
 	
+	$('#accountSettings').on('click', function() {
+		whenAccountSettingsClicked();
+	});
+	
+	$('#logOff').on('click', function() {
+		whenLogOffClicked();
+	});
+	
 }
 
 function whenTurGuideLogoClicked() {
@@ -73,8 +82,12 @@ function whenVenuesClicked() {
 	console.log('Venues Clicked!');
 }
 
-function whenSignUpClicked() {
-	console.log('Sign Up Clicked!');
+function whenAccountSettingsClicked() {
+	console.log('Account Settings Clicked!');
+}
+
+function whenLogOffClicked() {
+	console.log('Log Off Clicked!');
 }
 
 function randomInt(max) {
