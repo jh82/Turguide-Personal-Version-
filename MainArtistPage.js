@@ -57,6 +57,7 @@ var MainArtistPage = function() {
 		var currentObj = this;
     	$('#turGuideLogo').on('click', function() {
     		currentObj.whenTurGuideLogoClicked();
+			currentObj.testAJAXCall();
     	});
 
     	$('#artistsButton').on('click', function() {
