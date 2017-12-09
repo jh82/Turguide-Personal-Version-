@@ -56,6 +56,7 @@ if ($conn->connect_error) {
 	//print $info;
 	
 	print json_encode(array('artistinfo' => $info, 'events' => $upcoming)); 
+	$conn->close();
 	return json_encode(array('artistinfo' => $info, 'events' => $upcoming)); 
 	//TODO check how to actually return all these json objects efficiently
 

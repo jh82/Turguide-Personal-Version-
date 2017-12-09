@@ -152,6 +152,7 @@ if ($conn->connect_error) {
 	}
 	
 	print json_encode(array('allvenues'=>$returnedvs));
+	$conn->close();
 	return json_encode(array('allvenues'=>$returnedvs));
 }
 
