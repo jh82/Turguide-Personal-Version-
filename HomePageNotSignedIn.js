@@ -1,11 +1,25 @@
-var HomePageNotSignedIn = function(headerObj) {
+var HomePageNotSignedIn = function(headerObj, sharedPrepsObj) {
 
     this.pageReady = function() {
-    	this.makeDOMReady();
+    	sharedPrepsObj.makeDOMReady();
     	headerObj.fillInHeader();
-    	this.makeMainReady();
-    	this.fillInAllTitles();
-    	this.fillInMainLogo();
+		
+		var mainElementsArray= [
+			{elementType:'div',id:'mainLogo'},
+			{elementType:'div',id:'randomArtist'},
+			{elementType:'div',id:'eventsRightNow'},
+			{elementType:'div',id:'randomVenue'}
+		];
+    	sharedPrepsObj.makeMainReady(mainElementsArray);
+		
+		var titlesArray = [
+			{divNode:$('#randomArtist'),titleString:'Random Artists'},
+			{divNode:$('#eventsRightNow'),titleString:'Events Happening Right Now!!!!!'},
+			{divNode:$('#randomVenue'),titleString:'Random Venues'}
+		];
+    	sharedPrepsObj.fillInAllTitles(titlesArray);
+    	
+		this.fillInMainLogo();
     	this.setUpEventHandlers();
     }
 

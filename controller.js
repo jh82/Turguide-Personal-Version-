@@ -1,8 +1,13 @@
 $('document').ready(function() {
    // var HPNSIobj = new HomePageNotSignedIn();
-   // HPNSIobj.pageReady();
+   // HPNSIobj.pageReady(); 
+   
 	var headerObj = new Header(true);
-	var mainArtistPageObj = new MainArtistPage(headerObj);
+	var sharedPrepsObj = new SharedPreps();
 	
-	mainArtistPageObj.pageReady();
+	//var mainArtistPageObj = new MainArtistPage(headerObj, sharedPrepsObj);
+	//mainArtistPageObj.pageReady();
+	
+	var homePageNotSignedInObj = new HomePageNotSignedIn(headerObj, sharedPrepsObj);
+	homePageNotSignedInObj.pageReady();
 });
