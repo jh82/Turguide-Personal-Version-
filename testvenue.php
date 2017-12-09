@@ -18,5 +18,5 @@ $testvid = 8;
 header("Access-Control-Allow-Origin: *;Content-type: application/json");	
 print getVenueInfo($testvid,$conn);
 
-
+$conn->close();
 ?>
