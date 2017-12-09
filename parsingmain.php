@@ -17,8 +17,8 @@ if ($conn->connect_error) {
 //If Venue: given venuename, city, or state, all space seperated
 //TODO: SQL_ESCAPE_STRING for all these
 
-$searchval = $_GET['searchval'];
-$type  = $_GET['type']; //'Artist','Venue' - 'Event' later b/c no easy main 'key'
+$searchval = 'Band BA'// $_GET['searchval'];
+$type  = 'Artist' //$_GET['type']; //'Artist','Venue' - 'Event' later b/c no easy main 'key'
 
 
 
@@ -63,6 +63,7 @@ if($type == 'Artist')
 	
 	$info = getArtistInfo($artkey,$conn);
 	
+	print json_encode(array('artistinfo' => $info, 'events' => $upcoming)); 
 	return json_encode(array('artistinfo' => $info, 'events' => $upcoming)); 
 	//TODO check how to actually return all these json objects efficiently
 	
@@ -209,6 +210,7 @@ elseif($type=='Venue')
 		returnedvs[] = getVenueInfo($curvid,$conn);
 	}
 	
+	print json_encode(array('allvenues'=>$returnedvs));
 	return json_encode(array('allvenues'=>$returnedvs));
 }
 	
@@ -218,10 +220,7 @@ elseif($type=='Venue')
 
 			
 	
-	
-	
-	
-	
+
 
 
 
