@@ -8,7 +8,7 @@ var accountSettings = function(headerObj) {
     	this.fillInAllTitles();
     	this.fillInAccountSettings();
     	this.setUpEventHandlers();
-    })
+    }
 
     this.makeDOMReady = function() {
     	var bodyNode = $('body');
