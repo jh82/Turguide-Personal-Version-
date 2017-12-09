@@ -2,10 +2,10 @@ Gibson TODO:
 	xxx Create basic search-field forms 
 	xxx Check relevant PHP methods for search returns
 	***Fix PHP headers to get JSON responses
-	Create method for retreiving 10 random Artists/Venues for pages
-	Create method to retrieve favorite lists
+	***Create method for retreiving 10 random Artists/Venues/Events for pages
+	***User favorite artists - all faves and 10 random faves
 	Hash password
-	Account fetching
+	xxx Account fetching
 	Cookie storage/creation
 	http header and RESTful controller
 	xxx turn testfunctions -> testartist, testvenue, etc
