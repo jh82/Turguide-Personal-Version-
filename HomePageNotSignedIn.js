@@ -1,121 +1,124 @@
-$('document').ready(function() {
-	makeDOMReady();
-	fillInHeader();
-	makeMainReady();
-	fillInAllTitles();
-	fillInMainLogo();
-	setUpEventHandlers();
-})
+var HomePageNotSignedIn = function() {
 
-function makeDOMReady() {
-	var bodyNode = $('body');
-	bodyNode.append('<header></header>');
-	bodyNode.append('<main></main>');
-	bodyNode.append('<footer></footer>');
-}
+    this.pageReady = function() {
+    	this.makeDOMReady();
+    	this.fillInHeader();
+    	this.makeMainReady();
+    	this.fillInAllTitles();
+    	this.fillInMainLogo();
+    	this.setUpEventHandlers();
+    }
 
-function fillInHeader() {
-	var headerNode = $('header');
-	headerNode.append('<img id="turGuideLogo" src="türguideLogo.png">');
-	headerNode.append('<button id="artistsButton">Artists</button>');
-	headerNode.append('<button id="venuesButton">Venues</button>');
-	headerNode.append('<button id="signUpButton">Sign Up</button>');
-	headerNode.append('<button id="loginButton">Login</button>');
-}
+    this.makeDOMReady = function() {
+    	var bodyNode = $('body');
+    	bodyNode.append('<header></header>');
+    	bodyNode.append('<main></main>');
+    	bodyNode.append('<footer></footer>');
+    }
 
-function makeMainReady() {
-	var mainNode = $('main');
-	mainNode.append('<div id="mainLogo"></div>');
-	mainNode.append('<div id="randomArtist"></div>');
-	mainNode.append('<div id="eventsRightNow"></div>');
-	mainNode.append('<div id="randomVenue"></div>');
-}
+    this.fillInHeader = function() {
+    	var headerNode = $('header');
+    	headerNode.append('<img id="turGuideLogo" src="türguideLogo.png">');
+    	headerNode.append('<button id="artistsButton">Artists</button>');
+    	headerNode.append('<button id="venuesButton">Venues</button>');
+    	headerNode.append('<button id="signUpButton">Sign Up</button>');
+    	headerNode.append('<button id="loginButton">Login</button>');
+    }
 
-function fillInTitle(divNode, titleString) {
-	divNode.append('<h1>'+titleString+'</h1>');
-}
+    this.makeMainReady = function() {
+    	var mainNode = $('main');
+    	mainNode.append('<div id="mainLogo"></div>');
+    	mainNode.append('<div id="randomArtist"></div>');
+    	mainNode.append('<div id="eventsRightNow"></div>');
+    	mainNode.append('<div id="randomVenue"></div>');
+    }
 
-function fillInAllTitles() {
-	fillInTitle($('#randomArtist'), 'Random Artists');
-	fillInTitle($('#eventsRightNow'), 'Events Happening Right Now!!!!!!');
-	fillInTitle($('#randomVenue'), 'Random Venues');
-}
+    this.fillInTitle = function(divNode, titleString) {
+    	divNode.append('<h1>'+titleString+'</h1>');
+    }
 
-function fillInMainLogo() {
-	var mainLogoNode = $('#mainLogo');
-	mainLogoNode.append('<img src="türguideLogoFull.png">');
-}
+    this.fillInAllTitles = function() {
+    	this.fillInTitle($('#randomArtist'), 'Random Artists');
+    	this.fillInTitle($('#eventsRightNow'), 'Events Happening Right Now!!!!!!');
+    	this.fillInTitle($('#randomVenue'), 'Random Venues');
+    }
 
-function setUpEventHandlers() {
-	$('#turGuideLogo').on('click', function() {
-		whenTurGuideLogoClicked();
-	});
+    this.fillInMainLogo = function() {
+    	var mainLogoNode = $('#mainLogo');
+    	mainLogoNode.append('<img src="türguideLogoFull.png">');
+    }
 
-	$('#artistsButton').on('click', function() {
-		whenArtistsClicked();
-	});
+    this.setUpEventHandlers = function() {
+    	$('#turGuideLogo').on('click', function() {
+    		this.whenTurGuideLogoClicked();
+    	});
 
-	$('#venuesButton').on('click', function() {
-		whenVenuesClicked();
-	});
-	
-	$('#signUpButton').on('click', function() {
-		whenSignUpClicked();
-	});
+    	$('#artistsButton').on('click', function() {
+    		this.whenArtistsClicked();
+    	});
 
-	$('#loginButton').on('click', function() {
-		whenLoginClicked();
-	});
-}
+    	$('#venuesButton').on('click', function() {
+    		this.whenVenuesClicked();
+    	});
 
-function whenTurGuideLogoClicked() {
-	console.log('turguide Logo Clicked!');
-	//testAJAXCall();
-}
+    	$('#signUpButton').on('click', function() {
+    		this.whenSignUpClicked();
+    	});
 
-function whenArtistsClicked() {
-	console.log('Artists Clicked!');
-}
+    	$('#loginButton').on('click', function() {
+    		this.whenLoginClicked();
+    	});
+    }
 
-function whenVenuesClicked() {
-	console.log('Venues Clicked!');
-}
+    this.whenTurGuideLogoClicked = function() {
+    	console.log('turguide Logo Clicked!');
+    	//testAJAXCall();
+    }
 
-function whenSignUpClicked() {
-	console.log('Sign Up Clicked!');
-}
+    this.whenArtistsClicked = function() {
+    	console.log('Artists Clicked!');
+    }
 
-function whenLoginClicked() {
-	console.log('Login Clicked!');
-	replaceLogin();
-}
+    this.whenVenuesClicked = function() {
+    	console.log('Venues Clicked!');
+    }
 
-function replaceLogin() {
-	var loginFormDiv = '<div id="loginDiv">\
-												<form action="">\
-													Username:<input type="text" name="username">\
-													Password:<input type="password" name="password">	\
-													Remember Me<input type="checkbox">\
-													<button>Login</button>\
-												</form>\
-											</div>';
-	$('#loginButton').replaceWith(loginFormDiv);
-}
+    this.whenSignUpClicked = function() {
+    	console.log('Sign Up Clicked!');
+    }
 
-function randomInt(max) {
-	return Math.floor(Math.random() * max);
-}
+    this.whenLoginClicked = function() {
+    	console.log('Login Clicked!');
+    	this.replaceLogin();
+    }
 
-function testAJAXCall() {
-	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-	$.ajax(url_base + "/testfunctions.php",
-	       {	type: "GET",
-				dataType: "json",
-				success: function(result, status, xhr) {
-					alert("AJAX call successful!");
-				},
-				error: function(xhr,status,error) {
-					alert("AJAX call failed!");
-				}
-		   });
+    this.replaceLogin = function() {
+    	var loginFormDiv = '<div id="loginDiv">\
+    												<form action="">\
+    													Username:<input type="text" name="username">\
+    													Password:<input type="password" name="password">	\
+    													Remember Me<input type="checkbox">\
+    													<button>Login</button>\
+    												</form>\
+    											</div>';
+    	$('#loginButton').replaceWith(loginFormDiv);
+    }
+
+    this.randomInt = function(max) {
+    	return Math.floor(Math.random() * max);
+    }
+
+    this.testAJAXCall = function() {
+    	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/testfunctions.php",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					alert("AJAX call successful!");
+    				},
+    				error: function(xhr,status,error) {
+    					alert("AJAX call failed!");
+    				}
+    		   });
+    }
 }

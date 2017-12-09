@@ -1,132 +1,134 @@
-$('document').ready(function() {
-	makeDOMReady();
-	fillInHeader();
-	fillInAccountPreview();
-	makeMainReady();
-	fillInAllTitles();
-	fillInMainSearchDiv();
-	setUpEventHandlers();
-})
+var artistSearchPage = function() {
+    this.pageReady = function() {
+    	makeDOMReady();
+    	fillInHeader();
+    	fillInAccountPreview();
+    	makeMainReady();
+    	fillInAllTitles();
+    	fillInMainSearchDiv();
+    	setUpEventHandlers();
+    }
 
-function makeDOMReady() {
-	var bodyNode = $('body');
-	bodyNode.append('<header></header>');
-	bodyNode.append('<main></main>');
-	bodyNode.append('<footer></footer>');
-}
+    this.makeDOMReady = function() {
+    	var bodyNode = $('body');
+    	bodyNode.append('<header></header>');
+    	bodyNode.append('<main></main>');
+    	bodyNode.append('<footer></footer>');
+    }
 
-function fillInHeader() {
-	var headerNode = $('header');
-	headerNode.append('<img id="turGuideLogo" src="türguideLogo.png">');
-	headerNode.append('<button id="artistsButton">Artists</button>');
-	headerNode.append('<button id="venuesButton">Venues</button>');
-	headerNode.append('<div id="accountPreviewArea"></div>');
-}
+    this.fillInHeader = function() {
+    	var headerNode = $('header');
+    	headerNode.append('<img id="turGuideLogo" src="türguideLogo.png">');
+    	headerNode.append('<button id="artistsButton">Artists</button>');
+    	headerNode.append('<button id="venuesButton">Venues</button>');
+    	headerNode.append('<div id="accountPreviewArea"></div>');
+    }
 
-function fillInAccountPreview() {
-	var accountPreviewDiv = $('#accountPreviewArea');
-	accountPreviewDiv.append('<img id="avatar" src="fakeAvatar.png">');
-	accountPreviewDiv.append('<button id="accountSettings">Account Settings</button>');
-	accountPreviewDiv.append('<button id="logOff">Log Off</button>');
-}
+    this.fillInAccountPreview = function() {
+    	var accountPreviewDiv = $('#accountPreviewArea');
+    	accountPreviewDiv.append('<img id="avatar" src="fakeAvatar.png">');
+    	accountPreviewDiv.append('<button id="accountSettings">Account Settings</button>');
+    	accountPreviewDiv.append('<button id="logOff">Log Off</button>');
+    }
 
-function makeMainReady() {
-	var mainNode = $('main');
-	mainNode.append('<div id="mainSearchDiv"></div>');
-}
+    this.makeMainReady = function() {
+    	var mainNode = $('main');
+    	mainNode.append('<div id="mainSearchDiv"></div>');
+    }
 
-function fillInTitle(divNode, titleString) {
-	divNode.append('<h1>'+titleString+'</h1>');
-}
+    this.fillInTitle = function(divNode, titleString) {
+    	divNode.append('<h1>'+titleString+'</h1>');
+    }
 
-function fillInAllTitles() {
-	fillInTitle($('#accountSettingsCentral'), 'Account Settings');
-}
+    this.fillInAllTitles = function() {
+    	fillInTitle($('#accountSettingsCentral'), 'Account Settings');
+    }
 
-function fillInMainSearchDiv() {
-	var mainArtistsDiv = $('#mainSearchDiv');
-	mainArtistsDiv.append('Search Artists: <input type="text" id="artistSearchTextbox">');
-	mainArtistsDiv.append('<button id="artistSearchButton">&#x1F50D;</button>');
-	mainArtistsDiv.append('<h1>Search Results</h1>');
-	mainArtistsDiv.append('<div id="foundArtistsDiv"></div>');
-}
+    this.fillInMainSearchDiv = function() {
+    	var mainArtistsDiv = $('#mainSearchDiv');
+    	mainArtistsDiv.append('Search Artists: <input type="text" id="artistSearchTextbox">');
+    	mainArtistsDiv.append('<button id="artistSearchButton">&#x1F50D;</button>');
+    	mainArtistsDiv.append('<h1>Search Results</h1>');
+    	mainArtistsDiv.append('<div id="foundArtistsDiv"></div>');
+    }
 
-function setUpEventHandlers() {
-	$('#turGuideLogo').on('click', function() {
-		whenTurGuideLogoClicked();
-	});
+    this.setUpEventHandlers = function() {
+    	$('#turGuideLogo').on('click', function() {
+    		whenTurGuideLogoClicked();
+    	});
 
-	$('#artistsButton').on('click', function() {
-		whenArtistsClicked();
-	});
+    	$('#artistsButton').on('click', function() {
+    		whenArtistsClicked();
+    	});
 
-	$('#venuesButton').on('click', function() {
-		whenVenuesClicked();
-	});
-	
-	$('#accountSettings').on('click', function() {
-		whenAccountSettingsClicked();
-	});
-	
-	$('#logOff').on('click', function() {
-		whenLogOffClicked();
-	});
-	
-	$('#artistSearchButton').on('click', function() {
-		whenSearchButtonClicked();
-	});
-}
+    	$('#venuesButton').on('click', function() {
+    		whenVenuesClicked();
+    	});
 
-function whenTurGuideLogoClicked() {
-	console.log('turguide Logo Clicked!');
-}
+    	$('#accountSettings').on('click', function() {
+    		whenAccountSettingsClicked();
+    	});
 
-function whenArtistsClicked() {
-	console.log('Artists Clicked!');
-}
+    	$('#logOff').on('click', function() {
+    		whenLogOffClicked();
+    	});
 
-function whenVenuesClicked() {
-	console.log('Venues Clicked!');
-}
+    	$('#artistSearchButton').on('click', function() {
+    		whenSearchButtonClicked();
+    	});
+    }
 
-function whenAccountSettingsClicked() {
-	console.log('Account Settings Clicked!');
-}
+    this.whenTurGuideLogoClicked = function() {
+    	console.log('turguide Logo Clicked!');
+    }
 
-function whenLogOffClicked() {
-	console.log('Log Off Clicked!');
-}
+    this.whenArtistsClicked = function() {
+    	console.log('Artists Clicked!');
+    }
 
-function whenSearchButtonClicked() {
-	console.log('Search Button Clicked!');
-}
+    this.whenVenuesClicked = function() {
+    	console.log('Venues Clicked!');
+    }
 
-function replaceChangePassword() {
-	var changePasswordFormDiv = '<div id="changePasswordDiv">\
-												<form action="">\
-													Current Password:<input type="password" name="oldPassword">\
-													New Password:<input type="password" name="newPassword">	\
-													Confirm New Password<input type="password" name="confirmNewPassword">\
-													<button>Submit</button>\
-												</form>\
-											</div>';
-	$('#changePassword').replaceWith(changePasswordFormDiv);
-}
+    this.whenAccountSettingsClicked = function() {
+    	console.log('Account Settings Clicked!');
+    }
 
-function randomInt(max) {
-	return Math.floor(Math.random() * max);
-}
+    this.whenLogOffClicked = function() {
+    	console.log('Log Off Clicked!');
+    }
 
-function testAJAXCall() {
-	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-	$.ajax(url_base + "/testfunctions.php",
-	       {	type: "GET",
-				dataType: "json",
-				success: function(result, status, xhr) {
-					alert("AJAX call successful!");
-				},
-				error: function(xhr,status,error) {
-					alert("AJAX call failed!");
-				}
-		   });
+    this.whenSearchButtonClicked = function() {
+    	console.log('Search Button Clicked!');
+    }
+
+    this.replaceChangePassword = function() {
+    	var changePasswordFormDiv = '<div id="changePasswordDiv">\
+    												<form action="">\
+    													Current Password:<input type="password" name="oldPassword">\
+    													New Password:<input type="password" name="newPassword">	\
+    													Confirm New Password<input type="password" name="confirmNewPassword">\
+    													<button>Submit</button>\
+    												</form>\
+    											</div>';
+    	$('#changePassword').replaceWith(changePasswordFormDiv);
+    }
+
+    this.randomInt = function(max) {
+    	return Math.floor(Math.random() * max);
+    }
+
+    this.testAJAXCall = function() {
+    	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/testfunctions.php",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					alert("AJAX call successful!");
+    				},
+    				error: function(xhr,status,error) {
+    					alert("AJAX call failed!");
+    				}
+    		   });
+    }
 }
