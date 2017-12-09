@@ -110,7 +110,7 @@ var HomePageNotSignedIn = function() {
     }
 
     this.testAJAXCall = function() {
-    	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
     	$.ajax(url_base + "/testfunctions.php",
     	       {	type: "GET",
     				dataType: "json",
