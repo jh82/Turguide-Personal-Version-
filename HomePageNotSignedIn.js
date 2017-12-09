@@ -116,6 +116,7 @@ var HomePageNotSignedIn = function() {
     				dataType: "json",
     				success: function(result, status, xhr) {
     					alert("AJAX call successful!");
+						alert(result);
     				},
     				error: function(xhr,status,error) {
     					alert("AJAX call failed!");
