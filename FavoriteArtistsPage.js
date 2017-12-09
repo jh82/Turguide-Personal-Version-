@@ -1,13 +1,13 @@
 var FavoriteArtistsPage = function() {
     
     this.pageReady = function() {
-    	makeDOMReady();
-    	fillInHeader();
-    	fillInAccountPreview();
-    	makeMainReady();
-    	fillInAllTitles();
-    	fillInMainFavoritesDiv();
-    	setUpEventHandlers();
+    	this.makeDOMReady();
+    	this.fillInHeader();
+    	this.fillInAccountPreview();
+    	this.makeMainReady();
+    	this.fillInAllTitles();
+    	this.fillInMainFavoritesDiv();
+    	this.setUpEventHandlers();
     }
 
     this.makeDOMReady = function() {

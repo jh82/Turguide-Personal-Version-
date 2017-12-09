@@ -1,13 +1,13 @@
 var VenueSearchPage = function() {
 
     this.pageReady = function() {
-    	makeDOMReady();
-    	fillInHeader();
-    	fillInAccountPreview();
-    	makeMainReady();
-    	fillInAllTitles();
-    	fillInMainSearchDiv();
-    	setUpEventHandlers();
+    	this.makeDOMReady();
+    	this.fillInHeader();
+    	this.fillInAccountPreview();
+    	this.makeMainReady();
+    	this.fillInAllTitles();
+    	this.fillInMainSearchDiv();
+    	this.setUpEventHandlers();
     }
 
     this.makeDOMReady = function() {

@@ -1,13 +1,13 @@
 var accountSettings = function() {
 
     this.pageReady = function() {
-    	makeDOMReady();
-    	fillInHeader();
-    	fillInAccountPreview();
-    	makeMainReady();
-    	fillInAllTitles();
-    	fillInAccountSettings();
-    	setUpEventHandlers();
+    	this.makeDOMReady();
+    	this.fillInHeader();
+    	this.fillInAccountPreview();
+    	this.makeMainReady();
+    	this.fillInAllTitles();
+    	this.fillInAccountSettings();
+    	this.setUpEventHandlers();
     })
 
     this.makeDOMReady = function() {
