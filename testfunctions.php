@@ -27,5 +27,5 @@ $testeid = 14;
 print getEventInfo($testeid,$conn);
 */
 
-
+$conn->close();
 ?>
