@@ -1,6 +1,8 @@
 $('document').ready(function() {
    // var HPNSIobj = new HomePageNotSignedIn();
-   //HPNSIobj.pageReady();
+   // HPNSIobj.pageReady();
 	var mainArtistPageObj = new MainArtistPage();
-	mainArtistPageObj.pageReady();
+	var headerObj = new Header();
+	
+	mainArtistPageObj.pageReady(headerObj);
 });

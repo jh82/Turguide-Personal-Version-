@@ -1,8 +1,8 @@
-var HomePageSignedIn = function() {
+var HomePageSignedIn = function(headerObj) {
 
     this.pageReady = function() {
     	this.makeDOMReady();
-    	this.fillInHeader();
+    	headerObj.fillInHeader();
     	this.fillInAccountPreview();
     	this.makeMainReady();
     	this.fillInAllTitles();
@@ -16,21 +16,6 @@ var HomePageSignedIn = function() {
     	bodyNode.append('<header></header>');
     	bodyNode.append('<main></main>');
     	bodyNode.append('<footer></footer>');
-    }
-
-    this.fillInHeader = function() {
-    	var headerNode = $('header');
-    	headerNode.append('<img id="turGuideLogo" src="türguideLogo.png">');
-    	headerNode.append('<button id="artistsButton">Artists</button>');
-    	headerNode.append('<button id="venuesButton">Venues</button>');
-    	headerNode.append('<div id="accountPreviewArea"></div>');
-    }
-
-    this.fillInAccountPreview = function() {
-    	var accountPreviewDiv = $('#accountPreviewArea');
-    	accountPreviewDiv.append('<img id="avatar" src="fakeAvatar.png">');
-    	accountPreviewDiv.append('<button id="accountSettings">Account Settings</button>');
-    	accountPreviewDiv.append('<button id="logOff">Log Off</button>');
     }
 
     this.makeMainReady = function() {
