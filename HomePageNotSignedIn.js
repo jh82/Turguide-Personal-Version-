@@ -49,30 +49,31 @@ var HomePageNotSignedIn = function() {
     }
 
     this.setUpEventHandlers = function() {
+		var currentObj = this;
     	$('#turGuideLogo').on('click', function() {
-    		this.whenTurGuideLogoClicked();
+    		currentObj.whenTurGuideLogoClicked();
     	});
 
     	$('#artistsButton').on('click', function() {
-    		this.whenArtistsClicked();
+    		currentObj.whenArtistsClicked();
     	});
 
     	$('#venuesButton').on('click', function() {
-    		this.whenVenuesClicked();
+    		currentObj.whenVenuesClicked();
     	});
 
     	$('#signUpButton').on('click', function() {
-    		this.whenSignUpClicked();
+    		currentObj.whenSignUpClicked();
     	});
 
     	$('#loginButton').on('click', function() {
-    		this.whenLoginClicked();
+    		currentObj.whenLoginClicked();
     	});
     }
 
     this.whenTurGuideLogoClicked = function() {
     	console.log('turguide Logo Clicked!');
-    	//testAJAXCall();
+    	this.testAJAXCall();
     }
 
     this.whenArtistsClicked = function() {
