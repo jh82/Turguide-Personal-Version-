@@ -18,8 +18,9 @@ var SharedPreps = function() {
     }
 
     this.fillInAllTitles = function(toFillInArray) {
+		var currentObj = this;
 		toFillInArray.forEach(function(element) {
-			this.fillInTitle(element.divNode, element.titleString);
+			currentObj.fillInTitle(element.divNode, element.titleString);
 		})
     }
 }
