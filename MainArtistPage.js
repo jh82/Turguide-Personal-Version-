@@ -121,16 +121,26 @@ var MainArtistPage = function() {
     }
 
     this.testAJAXCall = function() {
+		var currentObj = this;
     	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
     	$.ajax(url_base + "/testfunctions.php",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
     					alert("AJAX call successful!");
+						console.log(result);
+						currentObj.createTestAJAXDiv(result);
     				},
     				error: function(xhr,status,error) {
     					alert("AJAX call failed!");
     				}
     		   });
     }
+	
+	this.createTestAJAXDiv = function(jsonResult) {
+		var mpaDiv = $('#mostPopularArtistsDiv');
+		mpaDiv.append('<img src="fakeAvatar.png">');
+		mpaDiv.append('<h1>'+jsonResult.bandname+'</h1>');
+		mpaDiv.append('<ul><li>Website:'+jsonResult.website+'</li><li>Origin:'+jsonResult.origin+'</li><li>Members:'+jsonResult.members+'</li></ul>');
+	}
 }
