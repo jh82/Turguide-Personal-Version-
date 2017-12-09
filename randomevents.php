@@ -15,8 +15,8 @@ if ($conn->connect_error) {
 }
 
 $limits = $conn->query("
-		SELECT MAX(Artists.artid),MIN(Artists.artid)
-		FROM Artists	
+		SELECT MAX(Events.evid),MIN(Events.evid)
+		FROM Events
 		");
 		
 //get limits for random generation
@@ -29,22 +29,14 @@ for($i=0; $i<10;$i++)		//ADJUST AMOUNT OUTPUT HERE
 {
 	
 	//generate random artid - should check for dupes later
-	$curartid = mt_rand($min,$max);
+	$curevid = mt_rand($min,$max);
 	
 		//retrieve their info
-	$toreturn[] = getArtistInfo($curartid,$conn);
+	$toreturn[] = getEventInfo($curevid,$conn);
 	
 }
 
 print json_encode($toreturn);
-	
-	
-	
-	
-	
-	
-	
-
 	
 }
 
