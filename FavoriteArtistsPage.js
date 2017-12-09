@@ -11,7 +11,7 @@ var FavoriteArtistsPage = function(headerObj, sharedPrepsObj) {
 		
 		var titlesArray = [
 			{divNode:$('#favoritesDiv'),titleString:'Favorite Artists'}
-		]
+		];
     	sharedPrepsObj.fillInAllTitles(titlesArray);
 		
     	this.fillInFavoritesDiv();
