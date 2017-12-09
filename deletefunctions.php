@@ -32,4 +32,18 @@ function deleteVenue($conn,$venid)
 	
 	return;
 }
+
+function deleteUser($conn,$accid)
+{
+	$result = $conn->query("
+		DELETE FROM Accounts
+		WHERE Accounts.accid=$accid
+		");
+	if(!$result){print "Account not deleted - failure";}
+	
+	return;
+	
+}
+
+
 ?>
