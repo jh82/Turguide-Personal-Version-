@@ -8,6 +8,7 @@ Gibson TODO:
 	Account fetching
 	Cookie storage/creation
 	http header and RESTful controller
+	turn testfunctions -> testartist, testvenue, etc
 
 
 Juan TODO:
