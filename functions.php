@@ -27,7 +27,6 @@ function getArtistInfo($artid, $server)
 		$artinfo->members  = $rarr["origin"];
 		$artinfo->imgurl   = $rarr["imgurl"];
 		
-		
 		//TODO Do we want to include any event info here? upcoming, etc?
 
 		//print json_encode($artinfo);
