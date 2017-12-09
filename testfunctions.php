@@ -1,7 +1,7 @@
 <?php
 
  include 'functions.php';
- include 'parsingmain.php';
+ //include 'parsingmain.php';
 		
 $servername = 'classroom.cs.unc.edu';
 $username   = 'gibsonb';
@@ -13,11 +13,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-/*
-$testartid = 5;
-//header("Access-Control-Allow-Origin: *;Content-type: application/json");
-print getArtistInfo($testartid,$conn);
 
+$testartid = 5;
+header("Access-Control-Allow-Origin: *;Content-type: application/json");
+print getArtistInfo($testartid,$conn);
+/*
 $testvid = 8;
 		
 print getVenueInfo($testvid,$conn);
