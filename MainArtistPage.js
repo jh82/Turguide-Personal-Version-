@@ -128,12 +128,12 @@ var MainArtistPage = function() {
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
-    					alert("AJAX call successful!");
+    					console.log("AJAX call successful!");
 						console.log(result);
 						currentObj.createTestAJAXDiv(result);
     				},
     				error: function(xhr,status,error) {
-    					alert("AJAX call failed!");
+    					console.log("AJAX call failed!");
     				}
     		   });
     }
