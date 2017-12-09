@@ -1,7 +1,7 @@
-<html>
-<body>
+<?php
 
-<?
+include 'functions.php';
+
 $servername = 'classroom.cs.unc.edu';
 $username   = 'gibsonb';
 $password   = 'zDpjelCQeho=\~*UbH,"';
@@ -17,13 +17,14 @@ if ($conn->connect_error) {
 //If Venue: given venuename, city, or state, all space seperated
 //TODO: SQL_ESCAPE_STRING for all these
 
-$searchval = 'Band BA'// $_GET['searchval'];
-$type  = 'Artist' //$_GET['type']; //'Artist','Venue' - 'Event' later b/c no easy main 'key'
+
+$type  = 'Venue'; //$_GET['type']; //'Artist','Venue' - 'Event' later b/c no easy main 'key'
 
 
 
 if($type == 'Artist')
 {
+	$searchval = mysqli_real_escape_string($conn,'Band BA');// $_GET['searchval'];
 	//CHECK - artist will need to be modified to return more than 1 artist with same name
 	$result = $conn->query("
 		SELECT *
@@ -62,6 +63,7 @@ if($type == 'Artist')
 	}
 	
 	$info = getArtistInfo($artkey,$conn);
+	//print $info;
 	
 	print json_encode(array('artistinfo' => $info, 'events' => $upcoming)); 
 	return json_encode(array('artistinfo' => $info, 'events' => $upcoming)); 
@@ -69,12 +71,13 @@ if($type == 'Artist')
 	
 	
 }
+
 elseif($type=='Venue')
 {
 	//Expects the Venue search options to be different set of info
-	$vname = $_GET['vname'];
-	$vcity = $_GET['vcity'];
-	$vstate= $_GET['vstate'];
+	$vname = mysqli_real_escape_string($conn,'Venue VM');//$_GET['vname']);
+	$vcity = mysqli_real_escape_string($conn,'');//$_GET['vcity'];
+	$vstate= mysqli_real_escape_string($conn,'');//$_GET['vstate'];
 	
 	$vidstoget = array();
 	$returnedvs = array();
@@ -99,7 +102,7 @@ elseif($type=='Venue')
 			LIMIT 10
 			");
 		
-		while($row = $vresult.fetch_row())
+		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
 			print $row[0]; //check
@@ -115,7 +118,7 @@ elseif($type=='Venue')
 			LIMIT 10
 			");
 		
-		while($row = $vresult.fetch_row())
+		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
 			print $row[0]; //check
@@ -131,7 +134,7 @@ elseif($type=='Venue')
 			LIMIT 10
 			");
 		
-		while($row = $vresult.fetch_row())
+		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
 			print $row[0]; //check
@@ -149,7 +152,7 @@ elseif($type=='Venue')
 			LIMIT 10
 			");
 		
-		while($row = $vresult.fetch_row())
+		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
 			print $row[0]; //check
@@ -165,7 +168,7 @@ elseif($type=='Venue')
 			LIMIT 10
 			");
 		
-		while($row = $vresult.fetch_row())
+		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
 			print $row[0]; //check
@@ -181,7 +184,7 @@ elseif($type=='Venue')
 			LIMIT 10
 			");
 		
-		while($row = $vresult.fetch_row())
+		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
 			print $row[0]; //check
@@ -198,7 +201,7 @@ elseif($type=='Venue')
 			LIMIT 10
 			");
 		
-		while($row = $vresult.fetch_row())
+		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
 			print $row[0]; //check
@@ -207,7 +210,7 @@ elseif($type=='Venue')
 	
 	foreach ($vidstoget as $curvid)
 	{
-		returnedvs[] = getVenueInfo($curvid,$conn);
+		$returnedvs[] = getVenueInfo($curvid,$conn);
 	}
 	
 	print json_encode(array('allvenues'=>$returnedvs));
@@ -215,19 +218,8 @@ elseif($type=='Venue')
 }
 	
 	
-	
-
-
-			
-	
-
-
 
 
 ?>
-
-
-</body>
-</html> 
 
 
