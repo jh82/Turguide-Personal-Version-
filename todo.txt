@@ -10,9 +10,9 @@ Gibson TODO:
 	http header and RESTful controller
 	xxx turn testfunctions -> testartist, testvenue, etc
 			Create	Read	Update	Delete
-	artist			1
-	event			1
-	venue			1
+	artist			1				1
+	event			1				1
+	venue			1				1
 
 
 Juan TODO:
