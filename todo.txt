@@ -1,7 +1,7 @@
 Gibson TODO:
 	Create basic search-field forms 
 	Check relevant PHP methods for search returns
-	Fix PHP headers to get JSON responses
+	***Fix PHP headers to get JSON responses
 	Create method for retreiving 10 random Artists/Venues for pages
 	Create method to retrieve favorite lists
 
