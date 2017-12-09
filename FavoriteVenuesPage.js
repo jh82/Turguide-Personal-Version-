@@ -1,32 +1,21 @@
-var FavoriteVenuesPage = function(headerObj) {
+var FavoriteVenuesPage = function(headerObj, sharedPrepsObj) {
 
     this.pageReady = function() {
-    	this.makeDOMReady();
+    	sharedPrepsObj.makeDOMReady();
     	headerObj.fillInHeader();
-    	this.makeMainReady();
-    	this.fillInAllTitles();
+		
+		var mainElementsArray= [
+			{elementType:'div',id:'favoritesDiv'}
+		];
+    	sharedPrepsObj.makeMainReady(mainElementsArray);
+		
+		var titlesArray = [
+			{divNode:$('#favoritesDiv'),titleString:'Favorite Venues'}
+		];
+    	sharedPrepsObj.fillInAllTitles(titlesArray);
+		
     	this.fillInFavoritesDiv();
     	this.setUpEventHandlers();
-    }
-
-    this.makeDOMReady = function() {
-    	var bodyNode = $('body');
-    	bodyNode.append('<header></header>');
-    	bodyNode.append('<main></main>');
-    	bodyNode.append('<footer></footer>');
-    }
-
-    this.makeMainReady = function() {
-    	var mainNode = $('main');
-    	mainNode.append('<div id="favoritesDiv"></div>');
-    }
-
-    this.fillInTitle = function(divNode, titleString) {
-    	divNode.append('<h1>'+titleString+'</h1>');
-    }
-
-    this.fillInAllTitles = function() {
-    	this.fillInTitle($('#accountSettingsCentral'), 'Account Settings');
     }
 
     this.fillInFavoritesDiv = function() {

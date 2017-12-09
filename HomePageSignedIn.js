@@ -1,37 +1,26 @@
-var HomePageSignedIn = function(headerObj) {
+var HomePageSignedIn = function(headerObj, sharedPrepsObj) {
 
     this.pageReady = function() {
-    	this.makeDOMReady();
+    	sharedPrepsObj.makeDOMReady();
     	headerObj.fillInHeader();
-    	this.makeMainReady();
-    	this.fillInAllTitles();
+		
+		var mainElementsArray= [
+			{elementType:'div',id:'eventsHappeningSoon'},
+			{elementType:'div',id:'favoriteArtists'},
+			{elementType:'div',id:'favoriteVenues'}
+		];
+    	sharedPrepsObj.makeMainReady(mainElementsArray);
+		
+		var titlesArray = [
+			{divNode:$('#eventsHappeningSoon'),titleString:'Events Happening Right Now'},
+			{divNode:$('#favoriteArtists'),titleString:'Favorite Artists'},
+			{divNode:$('#favoriteVenues'),titleString:'Favorite Venues'}
+		];
+    	sharedPrepsObj.fillInAllTitles(titlesArray);
+		
     	this.fillInFavoriteArtists();
     	this.fillInFavoriteVenues();
     	this.setUpEventHandlers();
-    }
-
-    this.makeDOMReady = function() {
-    	var bodyNode = $('body');
-    	bodyNode.append('<header></header>');
-    	bodyNode.append('<main></main>');
-    	bodyNode.append('<footer></footer>');
-    }
-
-    this.makeMainReady = function() {
-    	var mainNode = $('main');
-    	mainNode.append('<div id="eventsHappeningSoon"></div>');
-    	mainNode.append('<div id="favoriteArtists"></div>');
-    	mainNode.append('<div id="favoriteVenues"></div>');
-    }
-
-    this.fillInTitle = function(divNode, titleString) {
-    	divNode.append('<h1>'+titleString+'</h1>');
-    }
-
-    this.fillInAllTitles = function() {
-    	this.fillInTitle($('#eventsHappeningSoon'), 'Events Happening Right Now');
-    	this.fillInTitle($('#favoriteArtists'), 'Favorite Artists');
-    	this.fillInTitle($('#favoriteVenues'), 'Favorite Venues');
     }
 
     this.fillInFavoriteArtists = function() {

@@ -23,31 +23,6 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj) {
     	this.setUpEventHandlers();
     }
 
-    this.makeDOMReady = function() {
-    	var bodyNode = $('body');
-    	bodyNode.append('<header></header>');
-    	bodyNode.append('<main></main>');
-    	bodyNode.append('<footer></footer>');
-    }
-	
-    this.makeMainReady = function() {
-    	var mainNode = $('main');
-    	mainNode.append('<div id="mainLogo"></div>');
-    	mainNode.append('<div id="randomArtist"></div>');
-    	mainNode.append('<div id="eventsRightNow"></div>');
-    	mainNode.append('<div id="randomVenue"></div>');
-    }
-
-    this.fillInTitle = function(divNode, titleString) {
-    	divNode.append('<h1>'+titleString+'</h1>');
-    }
-
-    this.fillInAllTitles = function() {
-    	this.fillInTitle($('#randomArtist'), 'Random Artists');
-    	this.fillInTitle($('#eventsRightNow'), 'Events Happening Right Now!!!!!!');
-    	this.fillInTitle($('#randomVenue'), 'Random Venues');
-    }
-
     this.fillInMainLogo = function() {
     	var mainLogoNode = $('#mainLogo');
     	mainLogoNode.append('<img src="türguideLogoFull.png">');

@@ -1,32 +1,21 @@
-var MainArtistPage = function(headerObj) {
+var MainArtistPage = function(headerObj, sharedPrepsObj) {
 
     this.pageReady = function() {
-    	this.makeDOMReady();
+    	sharedPrepsObj.makeDOMReady();
     	headerObj.fillInHeader();
-    	this.makeMainReady();
-    	this.fillInAllTitles();
+		
+		var mainElementsArray= [
+			{elementType:'div',id:'mainArtistsDiv'}
+		];
+    	sharedPrepsObj.makeMainReady(mainElementsArray);
+		
+		var titlesArray = [
+			{divNode:$('#mainArtistsDiv'),titleString:'Main Artists'}
+		];
+    	sharedPrepsObj.fillInAllTitles(titlesArray);
+		
     	this.fillInMainArtistsDiv();
     	this.setUpEventHandlers();
-    }
-
-    this.makeDOMReady = function() {
-    	var bodyNode = $('body');
-    	bodyNode.append('<header></header>');
-    	bodyNode.append('<main></main>');
-    	bodyNode.append('<footer></footer>');
-    }
-
-    this.makeMainReady = function() {
-    	var mainNode = $('main');
-    	mainNode.append('<div id="mainArtistsDiv"></div>');
-    }
-
-    this.fillInTitle = function(divNode, titleString) {
-    	divNode.append('<h1>'+titleString+'</h1>');
-    }
-
-    this.fillInAllTitles = function() {
-    	this.fillInTitle($('#accountSettingsCentral'), 'Account Settings');
     }
 
     this.fillInMainArtistsDiv = function() {

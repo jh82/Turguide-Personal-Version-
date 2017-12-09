@@ -1,32 +1,21 @@
-var artistSearchPage = function(headerObj) {
+var artistSearchPage = function(headerObj, sharedPrepsObj) {
 	
     this.pageReady = function() {
-    	this.makeDOMReady();
+    	sharedPrepsObj.makeDOMReady();
     	headerObj.fillInHeader();
-    	this.makeMainReady();
-    	this.fillInAllTitles();
+		
+		var mainElementsArray= [
+			{elementType:'div',id:'mainSearchDiv'}
+		];
+    	sharedPrepsObj.makeMainReady(mainElementsArray);
+		
+		var titlesArray = [
+			{divNode:$('#mainSearchDiv'),titleString:'Search Results'}
+		];
+    	sharedPrepsObj.fillInAllTitles(titlesArray);
+		
     	this.fillInMainSearchDiv();
     	this.setUpEventHandlers();
-    }
-
-    this.makeDOMReady = function() {
-    	var bodyNode = $('body');
-    	bodyNode.append('<header></header>');
-    	bodyNode.append('<main></main>');
-    	bodyNode.append('<footer></footer>');
-    }
-
-    this.makeMainReady = function() {
-    	var mainNode = $('main');
-    	mainNode.append('<div id="mainSearchDiv"></div>');
-    }
-
-    this.fillInTitle = function(divNode, titleString) {
-    	divNode.append('<h1>'+titleString+'</h1>');
-    }
-
-    this.fillInAllTitles = function() {
-    	this.fillInTitle($('#accountSettingsCentral'), 'Account Settings');
     }
 
     this.fillInMainSearchDiv = function() {

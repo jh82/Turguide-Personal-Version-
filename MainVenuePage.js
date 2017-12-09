@@ -1,32 +1,21 @@
-var MainVenuePage = function(headerObj) {
+var MainVenuePage = function(headerObj, sharedPrepsObj) {
 
     this.pageReady = function() {
-    	this.makeDOMReady();
+    	sharedPrepsObj.makeDOMReady();
     	headerObj.fillInHeader();
-    	this.makeMainReady();
-    	this.fillInAllTitles();
+		
+		var mainElementsArray= [
+			{elementType:'div',id:'mainVenueDiv'}
+		];
+    	sharedPrepsObj.makeMainReady(mainElementsArray);
+		
+		var titlesArray = [
+			{divNode:$('#mainVenueDiv'),titleString:'Main Venue'}
+		];
+    	sharedPrepsObj.fillInAllTitles(titlesArray);
+		
     	this.fillInMainVenueDiv();
     	this.setUpEventHandlers();
-    }
-
-    this.makeDOMReady = function() {
-    	var bodyNode = $('body');
-    	bodyNode.append('<header></header>');
-    	bodyNode.append('<main></main>');
-    	bodyNode.append('<footer></footer>');
-    }
-
-    this.makeMainReady = function() {
-    	var mainNode = $('main');
-    	mainNode.append('<div id="mainVenueDiv"></div>');
-    }
-
-    this.fillInTitle = function(divNode, titleString) {
-    	divNode.append('<h1>'+titleString+'</h1>');
-    }
-
-    this.fillInAllTitles = function() {
-    	this.fillInTitle($('#accountSettingsCentral'), 'Account Settings');
     }
 
     this.fillInMainVenueDiv = function() {
