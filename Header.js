@@ -8,6 +8,7 @@ var Header = function(userSignedIn) {
 		
 		if(userSignedIn){
 			headerNode.append('<div id="accountPreviewArea"></div>');
+			this.fillInAccountPreview();
 		}
 		else {
 			headerNode.append('<button id="signUpButton">Sign Up</button>');

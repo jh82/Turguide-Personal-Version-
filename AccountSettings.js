@@ -3,7 +3,6 @@ var accountSettings = function(headerObj) {
     this.pageReady = function() {
     	this.makeDOMReady();
     	headerObj.fillInHeader();
-    	this.fillInAccountPreview();
     	this.makeMainReady();
     	this.fillInAllTitles();
     	this.fillInAccountSettings();
