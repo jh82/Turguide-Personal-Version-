@@ -20,5 +20,5 @@ $testeid = 14;
 header("Access-Control-Allow-Origin: *;Content-type: application/json");
 print getEventInfo($testeid,$conn);
 
-
+$conn->close();
 ?>
