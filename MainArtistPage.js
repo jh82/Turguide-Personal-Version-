@@ -123,7 +123,7 @@ var MainArtistPage = function() {
 
     this.testAJAXCall = function() {
 		var currentObj = this;
-    	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
     	$.ajax(url_base + "/testfunctions.php",
     	       {	type: "GET",
     				dataType: "json",
@@ -143,5 +143,6 @@ var MainArtistPage = function() {
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+jsonResult.bandname+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+jsonResult.website+'</li><li>Origin:'+jsonResult.origin+'</li><li>Members:'+jsonResult.members+'</li></ul>');
+		mpaDiv.append('&#9733;');
 	}
 }
