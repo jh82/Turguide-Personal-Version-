@@ -1,13 +1,13 @@
 var MainVenuePage = function() {
 
     this.pageReady = function() {
-    	makeDOMReady();
-    	fillInHeader();
-    	fillInAccountPreview();
-    	makeMainReady();
-    	fillInAllTitles();
-    	fillInMainVenueDiv();
-    	setUpEventHandlers();
+    	this.makeDOMReady();
+    	this.fillInHeader();
+    	this.fillInAccountPreview();
+    	this.makeMainReady();
+    	this.fillInAllTitles();
+    	this.fillInMainVenueDiv();
+    	this.setUpEventHandlers();
     }
 
     this.makeDOMReady = function() {

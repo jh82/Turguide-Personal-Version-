@@ -1,14 +1,14 @@
 var HomePageSignedIn = function() {
 
     this.pageReady = function() {
-    	makeDOMReady();
-    	fillInHeader();
-    	fillInAccountPreview();
-    	makeMainReady();
-    	fillInAllTitles();
-    	fillInFavoriteArtists();
-    	fillInFavoriteVenues();
-    	setUpEventHandlers();
+    	this.makeDOMReady();
+    	this.fillInHeader();
+    	this.fillInAccountPreview();
+    	this.makeMainReady();
+    	this.fillInAllTitles();
+    	this.fillInFavoriteArtists();
+    	this.fillInFavoriteVenues();
+    	this.setUpEventHandlers();
     }
 
     this.makeDOMReady = function() {

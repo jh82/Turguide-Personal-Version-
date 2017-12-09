@@ -1,13 +1,13 @@
 var FavoriteVenuesPage = function() {
 
     this.pageReady = function() {
-    	makeDOMReady();
-    	fillInHeader();
-    	fillInAccountPreview();
-    	makeMainReady();
-    	fillInAllTitles();
-    	fillInFavoritesDiv();
-    	setUpEventHandlers();
+    	this.makeDOMReady();
+    	this.fillInHeader();
+    	this.fillInAccountPreview();
+    	this.makeMainReady();
+    	this.fillInAllTitles();
+    	this.fillInFavoritesDiv();
+    	this.setUpEventHandlers();
     }
 
     this.makeDOMReady = function() {
