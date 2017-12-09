@@ -45,9 +45,9 @@ var HomePageSignedIn = function() {
     }
 
     this.fillInAllTitles = function() {
-    	fillInTitle($('#eventsHappeningSoon'), 'Events Happening Right Now');
-    	fillInTitle($('#favoriteArtists'), 'Favorite Artists');
-    	fillInTitle($('#favoriteVenues'), 'Favorite Venues');
+    	this.fillInTitle($('#eventsHappeningSoon'), 'Events Happening Right Now');
+    	this.fillInTitle($('#favoriteArtists'), 'Favorite Artists');
+    	this.fillInTitle($('#favoriteVenues'), 'Favorite Venues');
     }
 
     this.fillInFavoriteArtists = function() {
@@ -61,32 +61,33 @@ var HomePageSignedIn = function() {
     }
 
     this.setUpEventHandlers = function() {
+		var currentObj = this;
     	$('#turGuideLogo').on('click', function() {
-    		whenTurGuideLogoClicked();
+			currentObj.whenTurGuideLogoClicked();
     	});
 
     	$('#artistsButton').on('click', function() {
-    		whenArtistsClicked();
+    		currentObj.whenArtistsClicked();
     	});
 
     	$('#venuesButton').on('click', function() {
-    		whenVenuesClicked();
+    		currentObj.whenVenuesClicked();
     	});
 
     	$('#accountSettings').on('click', function() {
-    		whenAccountSettingsClicked();
+    		currentObj.whenAccountSettingsClicked();
     	});
 
     	$('#logOff').on('click', function() {
-    		whenLogOffClicked();
+    		currentObj.whenLogOffClicked();
     	});
 
     	$('#viewAllArtistsButton').on('click', function() {
-    		whenViewAllArtistsClicked();
+    		currentObj.whenViewAllArtistsClicked();
     	});
 
     	$('#viewAllVenuesButton').on('click', function() {
-    		whenViewAllVenuesClicked();
+    		currentObj.whenViewAllVenuesClicked();
     	});
 
     }

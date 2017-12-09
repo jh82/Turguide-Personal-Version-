@@ -42,7 +42,7 @@ var VenueSearchPage = function() {
     }
 
     this.fillInAllTitles = function() {
-    	fillInTitle($('#accountSettingsCentral'), 'Account Settings');
+    	this.fillInTitle($('#accountSettingsCentral'), 'Account Settings');
     }
 
     this.fillInMainSearchDiv = function() {
@@ -54,28 +54,29 @@ var VenueSearchPage = function() {
     }
 
     this.setUpEventHandlers = function() {
+		var currentObj = this;
     	$('#turGuideLogo').on('click', function() {
-    		whenTurGuideLogoClicked();
+    		currentObj.whenTurGuideLogoClicked();
     	});
 
     	$('#artistsButton').on('click', function() {
-    		whenArtistsClicked();
+    		currentObj.whenArtistsClicked();
     	});
 
     	$('#venuesButton').on('click', function() {
-    		whenVenuesClicked();
+    		currentObj.whenVenuesClicked();
     	});
 
     	$('#accountSettings').on('click', function() {
-    		whenAccountSettingsClicked();
+    		currentObj.whenAccountSettingsClicked();
     	});
 
     	$('#logOff').on('click', function() {
-    		whenLogOffClicked();
+    		currentObj.whenLogOffClicked();
     	});
 
     	$('#artistSearchButton').on('click', function() {
-    		whenSearchButtonClicked();
+    		currentObj.whenSearchButtonClicked();
     	});
     }
 

@@ -42,7 +42,7 @@ var accountSettings = function() {
     }
 
     this.fillInAllTitles = function() {
-    	fillInTitle($('#accountSettingsCentral'), 'Account Settings');
+    	this.fillInTitle($('#accountSettingsCentral'), 'Account Settings');
     }
 
     this.fillInAccountSettings = function() {
@@ -57,36 +57,37 @@ var accountSettings = function() {
     }
 
     this.setUpEventHandlers = function() {
+		var currentObj = this;
     	$('#turGuideLogo').on('click', function() {
-    		whenTurGuideLogoClicked();
+    		currentObj.whenTurGuideLogoClicked();
     	});
 
     	$('#artistsButton').on('click', function() {
-    		whenArtistsClicked();
+    		currentObj.whenArtistsClicked();
     	});
 
     	$('#venuesButton').on('click', function() {
-    		whenVenuesClicked();
+    		currentObj.whenVenuesClicked();
     	});
 
     	$('#accountSettings').on('click', function() {
-    		whenAccountSettingsClicked();
+    		currentObj.whenAccountSettingsClicked();
     	});
 
     	$('#logOff').on('click', function() {
-    		whenLogOffClicked();
+    		currentObj.whenLogOffClicked();
     	});
 
     	$('#changePassword').on('click', function() {
-    		whenChangePasswordClicked();
+    		currentObj.whenChangePasswordClicked();
     	});
 
     	$('#submitChangesButton').on('click', function() {
-    		whenSubmitChangesClicked();
+    		currentObj.whenSubmitChangesClicked();
     	});
 
     	$('#deleteAccountButton').on('click', function() {
-    		whenDeleteAccountClicked();
+    		currentObj.whenDeleteAccountClicked();
     	});
 
     	$('#avatarInContent').hover(function() {
