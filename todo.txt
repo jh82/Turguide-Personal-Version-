@@ -14,6 +14,8 @@ Gibson TODO:
 	event	1		1				1
 	venue	1		1				1
 	users	1		1				1
+	favArt
+	favVen
 
 	Controller php script that looks at headers (AKA todo.php in full AJAX example, restapitutorial)
 		if POST...

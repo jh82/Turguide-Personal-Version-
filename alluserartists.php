@@ -21,15 +21,13 @@ function allUserArtists($conn,$accid)
 	
 	foreach( $allfavartists as $tempartid)
 	{
-		$conn->query
 		
-		$allartistinfo[] = 
+		$allartistinfo[] = getArtistInfo($tempartid,$conn);
+	}
 	
-	
-	
-	
+	header("Access-Control-Allow-Origin: *;Content-type: application/json");
+	print json_encode($allartistinfo);
 }
-
 
 
 ?>
