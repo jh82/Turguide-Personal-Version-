@@ -110,6 +110,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 							parsedResult = JSON.parse(element);
 							currentObj.createTestAJAXDiv(parsedResult);
 						});
+						
 						//currentObj.createTestAJAXDiv(result.ranartists[0]);
 						
 						console.log(parsedResult.bandname);
