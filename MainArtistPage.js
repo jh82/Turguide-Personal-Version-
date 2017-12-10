@@ -120,6 +120,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 		console.log(jsonResult);
 		var mpaDiv = $('#mostPopularArtistsDiv');
 		var tempBandName = jsonResult['bandname'];
+		console.log(tempBandName);
 		var tempWebsite = jsonResult.website;
 		var tempOrigin = jsonResult.origin;
 		var tempMembers = jsonResult.members;
