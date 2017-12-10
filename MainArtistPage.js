@@ -110,7 +110,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 						});*/
 						//currentObj.createTestAJAXDiv(result.ranartists[0]);
 						
-						console.log(result.ranartists[0][bandname]);
+						console.log(result.ranartists[0]["bandname"]);
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
