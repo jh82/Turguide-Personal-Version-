@@ -119,7 +119,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 	this.createTestAJAXDiv = function(jsonResult) {
 		console.log(jsonResult);
 		var mpaDiv = $('#mostPopularArtistsDiv');
-		var tempBandName = jsonResult.bandname;
+		var tempBandName = jsonResult['bandname'];
 		var tempWebsite = jsonResult.website;
 		var tempOrigin = jsonResult.origin;
 		var tempMembers = jsonResult.members;
