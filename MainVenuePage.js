@@ -1,4 +1,4 @@
-var MainVenuePage = function(headerObj, sharedPrepsObj) {
+var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.pageReady = function() {
     	sharedPrepsObj.makeDOMReady();
@@ -58,6 +58,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj) {
 
     this.whenArtistsClicked = function() {
     	console.log('Artists Clicked!');
+		controllerObj.loadMainArtistPage();
     }
 
     this.whenVenuesClicked = function() {

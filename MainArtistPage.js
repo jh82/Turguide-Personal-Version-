@@ -60,6 +60,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.whenArtistsClicked = function() {
     	console.log('Artists Clicked!');
+		controllerObj.loadMainArtistPage();
     }
 
     this.whenVenuesClicked = function() {

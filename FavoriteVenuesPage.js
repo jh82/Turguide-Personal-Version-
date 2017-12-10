@@ -1,4 +1,4 @@
-var FavoriteVenuesPage = function(headerObj, sharedPrepsObj) {
+var FavoriteVenuesPage = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.pageReady = function() {
     	sharedPrepsObj.makeDOMReady();
@@ -55,6 +55,7 @@ var FavoriteVenuesPage = function(headerObj, sharedPrepsObj) {
 
     this.whenArtistsClicked = function() {
     	console.log('Artists Clicked!');
+		controllerObj.loadMainArtistPage();
     }
 
     this.whenVenuesClicked = function() {
