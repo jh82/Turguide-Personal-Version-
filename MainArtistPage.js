@@ -106,6 +106,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     					console.log("AJAX call successful!");
 						console.log(result);
 						result.forEach(function(element) {
+							console.log(element);
 							currentObj.createTestAJAXDiv(element);
 						});
 						currentObj.createTestAJAXDiv(result);
