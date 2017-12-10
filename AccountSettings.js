@@ -81,6 +81,7 @@ var accountSettings = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.whenVenuesClicked = function() {
     	console.log('Venues Clicked!');
+		controllerObj.loadMainVenuePage();
     }
 
     this.whenAccountSettingsClicked = function() {

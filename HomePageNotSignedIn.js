@@ -63,6 +63,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.whenVenuesClicked = function() {
     	console.log('Venues Clicked!');
+		controllerObj.loadMainVenuePage();
     }
 
     this.whenSignUpClicked = function() {
