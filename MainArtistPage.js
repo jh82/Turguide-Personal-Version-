@@ -99,17 +99,16 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     this.testAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/testartist.php",
+    	$.ajax(url_base + "/randomartists.php",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
     					console.log("AJAX call successful!");
 						console.log(result);
-						/*result.ranartists.forEach(function(element) {
-							console.log(element);
+						result.ranartists.forEach(function(element) {
 							currentObj.createTestAJAXDiv(element);
-						});*/
-						currentObj.createTestAJAXDiv(result);
+						});
+						//currentObj.createTestAJAXDiv(result);
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
@@ -118,6 +117,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.createTestAJAXDiv = function(jsonResult) {
+		console.log(jsonResult);
 		var mpaDiv = $('#mostPopularArtistsDiv');
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+jsonResult.bandname+'</h1>');
