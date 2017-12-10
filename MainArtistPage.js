@@ -99,13 +99,13 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     this.testAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/testfunctions.php",
+    	$.ajax(url_base + "/randomartists.php",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
     					console.log("AJAX call successful!");
 						console.log(result);
-						currentObj.createTestAJAXDiv(result);
+						//currentObj.createTestAJAXDiv(result);
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
