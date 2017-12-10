@@ -105,10 +105,11 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     				success: function(result, status, xhr) {
     					console.log("AJAX call successful!");
 						console.log(result);
-						var parsedResult = JSON.parse(result[0]);
-						/*result.ranartists.forEach(function(element) {
-							currentObj.createTestAJAXDiv(element);
-						});*/
+						var parsedResult = undefined;
+						result.forEach(function(element) {
+							parsedResult = JSON.parse(element);
+							currentObj.createTestAJAXDiv(parsedResult);
+						});
 						//currentObj.createTestAJAXDiv(result.ranartists[0]);
 						
 						console.log(parsedResult.bandname);
@@ -122,7 +123,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 	this.createTestAJAXDiv = function(jsonResult) {
 		console.log(jsonResult);
 		var mpaDiv = $('#mostPopularArtistsDiv');
-		var tempBandName = jsonResult['bandname'];
+		var tempBandName = jsonResult.bandname;
 		console.log(tempBandName);
 		var tempWebsite = jsonResult.website;
 		var tempOrigin = jsonResult.origin;
