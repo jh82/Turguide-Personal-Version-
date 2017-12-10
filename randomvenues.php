@@ -1,7 +1,7 @@
 <?php
 //retrieves 10 random artists and returns them all in a json array
 
-include 'functions.php';
+include 'readfunctions.php';
 
 $servername = 'classroom.cs.unc.edu';
 $username   = 'gibsonb';

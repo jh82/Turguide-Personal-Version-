@@ -1,7 +1,7 @@
 <?php
 //retrieves 10 random artists and returns them all in a json array
 
-include 'functions.php';
+include 'readfunctions.php';
 
 $servername = 'classroom.cs.unc.edu';
 $username   = 'gibsonb';
@@ -37,7 +37,7 @@ for($i=0; $i<10;$i++)		//ADJUST AMOUNT OUTPUT HERE
 }
 header("Content-type: application/json");
 
-print json_encode(array('ranartists'=>$toreturn));
+print json_encode($toreturn);
 	
 
 

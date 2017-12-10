@@ -27,7 +27,21 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 	
 	//Check the 'type' parameter for either a read or delete
 	
-	
+	if (isset($_REQUEST['read']))
+	{
+		
+		
+		
+	}
+	elseif (isset($_REQUEST['delete']))
+	{
+		
+		
+	}
+	else
+	{
+		//fail it?
+	}
 	
 	
   

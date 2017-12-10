@@ -16,7 +16,8 @@ Gibson TODO:
 	users	1		1				1
 	favArt			1
 	favVen			1
-
+	
+	*** update all iinclude function -> include readfunctions, etc
 	Controller php script that looks at headers (AKA todo.php in full AJAX example, restapitutorial)
 		if POST...
 		if GET...
