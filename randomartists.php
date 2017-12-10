@@ -37,7 +37,7 @@ for($i=0; $i<10;$i++)		//ADJUST AMOUNT OUTPUT HERE
 }
 header("Access-Control-Allow-Origin: *;Content-type: application/json");
 
-print json_encode($toreturn);
+print json_encode(array('ranartists'=>$toreturn));
 	
 
 
