@@ -1,13 +1,13 @@
 Gibson TODO:
 	xxx Create basic search-field forms 
 	xxx Check relevant PHP methods for search returns
-	***Fix PHP headers to get JSON responses
-	***Create method for retreiving 10 random Artists/Venues/Events for pages
+	*****  Fix PHP headers to get JSON responses
+	xxx Create method for retreiving 10 random Artists/Venues/Events for pages
 	***User favorite artists - all faves and 10 random faves
 	Hash password
 	xxx Account fetching
 	Cookie storage/creation
-	http header and RESTful controller
+	*****  http header and RESTful controller
 	xxx turn testfunctions -> testartist, testvenue, etc
 			Create	Read	Update	Delete
 	artist	1		1				1
@@ -15,4 +15,8 @@ Gibson TODO:
 	venue	1		1				1
 	users	1		1				1
 
+	Controller php script that looks at headers (AKA todo.php in full AJAX example, restapitutorial)
+		if POST...
+		if GET...
+	
 Juan TODO:

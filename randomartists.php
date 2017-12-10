@@ -35,20 +35,12 @@ for($i=0; $i<10;$i++)		//ADJUST AMOUNT OUTPUT HERE
 	$toreturn[] = getArtistInfo($curartid,$conn);
 	
 }
-
+header("Access-Control-Allow-Origin: *;Content-type: application/json");
 print json_encode($toreturn);
 	
-	
-	
-	
-	
-	
-	
 
-	
-}
 
 //output all info
-
+$conn->close();
 
 ?>
