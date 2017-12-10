@@ -117,15 +117,16 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.createTestAJAXDiv = function(jsonResult) {
+		console.log(jsonResult);
 		var mpaDiv = $('#mostPopularArtistsDiv');
-		var tempBandName = jsonResult["bandname"];
-		var tempWebsite = jsonResult["website"];
-		var tempOrigin = jsonResult["origin"];
-		var tempResult = jsonResult["members"];
+		var tempBandName = jsonResult."bandname";
+		var tempWebsite = jsonResult."website";
+		var tempOrigin = jsonResult."origin";
+		var tempMembers = jsonResult."members";
 		
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
-		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempResult+'</li></ul>');
+		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
 		mpaDiv.append('&#9733;');
 	}
 }
