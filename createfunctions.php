@@ -66,5 +66,7 @@ function createUser($conn,$uname, $upassword, $fname, $lname, $home)
 	
 }
 
+//ADD IN FAVORITES TABLES
+
 
 ?>

@@ -20,8 +20,8 @@ $limits = $conn->query("
 		");
 		
 //get limits for random generation
-$max = $limits->fetch_array()[0]
-$min = $limits->fetch_array()[1]
+$max = $limits->fetch_array()[0];
+$min = $limits->fetch_array()[1];
 
 $toreturn = array();
 

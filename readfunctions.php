@@ -208,13 +208,4 @@ function getUserInfo($conn,$uname,$upword)
 }
 
 
-
-
-
-
-
-
-
-
-
 ?>

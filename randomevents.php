@@ -20,8 +20,8 @@ $limits = $conn->query("
 		");
 		
 //get limits for random generation
-$max = $limits->fetch_array()[0]
-$min = $limits->fetch_array()[1]
+$max = $limits->fetch_array()[0];
+$min = $limits->fetch_array()[1];
 
 $toreturn = array();
 
@@ -38,7 +38,7 @@ for($i=0; $i<10;$i++)		//ADJUST AMOUNT OUTPUT HERE
 header("Access-Control-Allow-Origin: *;Content-type: application/json");
 print json_encode($toreturn);
 	
-}
+
 
 $conn->close();
 //output all info
