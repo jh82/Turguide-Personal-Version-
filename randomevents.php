@@ -35,7 +35,7 @@ for($i=0; $i<10;$i++)		//ADJUST AMOUNT OUTPUT HERE
 	$toreturn[] = getEventInfo($curevid,$conn);
 	
 }
-header("Access-Control-Allow-Origin: *;Content-type: application/json");
+header("Content-type: application/json");
 print json_encode($toreturn);
 	
 
