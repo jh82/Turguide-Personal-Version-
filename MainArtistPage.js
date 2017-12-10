@@ -1,4 +1,4 @@
-var MainArtistPage = function(headerObj, sharedPrepsObj) {
+var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.pageReady = function() {
     	sharedPrepsObj.makeDOMReady();

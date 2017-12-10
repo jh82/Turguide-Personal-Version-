@@ -1,13 +1,25 @@
 $('document').ready(function() {
-   // var HPNSIobj = new HomePageNotSignedIn();
-   // HPNSIobj.pageReady(); 
-   
-	var headerObj = new Header(true);
-	var sharedPrepsObj = new SharedPreps();
-	
-	//var mainArtistPageObj = new MainArtistPage(headerObj, sharedPrepsObj);
-	//mainArtistPageObj.pageReady();
-	
-	var homePageNotSignedInObj = new HomePageNotSignedIn(headerObj, sharedPrepsObj);
-	homePageNotSignedInObj.pageReady();
+   var controllerObj = new Controller();
+   controllerObj.whenDocumentReady();
 });
+
+var Controller = function() {
+	
+	this.headerObj = new Header(false);
+	this.sharedPrepsObj  = new SharedPreps();
+	
+	this.whenDocumentReady = function() {
+			var homePageNotSignedInObj = new HomePageNotSignedIn(this.headerObj, this.sharedPrepsObj, this);
+			homePageNotSignedInObj.pageReady();
+	}
+	
+	this.clearPage = function() {
+		$('body').empty();
+	}
+	
+	this.loadMainArtistPage = function() {
+		this.clearPage();
+		var mainArtistPageObj = new MainArtistPage(this.headerObj, this.sharedPrepsObj, this);
+		mainArtistPageObj.pageReady();
+	}
+}
