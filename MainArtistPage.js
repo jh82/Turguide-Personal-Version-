@@ -99,16 +99,16 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     this.testAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/randomartists.php",
+    	$.ajax(url_base + "/testartist.php",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
     					console.log("AJAX call successful!");
 						console.log(result);
-						result.ranartists.forEach(function(element) {
+						/*result.ranartists.forEach(function(element) {
 							console.log(element);
 							currentObj.createTestAJAXDiv(element);
-						});
+						});*/
 						currentObj.createTestAJAXDiv(result);
     				},
     				error: function(xhr,status,error) {
