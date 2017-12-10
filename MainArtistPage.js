@@ -105,6 +105,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     				success: function(result, status, xhr) {
     					console.log("AJAX call successful!");
 						console.log(result);
+						var parsedResult = JSON.parse(result[0]);
 						/*result.ranartists.forEach(function(element) {
 							currentObj.createTestAJAXDiv(element);
 						});*/
