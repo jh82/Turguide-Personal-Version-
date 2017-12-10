@@ -99,7 +99,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     this.testAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/randomvenues.php",
+    	$.ajax(url_base + "/randomevents.php",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
