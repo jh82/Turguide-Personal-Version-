@@ -1,4 +1,4 @@
-var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
+var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImageArray) {
 
     this.pageReady = function() {
     	sharedPrepsObj.makeDOMReady();
@@ -28,11 +28,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.fillInMapCanvas = function() {
 		var ctx = document.getElementById('mapCanvas').getContext('2d');
-		var img = new Image();
-		img.onload = function() {
-			ctx.drawImage(img, 0, 0);
-		};
-		img.src = 'State%20Sillhouettes/alabama-silhouette/alabama-silhouette.png';
+		ctx.drawImage(stateImageArray[0], 0, 0);
 	}
 
     this.setUpEventHandlers = function() {

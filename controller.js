@@ -7,8 +7,12 @@ var Controller = function() {
 	
 	this.headerObj = new Header(false);
 	this.sharedPrepsObj  = new SharedPreps();
+	this.imageLoaderObj = new ImageLoaderj();
+	this.stateImageArray;
 	
 	this.whenDocumentReady = function() {
+			this.stateImageArray = imageLoaderObj.preloadImages();
+		
 			var homePageNotSignedInObj = new HomePageNotSignedIn(this.headerObj, this.sharedPrepsObj, this);
 			homePageNotSignedInObj.pageReady();
 	}
@@ -25,7 +29,7 @@ var Controller = function() {
 	
 	this.loadMainVenuePage = function() {
 		this.clearPage();
-		var mainVenuePageObj = new MainVenuePage(this.headerObj, this.sharedPrepsObj, this);
+		var mainVenuePageObj = new MainVenuePage(this.headerObj, this.sharedPrepsObj, this, stateImageArray);
 		mainVenuePageObj.pageReady();
 	}
 }
