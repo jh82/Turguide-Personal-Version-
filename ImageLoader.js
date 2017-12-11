@@ -1,10 +1,10 @@
 var ImageLoader = function() {
 	this.preloadImages = function() {
-			var images = new Array()
+			var images = new Array();
 			function preload() {
 				for (i = 0; i < preload.arguments.length; i++) {
-					images[i] = new Image()
-					images[i].src = preload.arguments[i]
+					images[i] = new Image(200, 200);
+					images[i].src = preload.arguments[i];
 				}
 			}
 			preload(

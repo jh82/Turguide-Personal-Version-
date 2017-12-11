@@ -21,7 +21,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 
     this.fillInMainVenueDiv = function() {
     	var mainVenueDiv = $('#mainVenueDiv');
-        mainVenueDiv.append('<canvas id="mapCanvas" width="1536" height="768"></canvas>'); //1536 768
+        mainVenueDiv.append('<canvas id="mapCanvas" width="1536" height="10000"></canvas>'); //1536 768
     	mainVenueDiv.append('Search Venues: <input type="text" id="venueSearchTextbox">');
     	mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     }
@@ -31,7 +31,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 		//ctx.drawImage(stateImageArray[0], 0, 0);
 		
 		for(var i = 0; i < stateImageArray.length; i++) {
-			ctx.drawImage(stateImageArray[i], 0, 0);
+			ctx.drawImage(stateImageArray[i], 0, i*200);
 		}
 	}
 
