@@ -43,7 +43,7 @@ var ImageLoader = function() {
 				"State%20Sillhouettes/north-carolina-silhouette/north-carolina-silhouette.png",
 				"State%20Sillhouettes/north-dakota-silhouette/north-dakota-silhouette.png",
 				"State%20Sillhouettes/ohio-silhouette/ohio-silhouette.png",
-				"State%20Sillhouettes/oklahoma-silhouette/oklahom-silhouette.png",
+				"State%20Sillhouettes/oklahoma-silhouette/oklahoma-silhouette.png",
 				"State%20Sillhouettes/oregon-silhouette/oregon-silhouette.png",
 				"State%20Sillhouettes/pennsylvania-silhouette/pennsylvania-silhouette.png",
 				"State%20Sillhouettes/rhode-island-silhouette/rhode-island-silhouette.png",
