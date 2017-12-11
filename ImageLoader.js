@@ -3,7 +3,7 @@ var ImageLoader = function() {
 			var images = new Array();
 			function preload() {
 				for (i = 0; i < preload.arguments.length; i++) {
-					images[i] = new Image(200, 200);
+					images[i] = new Image();
 					images[i].src = preload.arguments[i];
 				}
 			}
