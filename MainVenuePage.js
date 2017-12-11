@@ -27,7 +27,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.fillInMapCanvas = function(){
-		var c = $("#mapCanvas");
+		var c = document.getElementById("mapCanvas");
 		var ctx = c.getContext("2d");
 		ctx.drawImage("fakeUSMap.png",10,10);
 	}
