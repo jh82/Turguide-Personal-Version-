@@ -31,7 +31,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 		ctx.drawImage(stateImageArray[0], 0, 0);
 		
 		for(var i = 0; i < stateImageArray.length; i++) {
-			ctx.drawImage(stateImageArray[i], 0, 2000*i);
+			ctx.drawImage(stateImageArray[i], 0, 0);
 		}
 	}
 
