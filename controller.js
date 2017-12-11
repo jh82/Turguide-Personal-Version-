@@ -29,7 +29,7 @@ var Controller = function() {
 	
 	this.loadMainVenuePage = function() {
 		this.clearPage();
-		var mainVenuePageObj = new MainVenuePage(this.headerObj, this.sharedPrepsObj, this, stateImageArray);
+		var mainVenuePageObj = new MainVenuePage(this.headerObj, this.sharedPrepsObj, this, this.stateImageArray);
 		mainVenuePageObj.pageReady();
 	}
 }
