@@ -127,11 +127,7 @@ var accountSettings = function(headerObj, sharedPrepsObj, controllerObj) {
     											</div>';
     	$('#changePassword').replaceWith(changePasswordFormDiv);
     }
-
-    this.randomInt = function(max) {
-    	return Math.floor(Math.random() * max);
-    }
-
+	
     this.testAJAXCall = function() {
     	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
     	$.ajax(url_base + "/testfunctions.php",

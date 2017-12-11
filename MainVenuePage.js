@@ -15,15 +15,22 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
     	sharedPrepsObj.fillInAllTitles(titlesArray);
 		
     	this.fillInMainVenueDiv();
+		this.fillInMapCanvas();
     	this.setUpEventHandlers();
     }
 
     this.fillInMainVenueDiv = function() {
     	var mainVenueDiv = $('#mainVenueDiv');
-        mainVenueDiv.append('<img src="fakeUSMap.png"></img>');
+        mainVenueDiv.append('<div id="mapCanvas"></div>');
     	mainVenueDiv.append('Search Venues: <input type="text" id="venueSearchTextbox">');
     	mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     }
+	
+	this.fillInMapCanvas = function(){
+		var c = $("#mapCanvas");
+		var ctx = c.getContext("2d");
+		ctx.drawImage("fakeUSMap.png",10,10);
+	}
 
     this.setUpEventHandlers = function() {
 		var currentObj = this;
@@ -78,33 +85,43 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
     	console.log('Search Button Clicked!');
     }
 
-    this.replaceChangePassword = function() {
-    	var changePasswordFormDiv = '<div id="changePasswordDiv">\
-    												<form action="">\
-    													Current Password:<input type="password" name="oldPassword">\
-    													New Password:<input type="password" name="newPassword">	\
-    													Confirm New Password<input type="password" name="confirmNewPassword">\
-    													<button>Submit</button>\
-    												</form>\
-    											</div>';
-    	$('#changePassword').replaceWith(changePasswordFormDiv);
-    }
-
-    this.randomInt = function(max) {
-    	return Math.floor(Math.random() * max);
-    }
-
-    this.testAJAXCall = function() {
-    	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/testfunctions.php",
+	this.testAJAXCall = function() {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/randomartists.php",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
-    					alert("AJAX call successful!");
+    					console.log("AJAX call successful!");
+						console.log(result);
+						var parsedResult = undefined;
+						result.forEach(function(element) {
+							parsedResult = JSON.parse(element);
+							currentObj.createTestAJAXDiv(parsedResult);
+						});
+						
+						//currentObj.createTestAJAXDiv(result.ranartists[0]);
+						
+						console.log(parsedResult.bandname);
     				},
     				error: function(xhr,status,error) {
-    					alert("AJAX call failed!");
+    					console.log("AJAX call failed!");
     				}
     		   });
     }
+	
+	this.createTestAJAXDiv = function(jsonResult) {
+		console.log(jsonResult);
+		var mpaDiv = $('#mostPopularArtistsDiv');
+		var tempBandName = jsonResult.bandname;
+		console.log(tempBandName);
+		var tempWebsite = jsonResult.website;
+		var tempOrigin = jsonResult.origin;
+		var tempMembers = jsonResult.members;
+		
+		mpaDiv.append('<img src="fakeAvatar.png">');
+		mpaDiv.append('<h1>'+tempBandName+'</h1>');
+		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
+		mpaDiv.append('&#9733;');
+	}
 }

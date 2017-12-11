@@ -92,10 +92,6 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     	$('#changePassword').replaceWith(changePasswordFormDiv);
     }
 
-    this.randomInt = function(max) {
-    	return Math.floor(Math.random() * max);
-    }
-
     this.testAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
