@@ -27,9 +27,11 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.fillInMapCanvas = function(){
-		var c = document.getElementById("mapCanvas");
-		var ctx = c.getContext("2d");
-		ctx.drawImage("fakeUSMap.png",10,10);
+		var img = new Image(); 
+		img.src = 'fakeUSMap.png';
+		var c = document.getElementById('mapCanvas');
+		var ctx = c.getContext('2d');
+		ctx.drawImage(img,10,10);
 	}
 
     this.setUpEventHandlers = function() {
