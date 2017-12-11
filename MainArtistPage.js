@@ -16,6 +16,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 		
     	this.fillInMainArtistsDiv();
     	this.setUpEventHandlers();
+		this.randArtistsAJAXCall();
     }
 
     this.fillInMainArtistsDiv = function() {
@@ -30,7 +31,6 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 		var currentObj = this;
     	$('#turGuideLogo').on('click', function() {
     		currentObj.whenTurGuideLogoClicked();
-			currentObj.testAJAXCall();
     	});
 
     	$('#artistsButton').on('click', function() {
@@ -92,7 +92,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     	$('#changePassword').replaceWith(changePasswordFormDiv);
     }
 
-    this.testAJAXCall = function() {
+    this.randArtistsAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
     	$.ajax(url_base + "/randomartists.php",
