@@ -7,7 +7,7 @@ var Controller = function() {
 	
 	this.headerObj = new Header(false);
 	this.sharedPrepsObj  = new SharedPreps();
-	this.imageLoaderObj = new ImageLoaderj();
+	this.imageLoaderObj = new ImageLoader();
 	this.stateImageArray;
 	
 	this.whenDocumentReady = function() {
