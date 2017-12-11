@@ -28,11 +28,11 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 	
 	this.fillInMapCanvas = function() {
 		var ctx = document.getElementById('mapCanvas').getContext('2d');
-		ctx.drawImage(stateImageArray[0], 0, 0);
+		//ctx.drawImage(stateImageArray[0], 0, 0);
 		
-		/*for(var i = 0; i < stateImageArray.length; i++) {
+		for(var i = 0; i < stateImageArray.length; i++) {
 			ctx.drawImage(stateImageArray[i], 0, 0);
-		}*/
+		}
 	}
 
     this.setUpEventHandlers = function() {
