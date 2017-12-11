@@ -102,7 +102,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 						var parsedResult = undefined;
 						result.forEach(function(element) {
 							parsedResult = JSON.parse(element);
-							currentObj.createTestAJAXDiv(parsedResult);
+							currentObj.createTestAJAXArtistDiv(parsedResult);
 						});
 						
 						//currentObj.createTestAJAXDiv(result.ranartists[0]);
@@ -115,7 +115,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     		   });
     }
 	
-	this.createTestAJAXDiv = function(jsonResult) {
+	this.createTestAJAXArtistDiv = function(jsonResult) {
 		console.log(jsonResult);
 		var mpaDiv = $('#randomArtist');
 		var tempBandName = jsonResult.bandname;
@@ -142,7 +142,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 						var parsedResult = undefined;
 						result.forEach(function(element) {
 							parsedResult = JSON.parse(element);
-							currentObj.createTestAJAXDiv(parsedResult);
+							currentObj.createTestAJAXVenuesDiv(parsedResult);
 						});
 						
 						//currentObj.createTestAJAXDiv(result.ranartists[0]);
@@ -155,7 +155,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     		   });
     }
 	
-	this.createTestAJAXDiv = function(jsonResult) {
+	this.createTestAJAXVenuesDiv = function(jsonResult) {
 		console.log(jsonResult);
 		var mpaDiv = $('#randomVenue');
 		var tempBandName = jsonResult.bandname;
@@ -182,7 +182,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 						var parsedResult = undefined;
 						result.forEach(function(element) {
 							parsedResult = JSON.parse(element);
-							currentObj.createTestAJAXDiv(parsedResult);
+							currentObj.createTestAJAXEventsDiv(parsedResult);
 						});
 						
 						//currentObj.createTestAJAXDiv(result.ranartists[0]);
@@ -195,7 +195,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     		   });
     }
 	
-	this.createTestAJAXDiv = function(jsonResult) {
+	this.createTestAJAXEventsDiv = function(jsonResult) {
 		console.log(jsonResult);
 		var mpaDiv = $('#eventsRightNow');
 		var tempBandName = jsonResult.bandname;
