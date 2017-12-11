@@ -21,6 +21,9 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     	
 		this.fillInMainLogo();
     	this.setUpEventHandlers();
+		this.randArtistsAJAXCall();
+		this.randVenuesAJAXCall();
+		this.randEventsAJAXCall();
     }
 
     this.fillInMainLogo = function() {
@@ -87,18 +90,123 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     	$('#loginButton').replaceWith(loginFormDiv);
     }
 
-    this.testAJAXCall = function() {
+    this.randArtistsAJAXCall = function() {
+		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/testfunctions.php",
+    	$.ajax(url_base + "/randomartists.php",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
-    					alert("AJAX call successful!");
+    					console.log("AJAX call successful!");
 						console.log(result);
+						var parsedResult = undefined;
+						result.forEach(function(element) {
+							parsedResult = JSON.parse(element);
+							currentObj.createTestAJAXDiv(parsedResult);
+						});
+						
+						//currentObj.createTestAJAXDiv(result.ranartists[0]);
+						
+						console.log(parsedResult.bandname);
     				},
     				error: function(xhr,status,error) {
-    					alert("AJAX call failed!");
+    					console.log("AJAX call failed!");
     				}
     		   });
     }
+	
+	this.createTestAJAXDiv = function(jsonResult) {
+		console.log(jsonResult);
+		var mpaDiv = $('#randomArtist');
+		var tempBandName = jsonResult.bandname;
+		console.log(tempBandName);
+		var tempWebsite = jsonResult.website;
+		var tempOrigin = jsonResult.origin;
+		var tempMembers = jsonResult.members;
+		
+		mpaDiv.append('<img src="fakeAvatar.png">');
+		mpaDiv.append('<h1>'+tempBandName+'</h1>');
+		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
+		mpaDiv.append('&#9733;');
+	}
+	
+	this.randVenuesAJAXCall = function() {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/randomartists.php",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					console.log("AJAX call successful!");
+						console.log(result);
+						var parsedResult = undefined;
+						result.forEach(function(element) {
+							parsedResult = JSON.parse(element);
+							currentObj.createTestAJAXDiv(parsedResult);
+						});
+						
+						//currentObj.createTestAJAXDiv(result.ranartists[0]);
+						
+						console.log(parsedResult.bandname);
+    				},
+    				error: function(xhr,status,error) {
+    					console.log("AJAX call failed!");
+    				}
+    		   });
+    }
+	
+	this.createTestAJAXDiv = function(jsonResult) {
+		console.log(jsonResult);
+		var mpaDiv = $('#randomVenue');
+		var tempBandName = jsonResult.bandname;
+		console.log(tempBandName);
+		var tempWebsite = jsonResult.website;
+		var tempOrigin = jsonResult.origin;
+		var tempMembers = jsonResult.members;
+		
+		mpaDiv.append('<img src="fakeAvatar.png">');
+		mpaDiv.append('<h1>'+tempBandName+'</h1>');
+		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
+		mpaDiv.append('&#9733;');
+	}
+	
+	this.randEventsAJAXCall = function() {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/randomartists.php",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					console.log("AJAX call successful!");
+						console.log(result);
+						var parsedResult = undefined;
+						result.forEach(function(element) {
+							parsedResult = JSON.parse(element);
+							currentObj.createTestAJAXDiv(parsedResult);
+						});
+						
+						//currentObj.createTestAJAXDiv(result.ranartists[0]);
+						
+						console.log(parsedResult.bandname);
+    				},
+    				error: function(xhr,status,error) {
+    					console.log("AJAX call failed!");
+    				}
+    		   });
+    }
+	
+	this.createTestAJAXDiv = function(jsonResult) {
+		console.log(jsonResult);
+		var mpaDiv = $('#eventsRightNow');
+		var tempBandName = jsonResult.bandname;
+		console.log(tempBandName);
+		var tempWebsite = jsonResult.website;
+		var tempOrigin = jsonResult.origin;
+		var tempMembers = jsonResult.members;
+		
+		mpaDiv.append('<img src="fakeAvatar.png">');
+		mpaDiv.append('<h1>'+tempBandName+'</h1>');
+		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
+		mpaDiv.append('&#9733;');
+	}
 }
