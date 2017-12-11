@@ -26,12 +26,13 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
     	mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     }
 	
-	this.fillInMapCanvas = function(){
-		var img = new Image(); 
+	function fillInMapCanvas() {
+		var ctx = document.getElementById('mapCanvas').getContext('2d');
+		var img = new Image();
+		img.onload = function() {
+			ctx.drawImage(img, 0, 0);
+		};
 		img.src = 'fakeUSMap.png';
-		var c = document.getElementById('mapCanvas');
-		var ctx = c.getContext('2d');
-		ctx.drawImage(img,10,10);
 	}
 
     this.setUpEventHandlers = function() {
