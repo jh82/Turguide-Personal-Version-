@@ -21,7 +21,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.fillInMainVenueDiv = function() {
     	var mainVenueDiv = $('#mainVenueDiv');
-        mainVenueDiv.append('<canvas id="mapCanvas"></canvas>');
+        mainVenueDiv.append('<canvas id="mapCanvas" width="1536" height="768"></canvas>'); //1536 768
     	mainVenueDiv.append('Search Venues: <input type="text" id="venueSearchTextbox">');
     	mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     }
