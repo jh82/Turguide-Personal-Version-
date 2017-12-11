@@ -11,7 +11,7 @@ var Controller = function() {
 	this.stateImageArray;
 	
 	this.whenDocumentReady = function() {
-			this.stateImageArray = imageLoaderObj.preloadImages();
+			this.stateImageArray = this.imageLoaderObj.preloadImages();
 		
 			var homePageNotSignedInObj = new HomePageNotSignedIn(this.headerObj, this.sharedPrepsObj, this);
 			homePageNotSignedInObj.pageReady();
