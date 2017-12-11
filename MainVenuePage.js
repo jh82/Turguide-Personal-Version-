@@ -32,7 +32,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
 		img.onload = function() {
 			ctx.drawImage(img, 0, 0);
 		};
-		img.src = '/State%20Sillhouettes/alabama-silhouette/alabama-silhouette.png';
+		img.src = 'State%20Sillhouettes/alabama-silhouette/alabama-silhouette.png';
 	}
 
     this.setUpEventHandlers = function() {
