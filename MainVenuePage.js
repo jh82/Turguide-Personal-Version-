@@ -26,7 +26,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj) {
     	mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     }
 	
-	function fillInMapCanvas() {
+	this.fillInMapCanvas = function() {
 		var ctx = document.getElementById('mapCanvas').getContext('2d');
 		var img = new Image();
 		img.onload = function() {
