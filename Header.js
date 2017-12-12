@@ -1,5 +1,7 @@
 var Header = function(userSignedIn) {
 	
+	this.userSignedIn = userSignedIn;
+	
 	 this.fillInHeader = function() {
     	var headerNode = $('header');
     	headerNode.append('<img id="turGuideLogo" src="türguideLogo.png">');

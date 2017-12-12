@@ -13,12 +13,23 @@ var Controller = function() {
 	this.whenDocumentReady = function() {
 			this.stateImageArray = this.imageLoaderObj.preloadImages();
 		
-			var homePageNotSignedInObj = new HomePageNotSignedIn(this.headerObj, this.sharedPrepsObj, this);
-			homePageNotSignedInObj.pageReady();
+			this.loadHomePage();
+
 	}
 	
 	this.clearPage = function() {
 		$('body').empty();
+	}
+	
+	this.loadHomePage = function() {
+		if(userSignedIn) {
+			var homePageSignedInObj = new HomePageSignedIn(this.headerObj, this.sharedPrepsObj, this);
+			homePageSignedInObj.pageReady();
+		}
+		else {
+			var homePageNotSignedInObj = new HomePageNotSignedIn(this.headerObj, this.sharedPrepsObj, this);
+			homePageNotSignedInObj.pageReady();
+		}
 	}
 	
 	this.loadMainArtistPage = function() {
@@ -32,4 +43,5 @@ var Controller = function() {
 		var mainVenuePageObj = new MainVenuePage(this.headerObj, this.sharedPrepsObj, this, this.stateImageArray);
 		mainVenuePageObj.pageReady();
 	}
+	
 }
