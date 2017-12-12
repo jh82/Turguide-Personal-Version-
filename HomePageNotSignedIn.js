@@ -97,8 +97,8 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
-    					console.log("AJAX call successful!");
-						console.log(result);
+    					//console.log("AJAX call successful!");
+						//console.log(result);
 						var parsedResult = undefined;
 						result.forEach(function(element) {
 							parsedResult = JSON.parse(element);
@@ -116,10 +116,10 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.createTestAJAXArtistDiv = function(jsonResult) {
-		console.log(jsonResult);
+		//console.log(jsonResult);
 		var mpaDiv = $('#randomArtist');
 		var tempBandName = jsonResult.bandname;
-		console.log(tempBandName);
+		//console.log(tempBandName);
 		var tempWebsite = jsonResult.website;
 		var tempOrigin = jsonResult.origin;
 		var tempMembers = jsonResult.members;
@@ -177,8 +177,8 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
-    					console.log("AJAX call successful!");
-						console.log(result);
+    					//console.log("AJAX call successful!");
+						//console.log(result);
 						var parsedResult = undefined;
 						result.forEach(function(element) {
 							parsedResult = JSON.parse(element);
@@ -187,7 +187,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 						
 						//currentObj.createTestAJAXDiv(result.ranartists[0]);
 						
-						console.log(parsedResult.bandname);
+						//console.log(parsedResult.bandname);
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
@@ -196,10 +196,10 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.createTestAJAXEventsDiv = function(jsonResult) {
-		console.log(jsonResult);
+		//console.log(jsonResult);
 		var mpaDiv = $('#eventsRightNow');
 		var tempBandName = jsonResult.bandname;
-		console.log(tempBandName);
+		//console.log(tempBandName);
 		var tempWebsite = jsonResult.website;
 		var tempOrigin = jsonResult.origin;
 		var tempMembers = jsonResult.members;
