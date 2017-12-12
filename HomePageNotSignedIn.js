@@ -32,7 +32,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.fillInMainLogo = function() {
     	var mainLogoNode = $('#mainLogo');
-		mainLogoNode.addClass('mainLogo');
+		mainLogoNode.addClass('centeredColumn');
     	mainLogoNode.append('<img src="türguideLogoFull.png">' );
     }
 
@@ -122,7 +122,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.createTestAJAXArtistDiv = function(jsonResult) {
 		//console.log(jsonResult);
-		var mpaDiv = $('#randomArtist');
+		var mpaDiv = $('<div></div>');
 		mpaDiv.addClass('infoPanel');
 		var tempBandName = jsonResult.bandname;
 		//console.log(tempBandName);
@@ -134,6 +134,8 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');
+		
+		$('#randomArtist').append(mpaDiv);
 	}
 	
 	this.randVenuesAJAXCall = function() {
@@ -163,7 +165,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.createTestAJAXVenuesDiv = function(jsonResult) {
 		//console.log(jsonResult);
-		var mpaDiv = $('#randomVenue');
+		var mpaDiv = $('<div></div>');
 		mpaDiv.addClass('infoPanel');
 		var tempVenueName = jsonResult.vname;
 		//console.log(tempVenueName);
@@ -175,6 +177,8 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<h1>'+tempVenueName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempCity+'</li><li>Origin:'+tempState+'</li><li>Members:'+tempCapacity+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');
+		
+		$('#randomVenue').append(mpaDiv);
 	}
 	
 	this.randEventsAJAXCall = function() {
@@ -204,7 +208,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.createTestAJAXEventsDiv = function(jsonResult) {
 		console.log(jsonResult);
-		var mpaDiv = $('#eventsRightNow');
+		var mpaDiv = $('<div></div>');
 		mpaDiv.addClass('infoPanel');
 		var tempEventDate = jsonResult.edate;
 		//console.log(tempBandName);
@@ -217,5 +221,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<h1>'+tempEventDate+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempEventTime+'</li><li>Origin:'+tempVenueName+'</li><li>Members:'+tempCity+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');
+		
+		$('#eventsRightNow').append(mpaDiv);
 	}
 }

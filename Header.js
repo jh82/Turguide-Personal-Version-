@@ -11,7 +11,7 @@ var Header = function(userSignedIn) {
 			this.fillInAccountPreview();
 		}
 		else {
-			headerNode.append('<button id="signUpButton class="header-button"">Sign Up</button>');
+			headerNode.append('<button id="signUpButton" class="header-button">Sign Up</button>');
 			headerNode.append('<button id="loginButton" class="header-button">Login</button>');
 		}
     }
