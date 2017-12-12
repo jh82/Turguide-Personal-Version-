@@ -15,7 +15,7 @@ function getArtistInfo($artid, $server)
 	if(!$result)
 	{
 		print "GETARTIST FAILURE!";
-		return null;
+		return json_encode (new stdClass); //This is an empty json b/c it failed
 	}
 	else
 	{
@@ -48,7 +48,7 @@ function getVenueInfo($venid,$server)
 	if(!$result)
 	{
 		print "GET VENUE FAILURE!";
-		return null;
+		return json_encode (new stdClass); //This is an empty json b/c it failed
 	}
 	else
 	{
@@ -109,7 +109,9 @@ function getEventInfo($evid,$server)
 				");
 			
 		if(!$allartids)
-		{ print "NO OTHER ARTISTS";
+		{ 
+			print "NO OTHER ARTISTS";
+			return json_encode (new stdClass); //This is an empty json b/c it failed
 		}
 		else
 		{

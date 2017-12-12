@@ -139,9 +139,8 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 		$returnedvs[] = getVenueInfo($curvid,$conn);
 	}
 	
-	//header("Access-Control-Allow-Origin: *;Content-type: application/json");
-	//print json_encode(array('allvenues'=>$returnedvs));
-	$conn->close();
+	
+	
 	return json_encode($returnedvs);
 }
 
