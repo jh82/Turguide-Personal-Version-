@@ -1,4 +1,9 @@
 <?php
+
+include 'readfunctions.php';
+include 'createfunctions.php';
+include 'deletefunctions.php';
+
 //Controller for the project - everything?
 $path_components = explode('/', $_SERVER['PATH_INFO']);
 
@@ -25,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 		FavVenue
 	*/
 	
-	//Check the 'type' parameter for either a read or delete
+	//Check the parameter for either a read or delete
+	//after, check 'type' for either account, artist, venue, event, favartist, search, etc
 	
 	if (isset($_REQUEST['read']))
 	{
