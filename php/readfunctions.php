@@ -112,6 +112,8 @@ function getEventInfo($evid,$server)
 		{ 
 			//print "NO OTHER ARTISTS";
 			//return json_encode (new stdClass); //This is an empty json b/c it failed TEST HERE
+			$arrheadliners[] = 'NONE';
+			$arrartists[] = 'NONE';
 		}
 		else
 		{
