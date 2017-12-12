@@ -1,0 +1,24 @@
+body {
+	background-color: #B5F2B4;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header {
+	position: absolute;
+    top: 0; 
+	right: 0; 
+	left: 0;
+	background-color: #4D904C;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header-button {
+	border: none;
+	background: none;
+}
+
+.mainLogo {
+	margin: auto;
+    width: 50%;
+}

@@ -1,8 +1,9 @@
 var SharedPreps = function() {
     this.makeDOMReady = function() {
     	var bodyNode = $('body');
-    	bodyNode.append('<header></header>');
-    	bodyNode.append('<main></main>');
+		bodyNode.addClass('body');
+    	bodyNode.append('<header class="header"></header>');
+    	bodyNode.append('<main class ></main>');
     	bodyNode.append('<footer></footer>');
     }
 
