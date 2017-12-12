@@ -6,11 +6,15 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		
 		var mainElementsArray= [
 			{elementType:'div',id:'mainLogo'},
-			{elementType:'div',id:'randomArtist'},
-			{elementType:'div',id:'eventsRightNow'},
-			{elementType:'div',id:'randomVenue'}
+			{elementType:'div',id:'mainRandomsDiv'}
 		];
     	sharedPrepsObj.makeMainReady(mainElementsArray);
+		
+		var mainRandomsDiv = $('#mainRandomsDiv');
+		mainRandomsDiv.addClass('threeColumns');
+		mainRandomsDiv.append('<div id="randomArtist"></div>');
+		mainRandomsDiv.append('<div id="eventsRightNow"></div>');
+		mainRandomsDiv.append('<div id="randomVenue"></div>');
 		
 		var titlesArray = [
 			{divNode:$('#randomArtist'),titleString:'Random Artists'},
@@ -28,7 +32,8 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.fillInMainLogo = function() {
     	var mainLogoNode = $('#mainLogo');
-    	mainLogoNode.append('<img src="türguideLogoFull.png" class="mainLogo">' );
+		mainLogoNode.addClass('mainLogo');
+    	mainLogoNode.append('<img src="türguideLogoFull.png">' );
     }
 
     this.setUpEventHandlers = function() {
@@ -118,6 +123,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	this.createTestAJAXArtistDiv = function(jsonResult) {
 		//console.log(jsonResult);
 		var mpaDiv = $('#randomArtist');
+		mpaDiv.addClass('infoPanel');
 		var tempBandName = jsonResult.bandname;
 		//console.log(tempBandName);
 		var tempWebsite = jsonResult.website;
@@ -158,6 +164,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	this.createTestAJAXVenuesDiv = function(jsonResult) {
 		//console.log(jsonResult);
 		var mpaDiv = $('#randomVenue');
+		mpaDiv.addClass('infoPanel');
 		var tempVenueName = jsonResult.vname;
 		//console.log(tempVenueName);
 		var tempCity = jsonResult.vcity;
@@ -198,6 +205,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	this.createTestAJAXEventsDiv = function(jsonResult) {
 		console.log(jsonResult);
 		var mpaDiv = $('#eventsRightNow');
+		mpaDiv.addClass('infoPanel');
 		var tempEventDate = jsonResult.edate;
 		//console.log(tempBandName);
 		var tempEventTime = jsonResult.etime;
