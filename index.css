@@ -28,6 +28,10 @@ main {
 	font-weight: bold;
 }
 
+.header-button:hover {
+	background-color: #396138;
+}
+
 .centeredColumn {
 	display: flex;
 	justify-content: center;

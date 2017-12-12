@@ -12,9 +12,7 @@ var Controller = function() {
 	
 	this.whenDocumentReady = function() {
 			this.stateImageArray = this.imageLoaderObj.preloadImages();
-		
 			this.loadHomePage();
-
 	}
 	
 	this.clearPage = function() {
@@ -22,7 +20,7 @@ var Controller = function() {
 	}
 	
 	this.loadHomePage = function() {
-		if(userSignedIn) {
+		if(this.headerObj.userSignedIn) {
 			var homePageSignedInObj = new HomePageSignedIn(this.headerObj, this.sharedPrepsObj, this);
 			homePageSignedInObj.pageReady();
 		}

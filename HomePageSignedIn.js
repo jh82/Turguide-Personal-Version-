@@ -35,25 +35,6 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.setUpEventHandlers = function() {
 		var currentObj = this;
-    	$('#turGuideLogo').on('click', function() {
-			currentObj.whenTurGuideLogoClicked();
-    	});
-
-    	$('#artistsButton').on('click', function() {
-    		currentObj.whenArtistsClicked();
-    	});
-
-    	$('#venuesButton').on('click', function() {
-    		currentObj.whenVenuesClicked();
-    	});
-
-    	$('#accountSettings').on('click', function() {
-    		currentObj.whenAccountSettingsClicked();
-    	});
-
-    	$('#logOff').on('click', function() {
-    		currentObj.whenLogOffClicked();
-    	});
 
     	$('#viewAllArtistsButton').on('click', function() {
     		currentObj.whenViewAllArtistsClicked();
@@ -63,28 +44,6 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     		currentObj.whenViewAllVenuesClicked();
     	});
 
-    }
-
-    this.whenTurGuideLogoClicked = function() {
-    	console.log('turguide Logo Clicked!');
-    }
-
-    this.whenArtistsClicked = function() {
-    	console.log('Artists Clicked!');
-		controllerObj.loadMainArtistPage();
-    }
-
-    this.whenVenuesClicked = function() {
-    	console.log('Venues Clicked!');
-		controllerObj.loadMainVenuePage();
-    }
-
-    this.whenAccountSettingsClicked = function() {
-    	console.log('Account Settings Clicked!');
-    }
-
-    this.whenLogOffClicked = function() {
-    	console.log('Log Off Clicked!');
     }
 
     this.whenViewAllArtistsClicked = function() {
