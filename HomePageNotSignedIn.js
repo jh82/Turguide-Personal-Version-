@@ -198,15 +198,16 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	this.createTestAJAXEventsDiv = function(jsonResult) {
 		console.log(jsonResult);
 		var mpaDiv = $('#eventsRightNow');
-		var tempBandName = jsonResult.bandname;
+		var tempEventDate = jsonResult.edate;
 		//console.log(tempBandName);
-		var tempWebsite = jsonResult.website;
-		var tempOrigin = jsonResult.origin;
-		var tempMembers = jsonResult.members;
+		var tempEventTime = jsonResult.etime;
+		var tempVenueName = jsonResult.vname;
+		var tempCity = jsonResult.vcity;
+		var tempState = jsonResult.vstate;
 		
 		mpaDiv.append('<img src="fakeAvatar.png">');
-		mpaDiv.append('<h1>'+tempBandName+'</h1>');
-		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
+		mpaDiv.append('<h1>'+tempEventDate+'</h1>');
+		mpaDiv.append('<ul><li>Website:'+tempEventTime+'</li><li>Origin:'+tempVenueName+'</li><li>Members:'+tempCity+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');
 	}
 }
