@@ -1,10 +1,22 @@
 <?php
+include_once 'php/readfunctions.php';
 
-include_once 'readfunctions.php'
+$servername = 'classroom.cs.unc.edu';
+$username   = 'gibsonb';
+$password   = 'zDpjelCQeho=\~*UbH,"';
+$dbname     = 'gibsonbdb';
 
-function venueSearch($conn, $vname, $vcity, $vstate)
-{
-		
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+//Expects the Venue search options to be different set of info
+	$vname = mysqli_real_escape_string($conn,$_GET['vname']);
+	$vcity = mysqli_real_escape_string($conn,$_GET['vcity']);
+	$vstate= mysqli_real_escape_string($conn,$_GET['vstate']);
+	
 	$vidstoget = array();
 	$returnedvs = array();
 	//Do all error cases and check for any nulls/empty
@@ -31,7 +43,7 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			//print $row[0]; //check
+			print $row[0]; //check
 		}
 	}
 	elseif($vname==='' && $vstate==='') //only city
@@ -47,7 +59,7 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			//print $row[0]; //check
+			print $row[0]; //check
 		}
 	}
 	elseif($vcity==='' && $vstate==='')//only name
@@ -63,7 +75,7 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			//print $row[0]; //check
+			print $row[0]; //check
 		}
 		
 	}
@@ -81,7 +93,7 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			//print $row[0]; //check
+			print $row[0]; //check
 		}
 	}
 	elseif($vstate==='') //city and name
@@ -97,7 +109,7 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			//print $row[0]; //check
+			print $row[0]; //check
 		}
 	}
 	elseif($vcity==='') //name and state
@@ -113,7 +125,7 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			//print $row[0]; //check
+			print $row[0]; //check
 		}
 	}
 	else //name, city, and state
@@ -130,7 +142,7 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			//print $row[0]; //check
+			print $row[0]; //check
 		}
 	}
 	
@@ -139,58 +151,9 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 		$returnedvs[] = getVenueInfo($curvid,$conn);
 	}
 	
-	
-	
-	return json_encode($returnedvs);
+	print json_encode(array('allvenues'=>$returnedvs));
+	return json_encode(array('allvenues'=>$returnedvs));
 }
 
-function artistSearch($conn,$searchval)
-{
-	
-	$searchval = mysqli_real_escape_string($conn, $_GET['searchval']);
-	//CHECK - artist will need to be modified to return more than 1 artist with same name
-	$result = $conn->query("
-		SELECT *
-		FROM Artists
-		WHERE Artists.bname='$searchval'
-		LIMIT 1
-		");
-	if(!$result) //query failed b/c bad search term
-	{
-		print "QUERY FAILED. GIVE THEM SOME ERROR STUFF";
-	}
-	
-	
-	$rarr = $result->fetch_assoc();
-	
-	$artkey = $rarr['artid'];
-	
-	$eresult = $conn->query("
-		SELECT Events.evid
-		FROM Events
-		WHERE Events.fk_artid=$artkey
-		ORDER BY Events.edate
-		LIMIT 5
-		");
-	if(!$eresult)
-	{
-		print "No upcoming events for $searchval";
-	}
-	else
-	{
-		$upcoming = array();
-		while($row = $eresult->fetch_row())
-		{
-			$upcoming[] = getEventInfo($row[0],$conn);
-		}
-	}
-	
-	$info = getArtistInfo($artkey,$conn);
-	//print $info;
-	
-	
-	return json_encode(array('artistinfo' => $info, 'events' => $upcoming)); 
-	//TODO check how to actually return all these json objects efficiently
-}
 
 ?>
