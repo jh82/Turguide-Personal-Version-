@@ -3,7 +3,7 @@
 
 include 'readfunctions.php';
 
-function randomArtists($conn)
+function randomArtists($conn, $number)
 {
 
 
@@ -18,7 +18,7 @@ function randomArtists($conn)
 
 	$toreturn = array();
 
-	for($i=0; $i<10;$i++)		//ADJUST AMOUNT OUTPUT HERE
+	for($i=0; $i<$number;$i++)		//ADJUST AMOUNT OUTPUT HERE
 	{
 		
 		//generate random artid - should check for dupes later
@@ -28,13 +28,13 @@ function randomArtists($conn)
 		$toreturn[] = getArtistInfo($curartid,$conn);
 		
 	}
-	header("Content-type: application/json");
+	//header("Content-type: application/json");
 
 	//print json_encode($toreturn);
 	return json_encode($toreturn);
 }
 
-function randomEvents($conn)
+function randomEvents($conn,$number)
 {
 		$limits = $conn->query("
 			SELECT MAX(Events.evid),MIN(Events.evid)
@@ -47,7 +47,7 @@ function randomEvents($conn)
 
 	$toreturn = array();
 
-	for($i=0; $i<10;$i++)		//ADJUST AMOUNT OUTPUT HERE
+	for($i=0; $i<$number;$i++)		//ADJUST AMOUNT OUTPUT HERE
 	{
 		
 		//generate random artid - should check for dupes later
@@ -57,13 +57,13 @@ function randomEvents($conn)
 		$toreturn[] = getEventInfo($curevid,$conn);
 		
 	}
-	header("Content-type: application/json");
+	//header("Content-type: application/json");
 	return json_encode($toreturn);
 	
 	
 }
 
-function randomVenues($conn)
+function randomVenues($conn,$number)
 {
 	
 	$limits = $conn->query("
@@ -77,7 +77,7 @@ function randomVenues($conn)
 
 	$toreturn = array();
 
-	for($i=0; $i<10;$i++)		//ADJUST AMOUNT OUTPUT HERE
+	for($i=0; $i<$number;$i++)		//ADJUST AMOUNT OUTPUT HERE
 	{
 
 	//generate random artid - should check for dupes later
@@ -87,7 +87,7 @@ function randomVenues($conn)
 	$toreturn[] = getVenueInfo($curvenid,$conn);
 
 	}
-	header("Content-type: application/json");
+	//header("Content-type: application/json");
 	return json_encode($toreturn);
 
 }
