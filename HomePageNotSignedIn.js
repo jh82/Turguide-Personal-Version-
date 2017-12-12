@@ -127,7 +127,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('&#9733;');
+		mpaDiv.append('&#9733;<br>');
 	}
 	
 	this.randVenuesAJAXCall = function() {
@@ -158,16 +158,16 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	this.createTestAJAXVenuesDiv = function(jsonResult) {
 		console.log(jsonResult);
 		var mpaDiv = $('#randomVenue');
-		var tempBandName = jsonResult.bandname;
+		var tempVenueName = jsonResult.vname;
 		console.log(tempBandName);
-		var tempWebsite = jsonResult.website;
-		var tempOrigin = jsonResult.origin;
-		var tempMembers = jsonResult.members;
+		var tempCity = jsonResult.vcity;
+		var tempState = jsonResult.vstate;
+		var tempCapacity = jsonResult.maxcap;
 		
 		mpaDiv.append('<img src="fakeAvatar.png">');
-		mpaDiv.append('<h1>'+tempBandName+'</h1>');
-		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('&#9733;');
+		mpaDiv.append('<h1>'+tempVenueName+'</h1>');
+		mpaDiv.append('<ul><li>Website:'+tempCity+'</li><li>Origin:'+tempState+'</li><li>Members:'+tempCapacity+'</li></ul>');
+		mpaDiv.append('&#9733;<br>');
 	}
 	
 	this.randEventsAJAXCall = function() {
@@ -207,6 +207,6 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('&#9733;');
+		mpaDiv.append('&#9733;<br>');
 	}
 }
