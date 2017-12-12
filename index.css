@@ -1,24 +1,34 @@
 .body {
 	background-color: #B5F2B4;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #080F30;
 }
 
 .header {
-	position: absolute;
+	position: fixed;
     top: 0; 
 	right: 0; 
 	left: 0;
 	background-color: #4D904C;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
+	border-bottom: 1px solid black;
+}
+
+main {
+	margin-top: 50px;
 }
 
 .header-button {
 	border: none;
 	background: none;
+	text-shadow: 0.20px 0.50px #000000;
+	color: #2060A9;
+	font-size: 140%;
+	font-weight: bold;
 }
 
-.mainLogo {
+.centeredColumn {
 	display: flex;
 	justify-content: center;
 }
@@ -28,3 +38,11 @@
 	justify-content: space-around;
 }
 
+.infoPanel {
+	border: black 1px solid;
+}
+
+.flexVertical {
+	display: flex;
+	flex-direction: column;
+}
