@@ -21,7 +21,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 
     this.fillInMainVenueDiv = function() {
     	var mainVenueDiv = $('#mainVenueDiv');
-        mainVenueDiv.append('<canvas id="mapCanvas" width="1536" height="100000"></canvas>'); //1536 768
+        mainVenueDiv.append('<canvas id="mapCanvas" width="25500" height="5000"></canvas>'); //1536 768
     	mainVenueDiv.append('Search Venues: <input type="text" id="venueSearchTextbox">');
     	mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     }
@@ -30,9 +30,61 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 		var ctx = document.getElementById('mapCanvas').getContext('2d');
 		//ctx.drawImage(stateImageArray[0], 0, 0);
 		
-		for(var i = 0; i < stateImageArray.length; i++) {
-			ctx.drawImage(stateImageArray[i], 0, i*1000);
-		}
+		/*for(var i = 0; i < stateImageArray.length; i++) {
+			ctx.drawImage(stateImageArray[i], i*500, 0);
+		}*/
+		
+		ctx.drawImage(stateImageArray[0], 1500, 2100);//alabama
+		ctx.drawImage(stateImageArray[1], 0, 3000);//alaska
+		ctx.drawImage(stateImageArray[2], 500, 2100);//arizona
+		ctx.drawImage(stateImageArray[3], 1200, 1800);//arkansas
+		ctx.drawImage(stateImageArray[4], 0, 1000);//california
+		ctx.drawImage(stateImageArray[5], 500, 1800);//colorado
+		ctx.drawImage(stateImageArray[6], 1800, 500);//connecticut
+		ctx.drawImage(stateImageArray[7], 500, 0);
+		ctx.drawImage(stateImageArray[8], 500, 0);
+		ctx.drawImage(stateImageArray[9], 500, 0);
+		ctx.drawImage(stateImageArray[10], 500, 0);
+		ctx.drawImage(stateImageArray[11], 500, 0);
+		ctx.drawImage(stateImageArray[12], 500, 0);
+		ctx.drawImage(stateImageArray[13], 500, 0);
+		ctx.drawImage(stateImageArray[14], 500, 0);
+		ctx.drawImage(stateImageArray[15], 500, 0);
+		ctx.drawImage(stateImageArray[16], 500, 0);
+		ctx.drawImage(stateImageArray[17], 500, 0);
+		ctx.drawImage(stateImageArray[18], 500, 0);
+		ctx.drawImage(stateImageArray[19], 500, 0);
+		ctx.drawImage(stateImageArray[20], 500, 0);
+		ctx.drawImage(stateImageArray[21], 500, 0);
+		ctx.drawImage(stateImageArray[22], 500, 0);
+		ctx.drawImage(stateImageArray[23], 500, 0);
+		ctx.drawImage(stateImageArray[24], 500, 0);
+		ctx.drawImage(stateImageArray[25], 500, 0);
+		ctx.drawImage(stateImageArray[26], 500, 0);
+		ctx.drawImage(stateImageArray[27], 500, 0);
+		ctx.drawImage(stateImageArray[28], 500, 0);
+		ctx.drawImage(stateImageArray[29], 500, 0);
+		ctx.drawImage(stateImageArray[30], 500, 0);
+		ctx.drawImage(stateImageArray[31], 500, 0);
+		ctx.drawImage(stateImageArray[32], 500, 0);
+		ctx.drawImage(stateImageArray[33], 500, 0);
+		ctx.drawImage(stateImageArray[34], 500, 0);
+		ctx.drawImage(stateImageArray[35], 500, 0);
+		ctx.drawImage(stateImageArray[36], 500, 0);
+		ctx.drawImage(stateImageArray[37], 500, 0);
+		ctx.drawImage(stateImageArray[38], 500, 0);
+		ctx.drawImage(stateImageArray[39], 500, 0);
+		ctx.drawImage(stateImageArray[40], 500, 0);
+		ctx.drawImage(stateImageArray[41], 500, 0);
+		ctx.drawImage(stateImageArray[42], 500, 0);
+		ctx.drawImage(stateImageArray[43], 500, 0);
+		ctx.drawImage(stateImageArray[44], 500, 0);
+		ctx.drawImage(stateImageArray[45], 500, 0);
+		ctx.drawImage(stateImageArray[46], 500, 0);
+		ctx.drawImage(stateImageArray[47], 500, 0);
+		ctx.drawImage(stateImageArray[48], 500, 0);
+		ctx.drawImage(stateImageArray[49], 500, 0);
+		
 	}
 
     this.setUpEventHandlers = function() {
