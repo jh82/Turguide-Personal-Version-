@@ -67,6 +67,37 @@ function createUser($conn,$uname, $upassword, $fname, $lname, $home)
 }
 
 //ADD IN FAVORITES TABLES
+function addFavoriteArtist($conn,$accid,$artid)
+{
+	$stmt = $conn->prepare("
+		INSERT INTO FavArtists (fk_accid,fk_artid)
+		VALUES(?,?)");
+	$stmt->bind_param('ii',$accid,$artid);
+	if($stmt->execute())
+	{
+		
+	}
+	else{
+		print 'Favorite artist insert failure\n';
+	}
+	$stmt->close();
+}
 
+function addFavoriteVenue($conn,$accid,$venid)
+{
+	$stmt = $conn->prepare("
+		INSERT INTO FavVenues (fk_accid,fk_vid)
+		VALUES(?,?)");
+	$stmt->bind_param('ii',$accid,$venid);
+	if($stmt->execute())
+	{
+		
+	}
+	else{
+		print 'Favorite venue insert failure\n';
+	}
+	$stmt->close();
+}
+	
 
 ?>

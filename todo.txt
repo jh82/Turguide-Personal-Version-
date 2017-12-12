@@ -22,4 +22,6 @@ Gibson TODO:
 		if POST...
 		if GET...
 	delete old seperated files and put all php in a folder
+		functions -> readfunctions
+		All individual, one-use functions
 Juan TODO:

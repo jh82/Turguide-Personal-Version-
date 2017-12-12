@@ -47,5 +47,25 @@ function deleteUser($conn,$accid)
 
 //ADD IN FAVORITE FUNCTIONS
 
+function deleteFavArtist($conn,$accid,$artid)
+{
+	$result = $conn->query("
+		DELETE FROM FavArtists
+		WHERE FavArtists.fk_accid=$accid
+		AND FavArtists.fk_artid=$artid
+		");
+	if(!$result){print "Account not deleted - failure";}
+}
+
+function deleteFavVenue($conn,$accid,$venid)
+{
+	$result = $conn->query("
+		DELETE FROM FavVenues
+		WHERE FavVenues.fk_accid=$accid
+		AND FavVenues.fk_vid=$venid
+		");
+	if(!$result){print "Account not deleted - failure";}
+}
+
 
 ?>
