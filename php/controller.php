@@ -15,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
   // /todo.php/<id>
   /*CASES
 	READ:
-		Artist
-		Venue
-		Event
-		User
+		Artist : artid
+		Venue  : venid
+		Event  : evid
+		Account   : accid
 		FavArtist - get all, no id
 		FavVenue  - get all, no id
 	DELETE:

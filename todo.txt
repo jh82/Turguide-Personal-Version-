@@ -13,9 +13,9 @@ Gibson TODO:
 	artist	1		1				1
 	event	1		1				1
 	venue	1		1				1
-	users	1		1				1
-	favArt			1
-	favVen			1
+	users	1		1		some	1
+	favArt	1		1				1
+	favVen	1		1				1
 	
 	*** update all iinclude function -> include readfunctions, etc
 	Controller php script that looks at headers (AKA todo.php in full AJAX example, restapitutorial)
