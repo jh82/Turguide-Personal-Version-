@@ -34,20 +34,20 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 			ctx.drawImage(stateImageArray[i], i*500, 0);
 		}*/
 		
-		ctx.drawImage(stateImageArray[0], 1500, 2100);//alabama
+		ctx.drawImage(stateImageArray[0], 1400, 2100);//alabama
 		ctx.drawImage(stateImageArray[1], 0, 3000);//alaska
 		ctx.drawImage(stateImageArray[2], 500, 2100);//arizona
 		ctx.drawImage(stateImageArray[3], 1200, 1800);//arkansas
-		ctx.drawImage(stateImageArray[4], 0, 1000);//california
+		ctx.drawImage(stateImageArray[4], 0, 1950);//california
 		ctx.drawImage(stateImageArray[5], 500, 1800);//colorado
 		ctx.drawImage(stateImageArray[6], 1800, 500);//connecticut
-		ctx.drawImage(stateImageArray[7], 500, 0);
-		ctx.drawImage(stateImageArray[8], 500, 0);
-		ctx.drawImage(stateImageArray[9], 500, 0);
-		ctx.drawImage(stateImageArray[10], 500, 0);
-		ctx.drawImage(stateImageArray[11], 500, 0);
-		ctx.drawImage(stateImageArray[12], 500, 0);
-		ctx.drawImage(stateImageArray[13], 500, 0);
+		ctx.drawImage(stateImageArray[7], 1650, 700);//delaware
+		ctx.drawImage(stateImageArray[8], 1600, 2400);//florida
+		ctx.drawImage(stateImageArray[9], 1600, 2100);//georgia
+		ctx.drawImage(stateImageArray[10], 500, 3000);//hawaii
+		ctx.drawImage(stateImageArray[11], 300, 400);//idaho
+		ctx.drawImage(stateImageArray[12], 1250, 700);//illinois
+		ctx.drawImage(stateImageArray[13], 1400, 700);//indiana
 		ctx.drawImage(stateImageArray[14], 500, 0);
 		ctx.drawImage(stateImageArray[15], 500, 0);
 		ctx.drawImage(stateImageArray[16], 500, 0);
