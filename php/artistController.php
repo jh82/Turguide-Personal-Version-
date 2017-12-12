@@ -9,11 +9,11 @@
 */
 
 
-include 'createfunctions.php';
-include 'readfunctions.php';
-include 'updateFunctions.php';
-include 'deletefunctions.php';
-include 'randomfunctions.php';
+include_once 'createfunctions.php';
+include_once 'readfunctions.php';
+include_once 'updateFunctions.php';
+include_once 'deletefunctions.php';
+include_once 'randomfunctions.php';
 
 $servername = 'classroom.cs.unc.edu';
 $username   = 'gibsonb';
@@ -25,6 +25,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
 
 /*
 
@@ -40,23 +41,24 @@ if ($conn->connect_error) {
 	DELETE: delete
 		removes the artist from the based on id - only possible with ID
 */
-$request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
+//$request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 //[0] should just be 'artist' and if [1] exists it's the id
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $request[0]==='artist')
+if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
 	//bring you to the creating page, nothing additional
 	//header('location: somepage.html');
 }
-elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && $request[0]==='artist')
+elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
-	header('Content-type: application/json');
+	//header('Content-type: application/json');
 	
-	if ( count($request)==1) //only 1 item, return everything - will gets mess it up?
+	if ( count($request)==0) //only 1 item, return everything - will gets mess it up?
 	{
+		print "TEST  WORK";
 		//get all artists and return
 	}
-	elseif ( count($request) > 1)//2 items can be id or GET params
+	elseif ( count($request) > 0)//2 items can be id or GET params
 	{
 		//1) Check for id and 
 		if ( count($_GET)==0)
@@ -79,19 +81,16 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && $request[0]==='artist')
 		}
 				
 	}
-	}
 	else
 	{
 		//not the right amount in the path - check
 	}
-		
-	
 }
-elseif ($_SERVER['REQUEST_METHOD'] === 'PUT' && $request[0]==='artist')
+elseif ($_SERVER['REQUEST_METHOD'] === 'PUT')
 {
 	//redirect to update artist page - if it's ever made
 }
-elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE' && $request[1]==='artist')
+elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE')
 {
 	//do path parsing and delete artist
 }

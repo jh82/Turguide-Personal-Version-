@@ -1,7 +1,7 @@
 <?php
 //all of a users favorite artists
 
-include 'functions.php';
+include_once 'readfunctions.php';
 
 function allUserArtists($conn,$accid)
 {

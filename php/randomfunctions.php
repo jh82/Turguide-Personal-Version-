@@ -1,7 +1,7 @@
 <?php
 //retrieves 10 random artists and returns them all in a json array
 
-include 'readfunctions.php';
+include_once 'readfunctions.php';
 
 function randomArtists($conn, $number)
 {

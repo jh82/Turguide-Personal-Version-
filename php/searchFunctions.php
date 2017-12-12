@@ -1,6 +1,6 @@
 <?php
 
-include 'readfunctions.php'
+include_once 'readfunctions.php'
 
 function venueSearch($conn, $vname, $vcity, $vstate)
 {
