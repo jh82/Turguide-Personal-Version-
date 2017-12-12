@@ -43,6 +43,8 @@ if ($conn->connect_error) {
 */
 //$request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
 //[0] should just be 'artist' and if [1] exists it's the id
+//print var_dump($_SERVER['REQUEST_METHOD']);
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
