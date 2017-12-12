@@ -5,7 +5,7 @@ $('document').ready(function() {
 
 var Controller = function() {
 	
-	this.headerObj = new Header(false);
+	this.headerObj = new Header(false, this);
 	this.sharedPrepsObj  = new SharedPreps();
 	this.imageLoaderObj = new ImageLoader();
 	this.stateImageArray;
@@ -20,6 +20,7 @@ var Controller = function() {
 	}
 	
 	this.loadHomePage = function() {
+		this.clearPage();
 		if(this.headerObj.userSignedIn) {
 			var homePageSignedInObj = new HomePageSignedIn(this.headerObj, this.sharedPrepsObj, this);
 			homePageSignedInObj.pageReady();

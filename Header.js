@@ -1,4 +1,4 @@
-var Header = function(userSignedIn) {
+var Header = function(userSignedIn, controllerObj) {
 	
 	this.userSignedIn = userSignedIn;
 	
@@ -67,7 +67,7 @@ var Header = function(userSignedIn) {
 
     this.whenTurGuideLogoClicked = function() {
     	console.log('turguide Logo Clicked!');
-    	this.testAJAXCall();
+		controllerObj.loadHomePage();
     }
 
     this.whenArtistsClicked = function() {

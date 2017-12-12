@@ -21,18 +21,16 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 
     this.fillInMainVenueDiv = function() {
     	var mainVenueDiv = $('#mainVenueDiv');
-        mainVenueDiv.append('<canvas id="mapCanvas" width="25500" height="5000"></canvas>'); //1536 768
+        mainVenueDiv.append('<canvas id="mapCanvas" width="4000" height="3300"></canvas>'); //1536 768
     	mainVenueDiv.append('Search Venues: <input type="text" id="venueSearchTextbox">');
     	mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     }
 	
 	this.fillInMapCanvas = function() {
-		var ctx = document.getElementById('mapCanvas').getContext('2d');
-		//ctx.drawImage(stateImageArray[0], 0, 0);
-		
-		/*for(var i = 0; i < stateImageArray.length; i++) {
-			ctx.drawImage(stateImageArray[i], i*500, 0);
-		}*/
+		var canvas = document.getElementById('mapCanvas');
+		var ctx = canvas.getContext('2d');
+		ctx.fillStyle = "grey";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
 		
 		ctx.drawImage(stateImageArray[0], 1400, 2100);//alabama
 		ctx.drawImage(stateImageArray[1], 0, 3000);//alaska
@@ -41,49 +39,49 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 		ctx.drawImage(stateImageArray[4], 0, 1950);//california
 		ctx.drawImage(stateImageArray[5], 500, 1800);//colorado
 		ctx.drawImage(stateImageArray[6], 1800, 500);//connecticut
-		ctx.drawImage(stateImageArray[7], 1650, 700);//delaware
+		ctx.drawImage(stateImageArray[7], 1950, 700);//delaware
 		ctx.drawImage(stateImageArray[8], 1600, 2400);//florida
 		ctx.drawImage(stateImageArray[9], 1600, 2100);//georgia
 		ctx.drawImage(stateImageArray[10], 500, 3000);//hawaii
 		ctx.drawImage(stateImageArray[11], 300, 400);//idaho
 		ctx.drawImage(stateImageArray[12], 1250, 700);//illinois
 		ctx.drawImage(stateImageArray[13], 1400, 700);//indiana
-		ctx.drawImage(stateImageArray[14], 500, 0);
-		ctx.drawImage(stateImageArray[15], 500, 0);
-		ctx.drawImage(stateImageArray[16], 500, 0);
-		ctx.drawImage(stateImageArray[17], 500, 0);
-		ctx.drawImage(stateImageArray[18], 500, 0);
-		ctx.drawImage(stateImageArray[19], 500, 0);
-		ctx.drawImage(stateImageArray[20], 500, 0);
-		ctx.drawImage(stateImageArray[21], 500, 0);
-		ctx.drawImage(stateImageArray[22], 500, 0);
-		ctx.drawImage(stateImageArray[23], 500, 0);
-		ctx.drawImage(stateImageArray[24], 500, 0);
-		ctx.drawImage(stateImageArray[25], 500, 0);
-		ctx.drawImage(stateImageArray[26], 500, 0);
-		ctx.drawImage(stateImageArray[27], 500, 0);
-		ctx.drawImage(stateImageArray[28], 500, 0);
-		ctx.drawImage(stateImageArray[29], 500, 0);
-		ctx.drawImage(stateImageArray[30], 500, 0);
-		ctx.drawImage(stateImageArray[31], 500, 0);
-		ctx.drawImage(stateImageArray[32], 500, 0);
-		ctx.drawImage(stateImageArray[33], 500, 0);
-		ctx.drawImage(stateImageArray[34], 500, 0);
-		ctx.drawImage(stateImageArray[35], 500, 0);
-		ctx.drawImage(stateImageArray[36], 500, 0);
-		ctx.drawImage(stateImageArray[37], 500, 0);
-		ctx.drawImage(stateImageArray[38], 500, 0);
-		ctx.drawImage(stateImageArray[39], 500, 0);
-		ctx.drawImage(stateImageArray[40], 500, 0);
-		ctx.drawImage(stateImageArray[41], 500, 0);
-		ctx.drawImage(stateImageArray[42], 500, 0);
-		ctx.drawImage(stateImageArray[43], 500, 0);
-		ctx.drawImage(stateImageArray[44], 500, 0);
-		ctx.drawImage(stateImageArray[45], 500, 0);
-		ctx.drawImage(stateImageArray[46], 500, 0);
-		ctx.drawImage(stateImageArray[47], 500, 0);
-		ctx.drawImage(stateImageArray[48], 500, 0);
-		ctx.drawImage(stateImageArray[49], 500, 0);
+		ctx.drawImage(stateImageArray[14], 950, 650);//iowa
+		ctx.drawImage(stateImageArray[15], 700, 800);//kansas
+		ctx.drawImage(stateImageArray[16], 1300, 1650);//kentucky
+		ctx.drawImage(stateImageArray[17], 1200, 2300);//louisiana
+		ctx.drawImage(stateImageArray[18], 2200, 0);//maine
+		ctx.drawImage(stateImageArray[19], 1680, 700);//maryland
+		ctx.drawImage(stateImageArray[20], 2080, 250);//massachusetts
+		ctx.drawImage(stateImageArray[21], 1250, 200);//michigan
+		ctx.drawImage(stateImageArray[22], 950, 200);//minnesota
+		ctx.drawImage(stateImageArray[23], 1100, 2100);//misssissippi
+		ctx.drawImage(stateImageArray[24], 950, 700);//missouri
+		ctx.drawImage(stateImageArray[25], 500, 200);//montana
+		ctx.drawImage(stateImageArray[26], 650, 1650);//nebraska
+		ctx.drawImage(stateImageArray[27], 300, 1950);//nevada
+		ctx.drawImage(stateImageArray[28], 2150, 200);//new hampshire
+		ctx.drawImage(stateImageArray[29], 2050, 670);//new jersey
+		ctx.drawImage(stateImageArray[30], 500, 1800);//new mexico
+		ctx.drawImage(stateImageArray[31], 1850, 200);//new york
+		ctx.drawImage(stateImageArray[32], 1680, 1750);//north carolina
+		ctx.drawImage(stateImageArray[33], 680, 200);//north dakota
+		ctx.drawImage(stateImageArray[34], 1600, 700);//ohio
+		ctx.drawImage(stateImageArray[35], 650, 1750);//oklahoma
+		ctx.drawImage(stateImageArray[36], 0, 350);//oregon
+		ctx.drawImage(stateImageArray[37], 1850, 650);//pennsylvania
+		ctx.drawImage(stateImageArray[38], 2200, 275);//rhode island
+		ctx.drawImage(stateImageArray[39], 1800, 2080);//south carolina
+		ctx.drawImage(stateImageArray[40], 650, 250);//south dakota
+		ctx.drawImage(stateImageArray[41], 1325, 1780);//tennessee
+		ctx.drawImage(stateImageArray[42], 600, 1850);//texas
+		ctx.drawImage(stateImageArray[43], 530, 2020);//utah
+		ctx.drawImage(stateImageArray[44], 1800, 200);//vermont
+		ctx.drawImage(stateImageArray[45], 1640, 700);//viriginia
+		ctx.drawImage(stateImageArray[46], 60, 160);//washington
+		ctx.drawImage(stateImageArray[47], 1680, 670);//west virginia
+		ctx.drawImage(stateImageArray[48], 1220, 340);//wisconsin
+		ctx.drawImage(stateImageArray[49], 460, 760);//wyoming
 		
 	}
 

@@ -142,6 +142,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
+						currentObj.randEventsAJAXCall();
     				}
     		   });
     }
