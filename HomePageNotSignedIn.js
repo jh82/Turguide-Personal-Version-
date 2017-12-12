@@ -196,7 +196,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.createTestAJAXEventsDiv = function(jsonResult) {
-		//console.log(jsonResult);
+		console.log(jsonResult);
 		var mpaDiv = $('#eventsRightNow');
 		var tempBandName = jsonResult.bandname;
 		//console.log(tempBandName);
