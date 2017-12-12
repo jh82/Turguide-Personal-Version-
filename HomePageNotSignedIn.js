@@ -159,7 +159,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		console.log(jsonResult);
 		var mpaDiv = $('#randomVenue');
 		var tempVenueName = jsonResult.vname;
-		console.log(tempBandName);
+		console.log(tempVenueName);
 		var tempCity = jsonResult.vcity;
 		var tempState = jsonResult.vstate;
 		var tempCapacity = jsonResult.maxcap;
