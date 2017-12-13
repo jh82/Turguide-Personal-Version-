@@ -49,13 +49,16 @@ function deleteUser($conn,$accid)
 
 function deleteFavArtist($conn,$accid,$artid)
 {
-	$result = $conn->query("
+	$conn->query("
 		DELETE FROM FavArtists
 		WHERE FavArtists.fk_accid=$accid
 		AND FavArtists.fk_artid=$artid
 		");
-	if(!$result){return json_encode(false);}
-	return json_encode(true);
+	if($conn->affected_rows <=0){return json_encode(false);}
+	else 
+	{
+		return json_encode(true);
+	}
 }
 
 function deleteFavVenue($conn,$accid,$venid)
