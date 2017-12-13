@@ -28,7 +28,7 @@ $conn->query('DROP TABLE IF EXISTS FavVenues CASCADE;');
 $conn->query("CREATE TABLE Accounts (
 accid INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 uname VARCHAR(25) NOT NULL,
-password VARCHAR(40) NOT NULL,
+password VARCHAR(100) NOT NULL,
 fname VARCHAR(25),
 lname  VARCHAR(25),
 home  VARCHAR(25)
