@@ -67,6 +67,10 @@ main {
 	justify-content: space-around;
 }
 
+	.threeColumns > *{
+		width: 24%;
+	}
+
 .infoPanel {
 	border: black 1px solid;
 }
@@ -74,6 +78,7 @@ main {
 .flexVertical {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 }
 
 .floatingDiv {
@@ -130,16 +135,26 @@ main {
 }
 
 .AJAXDiv {
-	background-color: rgba(61, 88, 143, 0.5);
+	background-color: rgba(61, 88, 143, 0.33);
 	border-radius: 25px;
 	display: grid;
-	grid-template-columns: 4fr 1fr;
-	grid-template-rows: 56px 900px 1fr auto;
-	
+	grid-template-columns: 2fr 3fr;
+	grid-template-rows: 2fr 3fr;
 }
 
+	.AJAXDiv > img {
+		grid-area: 1 / 1 / 2 / 2;
+	}
+	
+	.AJAXDiv > h1 {
+		grid-area: 1 / 2 / 2 / 3;
+	}
+	
+	.AJAXDiv > ul {
+		grid-area: 2 / 1 / 3 / 3;
+	}
+	
 .circleViewport {
 	border-radius: 50%;
+	border: 1px solid black;
 }
-
-.

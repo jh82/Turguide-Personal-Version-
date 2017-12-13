@@ -18,12 +18,15 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		
 		var titlesArray = [
 			{divNode:$('#randomArtist'),titleString:'Random Artists'},
-			{divNode:$('#eventsRightNow'),titleString:'Events Happening Right Now!!!!!'},
+			{divNode:$('#eventsRightNow'),titleString:'Random Events'},
 			{divNode:$('#randomVenue'),titleString:'Random Venues'}
 		];
     	sharedPrepsObj.fillInAllTitles(titlesArray);
     	
 		this.fillInMainLogo();
+		$('randomArtist').addClass('flexVertical');
+		$('randomVenue').addClass('flexVertical');
+		$('eventsRightNow').addClass('flexVertical');
 		this.randArtistsAJAXCall();
 		this.randVenuesAJAXCall();
 		this.randEventsAJAXCall();
@@ -61,6 +64,9 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.createTestAJAXArtistDiv = function(jsonResult) {
+		if(jsonResult.bandname==null) {
+			return;
+		}
 		console.log(jsonResult);
 		var mpaDiv = $('<div class="bodyText AJAXDiv"></div>');
 		mpaDiv.addClass('infoPanel');
@@ -160,8 +166,9 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		var tempOtherBands = "";
 		tempOtherBands = jsonResult.otherbands[0];
 		
-		mpaDiv.append('<h1>'+tempEventDate+'</h1>');
-		mpaDiv.append('<ul><li>Event Time:'+tempEventTime+'</li><li>Venue:'+tempVenueName+'</li><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Price:'+tempPrice+'</li><li>Headliners:'+tempHeadliners+'</li><li>Other Bands:'+tempOtherBands+'</li></ul>');
+		if(tempHeadliners!=undefined){mpaDiv.append('<h1>'+tempHeadliners+'</h1>');}
+		if(tempOtherBands!=undefined){mpaDiv.append('<h4>'+tempOtherBands+'</h4>');}
+		mpaDiv.append('<ul><li>Event Data:'+tempEventDate+'</li><li>Event Time:'+tempEventTime+'</li><li>Venue Name:'+tempVenueName+'</li><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Price:'+tempPrice+'</li></ul>');
 		
 		$('#eventsRightNow').append(mpaDiv);
 	}

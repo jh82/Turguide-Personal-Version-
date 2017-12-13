@@ -214,6 +214,7 @@ var Header = function(userSignedIn, controllerObj) {
 						console.log(xhr);
 						console.log(status);
 						console.log(error);
+						alert("Username And/Or Password could not be found.");
     				}
     		   });
 	}

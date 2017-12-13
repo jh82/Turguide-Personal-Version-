@@ -27,12 +27,10 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.fillInFavoriteArtists = function() {
     	var favoriteArtistsDiv = $('#favoriteArtists');
-    	favoriteArtistsDiv.append('<button id="viewAllArtistsButton">View All Artists</button>');
     }
 
     this.fillInFavoriteVenues = function() {
     	var favoriteVenuesDiv = $('#favoriteVenues');
-    	favoriteVenuesDiv.append('<button id="viewAllVenuesButton">View All Venues</button>');
     }
 
     this.setUpEventHandlers = function() {
@@ -88,7 +86,7 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('&#9733;');
+		mpaDiv.append('<button class="starButton favorite" data-favorited="1" data-artid="'+jsonResult.artid+'">&#9733;</button>');
 	}
 	
 	this.venueAJAXCall = function() {
