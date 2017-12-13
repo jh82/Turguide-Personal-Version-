@@ -124,8 +124,8 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
 	
 	this.removeFaveAJAXCall = function(artid) {
 		var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/php/userController.php/artists/"+artid+"",
-    	       {	type: "DELETE",
+    	$.ajax(url_base + "/php/userController.php/artists/"+artid+"?action=delete",
+    	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
     					alert("AJAX call successful!");
