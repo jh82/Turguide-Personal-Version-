@@ -191,7 +191,8 @@ var Header = function(userSignedIn, controllerObj) {
 					data: {username:uname, password:pword},
     				success: function(result, status, xhr) {
     					console.log("AJAX call success!");
-						
+						this.userSignedIn = true;
+						controllerObj.loadHomePage();
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
