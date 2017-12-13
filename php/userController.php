@@ -74,28 +74,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
-	require_once('authenticate.php'); //user must be logged in to continue
+	//require_once('authenticate.php'); //user must be logged in to continue
 	
 	header('Content-type: application/json');
 	
 	if ( empty($_SERVER['PATH_INFO'])) //only 1 item, return everything - will gets mess it up?
 	{
-		if( isset($_GET['bname']))
-			{ //do search by bname
-				//print 'HERE<br>';
-				$searchthis = mysqli_real_escape_string($conn,$_GET['bname']);
-				//print_r($searchthis);
-				print artistSearch($conn,$searchthis);
-			}
-		elseif ( isset($_GET['random']))
-			{ //get random number of values
-				print randomArtists($conn, (int) mysqli_real_escape_string($conn,$_GET['random']));
-				
-			}
-		else
-		{
-			print getAllArtists($conn); //get all artists and return
-		}
 		
 	}
 	elseif ( (basename($_SERVER['PATH_INFO'])) === 'venues' || (basename($_SERVER['PATH_INFO'])) === 'artists' )//asking for all favorite artists or venues
@@ -106,12 +90,12 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 		if($type==='venues')
 		{
 			//get venues
-			print allUserVenues($conn,$_SESSION['accid']);
+			print allUserVenues($conn,1);//$_SESSION['accid']);
 		}
 		else
 		{
 			//get artists
-			print allUserArtists($conn,$_SESSION['accid']);
+			print allUserArtists($conn,1);//$_SESSION['accid']);
 		}
 				
 	}
