@@ -23,13 +23,21 @@ var Controller = function() {
 	this.loadHomePage = function() {
 		this.clearPage();
 		if(this.headerObj.userSignedIn) {
+			this.headerObj = new Header(true, this);
 			var homePageSignedInObj = new HomePageSignedIn(this.headerObj, this.sharedPrepsObj, this);
 			homePageSignedInObj.pageReady();
 		}
 		else {
+			this.headerObj = new Header(false, this);
 			var homePageNotSignedInObj = new HomePageNotSignedIn(this.headerObj, this.sharedPrepsObj, this);
 			homePageNotSignedInObj.pageReady();
 		}
+	}
+	
+	this.loadAccountSettings = function() {
+		this.clearPage();
+		var accountSettingsObj = new AccountSettings(this.headerObj, this.sharedPrepsObj, this);
+		accountSettingsObj.pageReady();
 	}
 	
 	this.loadMainArtistPage = function() {

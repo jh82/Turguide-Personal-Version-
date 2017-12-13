@@ -128,10 +128,12 @@ var Header = function(userSignedIn, controllerObj) {
 	
 	this.whenAccountSettingsClicked = function() {
     	console.log('Account Settings Clicked!');
+		controllerObj.loadAccountSettings();
     }
 
     this.whenLogOffClicked = function() {
     	console.log('Log Off Clicked!');
+		this.logOffAJAXCall();
     }
 
     this.appendLogin = function() {
@@ -194,6 +196,28 @@ var Header = function(userSignedIn, controllerObj) {
 						console.log(result);
 						console.log(document.cookie);
 						currentObj.userSignedIn = true;
+						controllerObj.loadHomePage();
+    				},
+    				error: function(xhr,status,error) {
+    					console.log("AJAX call failed!");
+						console.log(xhr);
+						console.log(status);
+						console.log(error);
+    				}
+    		   });
+	}
+	
+	this.logOffAJAXCall = function() {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/php/logout.php",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					console.log("AJAX call success!");
+						console.log(result);
+						console.log(document.cookie);
+						currentObj.userSignedIn = false;
 						controllerObj.loadHomePage();
     				},
     				error: function(xhr,status,error) {

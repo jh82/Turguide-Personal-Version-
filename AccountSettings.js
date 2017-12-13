@@ -1,4 +1,4 @@
-var accountSettings = function(headerObj, sharedPrepsObj, controllerObj) {
+var AccountSettings = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.pageReady = function() {
     	sharedPrepsObj.makeDOMReady();
@@ -44,15 +44,15 @@ var accountSettings = function(headerObj, sharedPrepsObj, controllerObj) {
     	});
 
     	$('#avatarInContent').hover(function() {
-    			whenAvatarHovered(true);
+    			currentObj.whenAvatarHovered(true);
     		}, function() {
-    			whenAvatarHovered(false);
+    			currentObj.whenAvatarHovered(false);
     		});
     }
 
     this.whenChangePasswordClicked = function() {
     	console.log('Change Password Clicked!');
-    	replaceChangePassword();
+    	this.replaceChangePassword();
     }
 
     this.whenSubmitChangesClicked = function() {
