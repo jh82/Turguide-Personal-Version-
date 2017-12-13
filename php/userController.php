@@ -160,7 +160,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 		}
 				
 	}
-	elseif(((int)$lastitem) > 0) && $secondlast=== 'artists' //last item is id
+	elseif((((int)$lastitem) > 0) && $secondlast=== 'artists') //last item is id
 	{
 		$action = $_GET['action'];
 		if($action === 'delete')
