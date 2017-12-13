@@ -56,15 +56,14 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
     }
 	
 	this.createTestAJAXDiv = function(jsonResult) {
-		console.log(jsonResult);
-		var parsedResult = JSON.parse(jsonResult.artistInfo);
-		console.log(parsedResult);
+		console.log(jsonResult.artistinfo);
+		var artistInfo = JSON.parse(jsonResult.artistinfo);
 		var mpaDiv = $('#foundArtistsDiv');
-		var tempBandName = parsedResult.bandname;
+		var tempBandName = artistInfo.bandname;
 		console.log(tempBandName);
-		var tempWebsite = parsedResult.website;
-		var tempOrigin = parsedResult.origin;
-		var tempMembers = parsedResult.members;
+		var tempWebsite = artistInfo.website;
+		var tempOrigin = artistInfo.origin;
+		var tempMembers = artistInfo.members;
 		
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
