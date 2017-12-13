@@ -66,13 +66,14 @@ print '<br>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
+	print_r(var_dump($_POST));
 	$bname   = mysqli_real_escape_string($conn,$_POST['bname']);
 	$website = mysqli_real_escape_string($conn,$_POST['website']);
 	$origin  = mysqli_real_escape_string($conn,$_POST['origin']);
 	$members = mysqli_real_escape_string($conn,$_POST['members']);
 	$imgurl  = 'fakeAvatar.png';
 	
-	createArtist($conn,$bname,$websire,$origin,$members,$imgurl);
+	createArtist($conn,$bname,$website,$origin,$members,$imgurl);
 	
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET')

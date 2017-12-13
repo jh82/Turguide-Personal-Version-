@@ -43,7 +43,7 @@ if ($conn->connect_error) {
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			print $row[0]; //check
+			//print $row[0]; //check
 		}
 	}
 	elseif($vname==='' && $vstate==='') //only city
@@ -59,11 +59,12 @@ if ($conn->connect_error) {
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			print $row[0]; //check
+			//print $row[0]; //check
 		}
 	}
 	elseif($vcity==='' && $vstate==='')//only name
 	{
+		//print $vname;
 						//TODO how to retreive more than 1 page of results
 		$vresult = $conn->query("
 			SELECT Venues.vid
@@ -75,7 +76,7 @@ if ($conn->connect_error) {
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			print $row[0]; //check
+			//print $row[0]; //check
 		}
 		
 	}
@@ -93,7 +94,7 @@ if ($conn->connect_error) {
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			print $row[0]; //check
+			//print $row[0]; //check
 		}
 	}
 	elseif($vstate==='') //city and name
@@ -109,7 +110,7 @@ if ($conn->connect_error) {
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			print $row[0]; //check
+			//print $row[0]; //check
 		}
 	}
 	elseif($vcity==='') //name and state
@@ -125,7 +126,7 @@ if ($conn->connect_error) {
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			print $row[0]; //check
+			//print $row[0]; //check
 		}
 	}
 	else //name, city, and state
@@ -142,7 +143,7 @@ if ($conn->connect_error) {
 		while($row = $vresult->fetch_row())
 		{
 			$vidstoget[] = $row[0];
-			print $row[0]; //check
+			//print $row[0]; //check
 		}
 	}
 	
