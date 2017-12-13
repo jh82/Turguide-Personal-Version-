@@ -40,6 +40,8 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.whenSearchButtonClicked = function() {
     	console.log('Search Button Clicked!');
+		var searchval = $('#artistSearchTextbox').val();
+		this.searchAJAXCall(searchval);
     }
 
     this.randArtistsAJAXCall = function() {
@@ -81,4 +83,21 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
 		mpaDiv.append('&#9733;');
 	}
+	
+	 this.searchAJAXCall = function(searchval) {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/artistsearch.php?searchval="+searchval+"",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+						console.log("AJAX call successful!");
+						console.log(result);
+						controllerObj.loadArtistSearchPage(result);
+    				},
+    				error: function(xhr,status,error) {
+    					console.log("AJAX call failed!");
+    				}
+    		   });
+    }
 }

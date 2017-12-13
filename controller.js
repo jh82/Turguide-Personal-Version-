@@ -43,4 +43,10 @@ var Controller = function() {
 		mainVenuePageObj.pageReady();
 	}
 	
+	this.loadArtistSearchPage = function(searchResult) {
+		this.clearPage();
+		var artistSearchPageObj = new ArtistSearchPage(this.headerObj, this.sharedPrepsObj, this, searchResult);
+		artistSearchPageObj.pageReady();
+	}
+	
 }

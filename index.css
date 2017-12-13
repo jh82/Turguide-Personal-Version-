@@ -23,13 +23,14 @@ main {
 	border: none;
 	background: none;
 	text-shadow: 0.20px 0.50px #000000;
-	color: #2060A9;
+	/*color: #eff6ef;*/
+	color: #deedde;
 	font-size: 140%;
 	font-weight: bold;
 }
 
 .header-button:hover {
-	background-color: #396138;
+	color: #8cc08c
 }
 
 .centeredColumn {
