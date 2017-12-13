@@ -98,6 +98,6 @@ function addFavoriteVenue($conn,$accid,$venid)
 	}
 	$stmt->close();
 }
-	
+
 
 ?>

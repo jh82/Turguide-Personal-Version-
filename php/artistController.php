@@ -46,6 +46,7 @@ if ($conn->connect_error) {
 
 
 $lastitem = pathinfo($_SERVER['PATH_INFO']);
+/*
 print_r('pathinfo:'.$_SERVER['PATH_INFO']);
 print '<br>';
 print_r($lastitem);
@@ -61,12 +62,18 @@ print '<br>';
 print_r( $_GET['bname']);
 print '<br>';
 //print 'HERE';
-
+*/
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-	//bring you to the creating page, nothing additional
-	//header('location: somepage.html');
+	$bname   = mysqli_real_escape_string($conn,$_POST['bname']);
+	$website = mysqli_real_escape_string($conn,$_POST['website']);
+	$origin  = mysqli_real_escape_string($conn,$_POST['origin']);
+	$members = mysqli_real_escape_string($conn,$_POST['members']);
+	$imgurl  = 'fakeAvatar.png';
+	
+	createArtist($conn,$bname,$websire,$origin,$members,$imgurl);
+	
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
@@ -76,14 +83,14 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 	{
 		if( isset($_GET['bname']))
 			{ //do search by bname
-				print 'HERE<br>';
-				$searchthis = $_GET['bname'];
-				print_r($searchthis);
+				//print 'HERE<br>';
+				$searchthis = mysqli_real_escape_string($conn,$_GET['bname']);
+				//print_r($searchthis);
 				print artistSearch($conn,$searchthis);
 			}
 		elseif ( isset($_GET['random']))
 			{ //get random number of values
-				print randomArtists($conn, (int) $_GET['random']);
+				print randomArtists($conn, (int) mysqli_real_escape_string($conn,$_GET['random']));
 				
 			}
 		else
