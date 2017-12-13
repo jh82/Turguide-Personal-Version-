@@ -24,6 +24,7 @@ var VenueSearchPage = function(headerObj, sharedPrepsObj, controllerObj) {
     	mainArtistsDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     	mainArtistsDiv.append('<h1>Search Results</h1>');
     	mainArtistsDiv.append('<div id="foundVenueDiv"></div>');
+		this.createTestAJAXDiv
     }
 
     this.setUpEventHandlers = function() {
@@ -52,4 +53,20 @@ var VenueSearchPage = function(headerObj, sharedPrepsObj, controllerObj) {
     				}
     		   });
     }
+	
+	this.createTestAJAXDiv = function(jsonResult) {
+		console.log(jsonResult.artistinfo);
+		var artistInfo = JSON.parse(jsonResult.artistinfo);
+		var mpaDiv = $('#foundVenueDiv');
+		var tempBandName = artistInfo.bandname;
+		console.log(tempBandName);
+		var tempWebsite = artistInfo.website;
+		var tempOrigin = artistInfo.origin;
+		var tempMembers = artistInfo.members;
+		
+		mpaDiv.append('<img src="fakeAvatar.png">');
+		mpaDiv.append('<h1>'+tempBandName+'</h1>');
+		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
+		mpaDiv.append('&#9733;');
+	}
 }

@@ -97,6 +97,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
+						alert('Band not found!');
     				}
     		   });
     }
