@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	$vstate  = mysqli_real_escape_string($conn,$_POST['vstate']);
 	$maxcap  = (int) mysqli_real_escape_string($conn,$_POST['maxcap']);
 	
-	createVenue($conn,$vname,$vcity,$vstate,$maxcap);
+	print createVenue($conn,$vname,$vcity,$vstate,$maxcap);
 	
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
