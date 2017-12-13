@@ -24,7 +24,7 @@ function getArtistInfo($artid, $server)
 		$artinfo->bandname = $rarr["bname"];
 		$artinfo->website  = $rarr["website"];
 		$artinfo->origin   = $rarr["origin"];
-		$artinfo->members  = $rarr["origin"];
+		$artinfo->members  = $rarr["members"];
 		$artinfo->imgurl   = $rarr["imgurl"];
 		
 		//TODO Do we want to include any event info here? upcoming, etc?
