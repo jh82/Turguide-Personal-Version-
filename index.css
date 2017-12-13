@@ -78,7 +78,10 @@ main {
 
 .floatingDiv {
   position:absolute;
-  padding: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 40px;
   top: 123px;
   background-color: rgba(0, 144, 0, 0.3);
   border-radius: 25px;
@@ -99,4 +102,14 @@ main {
 
 .favorite {
 	color: yellow;
+}
+
+.cancel {
+	color: red;
+}
+
+.textInput {
+	border:none;
+	background-color: #deedde;
+	border-radius: 10px;
 }
