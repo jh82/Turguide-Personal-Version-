@@ -100,10 +100,10 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
     				dataType: "json",
 					data: {artid: artid},
     				success: function(result, status, xhr) {
-    					alert("AJAX call successful!");
+    					console.log("AJAX call successful!");
     				},
     				error: function(xhr,status,error) {
-    					alert("AJAX call failed!");
+    					console.log("AJAX call failed!");
     				}
     		   });
 	}

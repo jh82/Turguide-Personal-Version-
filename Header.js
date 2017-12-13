@@ -115,7 +115,7 @@ var Header = function(userSignedIn, controllerObj) {
     }
 
 	this.whenSignUpConfirmClicked = function() {
-    	console.log('Login Confirm Clicked!');
+    	console.log('Sign Up Confirm Clicked!');
 		if($('#password').val()!=$('#passwordConfirm').val()) {
 			alert("Passwords do not match!!!!!!!!!!!!!");
 			return;
