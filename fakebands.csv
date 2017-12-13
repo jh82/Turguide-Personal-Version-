@@ -1,56 +1,56 @@
-Band BA,example.com,somewhere,people,/img1.jpg
-Band BU,example.com,somewhere,people,/img2.jpg
-Band BV,example.com,somewhere,people,/img3.jpg
-Band BW,example.com,somewhere,people,/img4.jpg
-Band BX,example.com,somewhere,people,/img5.jpg
-Band BY,example.com,somewhere,people,/img6.jpg
-Band BZ,example.com,somewhere,people,/img7.jpg
-Band CA,example.com,somewhere,people,/img8.jpg
-Band CB,example.com,somewhere,people,/img9.jpg
-Band CC,example.com,somewhere,people,/img10.jpg
-Band CD,example.com,somewhere,people,/img11.jpg
-Band CE,example.com,somewhere,people,/img12.jpg
-Band CF,example.com,somewhere,people,/img13.jpg
-Band CG,example.com,somewhere,people,/img14.jpg
-Band CH,example.com,somewhere,people,/img15.jpg
-Band CI,example.com,somewhere,people,/img16.jpg
-Band CJ,example.com,somewhere,people,/img17.jpg
-Band CK,example.com,somewhere,people,/img18.jpg
-Band CL,example.com,somewhere,people,/img19.jpg
-Band CM,example.com,somewhere,people,/img20.jpg
-Band CN,example.com,somewhere,people,/img21.jpg
-Band CO,example.com,somewhere,people,/img22.jpg
-Band CP,example.com,somewhere,people,/img23.jpg
-Band CQ,example.com,somewhere,people,/img24.jpg
-Band CR,example.com,somewhere,people,/img25.jpg
-Band CS,example.com,somewhere,people,/img26.jpg
-Band CT,example.com,somewhere,people,/img27.jpg
-Band CU,example.com,somewhere,people,/img28.jpg
-Band CV,example.com,somewhere,people,/img29.jpg
-Band CW,example.com,somewhere,people,/img30.jpg
-Band CX,example.com,somewhere,people,/img31.jpg
-Band CY,example.com,somewhere,people,/img32.jpg
-Band CZ,example.com,somewhere,people,/img33.jpg
-Band DA,example.com,somewhere,people,/img34.jpg
-Band DB,example.com,somewhere,people,/img35.jpg
-Band DC,example.com,somewhere,people,/img36.jpg
-Band DD,example.com,somewhere,people,/img37.jpg
-Band DE,example.com,somewhere,people,/img38.jpg
-Band DF,example.com,somewhere,people,/img39.jpg
-Band DG,example.com,somewhere,people,/img40.jpg
-Band DH,example.com,somewhere,people,/img41.jpg
-Band DI,example.com,somewhere,people,/img42.jpg
-Band DJ,example.com,somewhere,people,/img43.jpg
-Band DK,example.com,somewhere,people,/img44.jpg
-Band DL,example.com,somewhere,people,/img45.jpg
-Band DM,example.com,somewhere,people,/img46.jpg
-Band DN,example.com,somewhere,people,/img47.jpg
-Band DO,example.com,somewhere,people,/img48.jpg
-Band DP,example.com,somewhere,people,/img49.jpg
-Band DQ,example.com,somewhere,people,/img50.jpg
-Sleater-Kinney,Sleater-kinney.com,"Olympia, Washington","Corin Tucker, Carrie Brownstein, and Janet Weiss ",/img.jpg
-Coheed and Cambria,coheedandcambria.com,"Nyack, New York","Claudio Sanchez, Travis Stever, Josh Eppard, and Zach Cooper ",/img.jpg
-Iron Maiden,ironmaiden.com,"Leyton, East London","Bruce Dickinson, Steve Harris, Adrian Smith",/img.jpg
-Judas Priest,judaspriest.com,"Birmingham, England","Rob Halford, Glenn Tipton, Richie Faulkner",/img.jpg
-Mastodon,mastodonrocks.com,"Atlanta, Georgia","Troy Sanders, Brent Hinds, Bill Kelliher,  Drann Dailor",img.jpg
-Kreator,Kreator-terrorzone.de,"Essen, Germany","Mille Petrozza, Jurgen Reil, Sami Yli-Rail",/img.jpg
+Band BA,example.com,somewhere,people,img/fakeAvatar.png
+Band BU,example.com,somewhere,people,img/fakeAvatar.png
+Band BV,example.com,somewhere,people,img/fakeAvatar.png
+Band BW,example.com,somewhere,people,img/fakeAvatar.png
+Band BX,example.com,somewhere,people,img/fakeAvatar.png
+Band BY,example.com,somewhere,people,img/fakeAvatar.png
+Band BZ,example.com,somewhere,people,img/fakeAvatar.png
+Band CA,example.com,somewhere,people,img/fakeAvatar.png
+Band CB,example.com,somewhere,people,img/fakeAvatar.png
+Band CC,example.com,somewhere,people,img/fakeAvatar.png
+Band CD,example.com,somewhere,people,img/fakeAvatar.png
+Band CE,example.com,somewhere,people,img/fakeAvatar.png
+Band CF,example.com,somewhere,people,img/fakeAvatar.png
+Band CG,example.com,somewhere,people,img/fakeAvatar.png
+Band CH,example.com,somewhere,people,img/fakeAvatar.png
+Band CI,example.com,somewhere,people,img/fakeAvatar.png
+Band CJ,example.com,somewhere,people,img/fakeAvatar.png
+Band CK,example.com,somewhere,people,img/fakeAvatar.png
+Band CL,example.com,somewhere,people,img/fakeAvatar.png
+Band CM,example.com,somewhere,people,img/fakeAvatar.png
+Band CN,example.com,somewhere,people,img/fakeAvatar.png
+Band CO,example.com,somewhere,people,img/fakeAvatar.png
+Band CP,example.com,somewhere,people,img/fakeAvatar.png
+Band CQ,example.com,somewhere,people,img/fakeAvatar.png
+Band CR,example.com,somewhere,people,img/fakeAvatar.png
+Band CS,example.com,somewhere,people,img/fakeAvatar.png
+Band CT,example.com,somewhere,people,img/fakeAvatar.png
+Band CU,example.com,somewhere,people,img/fakeAvatar.png
+Band CV,example.com,somewhere,people,img/fakeAvatar.png
+Band CW,example.com,somewhere,people,img/fakeAvatar.png
+Band CX,example.com,somewhere,people,img/fakeAvatar.png
+Band CY,example.com,somewhere,people,img/fakeAvatar.png
+Band CZ,example.com,somewhere,people,img/fakeAvatar.png
+Band DA,example.com,somewhere,people,img/fakeAvatar.png
+Band DB,example.com,somewhere,people,img/fakeAvatar.png
+Band DC,example.com,somewhere,people,img/fakeAvatar.png
+Band DD,example.com,somewhere,people,img/fakeAvatar.png
+Band DE,example.com,somewhere,people,img/fakeAvatar.png
+Band DF,example.com,somewhere,people,img/fakeAvatar.png
+Band DG,example.com,somewhere,people,img/fakeAvatar.png
+Band DH,example.com,somewhere,people,img/fakeAvatar.png
+Band DI,example.com,somewhere,people,img/fakeAvatar.png
+Band DJ,example.com,somewhere,people,img/fakeAvatar.png
+Band DK,example.com,somewhere,people,img/fakeAvatar.png
+Band DL,example.com,somewhere,people,img/fakeAvatar.png
+Band DM,example.com,somewhere,people,img/fakeAvatar.png
+Band DN,example.com,somewhere,people,img/fakeAvatar.png
+Band DO,example.com,somewhere,people,img/fakeAvatar.png
+Band DP,example.com,somewhere,people,img/fakeAvatar.png
+Band DQ,example.com,somewhere,people,img/fakeAvatar.png
+Sleater-Kinney,Sleater-kinney.com,Olympia  Washington,Corin Tucker Carrie Brownstein Janet Weiss ,img/s-k.jpg
+Coheed and Cambria,coheedandcambria.com,Nyack  New York,Claudio Sanchez Travis Stever Josh Eppard Zach Cooper ,img/cac.jpg
+Iron Maiden,ironmaiden.com,Leyton  East London,Bruce Dickinson Steve Harris Adrian Smith,img/maiden.jpg
+Judas Priest,judaspriest.com,Birmingham  England,Rob Halford Glenn Tipton Richie Faulkner,img/jp.jpg
+Mastodon,mastodonrocks.com,Atlanta  Georgia,Troy Sanders Brent Hinds Bill Kelliher  Drann Dailor,img/mastodon.jpg
+Kreator,Kreator-terrorzone.de,Essen Germany,Mille Petrozza  Jurgen Reil Sami Yli-Rail,img/kreator.jpg

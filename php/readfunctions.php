@@ -26,7 +26,7 @@ function getArtistInfo($artid, $server)
 		$artinfo->website  = $rarr["website"];
 		$artinfo->origin   = $rarr["origin"];
 		$artinfo->members  = $rarr["members"];
-		$artinfo->imgurl   = $rarr["imgurl"];
+		$artinfo->imgurl   = preg_replace( "/\r|\n/", "", $rarr["imgurl"]);
 		
 		//TODO Do we want to include any event info here? upcoming, etc?
 
