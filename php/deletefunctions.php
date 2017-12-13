@@ -54,7 +54,7 @@ function deleteFavArtist($conn,$accid,$artid)
 		WHERE FavArtists.fk_accid=$accid
 		AND FavArtists.fk_artid=$artid
 		");
-	if(!$result){print "Account not deleted - failure";}
+	if(!$result){print "fav artist not deleted - failure";}
 }
 
 function deleteFavVenue($conn,$accid,$venid)
@@ -64,7 +64,7 @@ function deleteFavVenue($conn,$accid,$venid)
 		WHERE FavVenues.fk_accid=$accid
 		AND FavVenues.fk_vid=$venid
 		");
-	if(!$result){print "Account not deleted - failure";}
+	if(!$result){print "fav venue not deleted - failure";}
 }
 
 

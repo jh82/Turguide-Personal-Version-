@@ -167,10 +167,29 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'PUT')
 {
-	//update something user related
+	//update user info
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE')
 {
+	header('Content-type: application/json');
+	//print_r(explode('/',$_SERVER['PATH_TRANSLATED']));
+	//print_r($lastitem);
+	//print_r($secondlast);
+	//add new favorites row (venues or artists)
+	if ($secondlast === 'artists' || $secondlast === 'venues')
+	{
+		$fk_item = (int) $lastitem;
+		if($secondlast === 'artists')
+		{
+			//print 'HERE';
+			deleteFavArtist($conn,(int) $_SESSION['accid'],$fk_item);
+			
+		}
+		else
+		{
+			deleteFavVenue($conn,(int) $_SESSION['accid'],$fk_item);
+		}
+	}
 	//delete something
 }
 else
