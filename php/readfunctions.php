@@ -21,6 +21,7 @@ function getArtistInfo($artid, $server)
 	{
 		$rarr = $result->fetch_assoc();
 		
+		$artinfo->artid    = $rarr["artid"];
 		$artinfo->bandname = $rarr["bname"];
 		$artinfo->website  = $rarr["website"];
 		$artinfo->origin   = $rarr["origin"];
@@ -54,6 +55,7 @@ function getVenueInfo($venid,$server)
 	{
 		$rarr = $result->fetch_assoc();
 		
+		$veninfo->venid  = $rarr["vid"];
 		$veninfo->vname  = $rarr["vname"];
 		$veninfo->vcity  = $rarr["vcity"];
 		$veninfo->vstate = $rarr["vstate"];
@@ -96,6 +98,7 @@ function getEventInfo($evid,$server)
 		$edate = $rarr["edate"];
 		$etime = $rarr["etime"];
 		$venid = $rarr["fk_vid"];
+		$eventid = $rarr["evid"];
 		
 		$arrartists = array();
 		$arrheadliners = array();
@@ -164,6 +167,7 @@ function getEventInfo($evid,$server)
 		$outinfo->price = $rarr["price"];
 		$outinfo->headliners = $arrheadliners;
 		$outinfo->otherbands = $arrartists;
+		$outinfo->eventif = $eventid;
 		
 		//artists will be an array
 		//headliner will be a seperate field
@@ -204,6 +208,7 @@ function getUserInfo($conn,$uname,$upword)
 		$userinfo->fname = $rarr['fname'];
 		$userinfo->lname = $rarr['lname'];
 		$userinfo->home  = $rarr['home'];
+		$userinfo->accid = $rarr['accid'];
 		
 	}
 	
