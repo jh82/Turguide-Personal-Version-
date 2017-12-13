@@ -22,7 +22,9 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
     this.fillInMainVenueDiv = function() {
     	var mainVenueDiv = $('#mainVenueDiv');
         mainVenueDiv.append('<canvas id="mapCanvas" width="4000" height="3300"></canvas>'); //1536 768
-    	mainVenueDiv.append('Search Venues: <input type="text" id="venueSearchTextbox">');
+    	mainVenueDiv.append('Search Venue Name:<input type="text" id="venueNameTextbox">');
+		mainVenueDiv.append('Search Venue City:<input type="text" id="venueCityTextbox">');
+		mainVenueDiv.append('Search Venue State:<input type="text" id="venueStateTextbox">');
     	mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     }
 	
@@ -94,6 +96,10 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 
     this.whenSearchButtonClicked = function() {
     	console.log('Search Button Clicked!');
+		var nameVal = $('#artistNameTextbox').val();
+		var cityVal = $('#artistCityTextbox').val();
+		var stateVal = $('#artistStateTextbox').val();
+		this.searchAJAXCall(nameVal, cityVal, stateVal);
     }
 
 	this.testAJAXCall = function() {
@@ -135,4 +141,22 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
 		mpaDiv.append('&#9733;');
 	}
+	
+	 this.searchAJAXCall = function(nameVal, cityVal, stateVal) {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/artistsearch.php?vname="+encodeURIComponent(nameVal)+"&vcity="+encodeURIComponent(cityVal)+"&vstate="+encodeURIComponent(stateVal)+"",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+						console.log("AJAX call successful!");
+						console.log(result);
+						controllerObj.loadVenueSearchPage(result);
+    				},
+    				error: function(xhr,status,error) {
+    					console.log("AJAX call failed!");
+						alert('Venue not found!');
+    				}
+    		   });
+    }
 }

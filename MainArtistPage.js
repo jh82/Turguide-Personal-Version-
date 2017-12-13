@@ -87,7 +87,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 	 this.searchAJAXCall = function(searchval) {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/artistsearch.php?searchval="+searchval+"",
+    	$.ajax(url_base + "/artistsearch.php?searchval="+encodeURIComponent(searchval)+"",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
@@ -97,6 +97,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
+						alert('Band not found!');
     				}
     		   });
     }
