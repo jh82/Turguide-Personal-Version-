@@ -61,7 +61,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.createTestAJAXArtistDiv = function(jsonResult) {
-		//console.log(jsonResult);
+		console.log(jsonResult);
 		var mpaDiv = $('<div></div>');
 		mpaDiv.addClass('infoPanel');
 		var tempBandName = jsonResult.bandname;
@@ -104,7 +104,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     }
 	
 	this.createTestAJAXVenuesDiv = function(jsonResult) {
-		//console.log(jsonResult);
+		console.log(jsonResult);
 		var mpaDiv = $('<div></div>');
 		mpaDiv.addClass('infoPanel');
 		var tempVenueName = jsonResult.vname;
@@ -115,7 +115,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempVenueName+'</h1>');
-		mpaDiv.append('<ul><li>Website:'+tempCity+'</li><li>Origin:'+tempState+'</li><li>Members:'+tempCapacity+'</li></ul>');
+		mpaDiv.append('<ul><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Capacity:'+tempCapacity+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');
 		
 		$('#randomVenue').append(mpaDiv);
@@ -157,10 +157,15 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		var tempVenueName = jsonResult.vname;
 		var tempCity = jsonResult.vcity;
 		var tempState = jsonResult.vstate;
+		var tempPrice = jsonResult.price;
+		var tempHeadliners = "";
+		tempHeadliners = jsonResult.headliners[0];
+		var tempOtherBands = "";
+		tempOtherBands = jsonResult.otherbands[0];
 		
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempEventDate+'</h1>');
-		mpaDiv.append('<ul><li>Website:'+tempEventTime+'</li><li>Origin:'+tempVenueName+'</li><li>Members:'+tempCity+'</li></ul>');
+		mpaDiv.append('<ul><li>Event Time:'+tempEventTime+'</li><li>Venue:'+tempVenueName+'</li><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Price:'+tempPrice+'</li><li>Headliners:'+tempHeadliners+'</li><li>Other Bands:'+tempOtherBands+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');
 		
 		$('#eventsRightNow').append(mpaDiv);
