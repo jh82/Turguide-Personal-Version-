@@ -71,6 +71,8 @@ print '<br>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
+	header('Content-type: application/json');
+	
 	//Check if uname already exists, it it does return false
 	$uname = $_POST['username'];
 	$password = $_POST['password'];
