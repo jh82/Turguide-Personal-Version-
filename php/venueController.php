@@ -67,13 +67,12 @@ print '<br>';
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
 	print_r(var_dump($_POST));
-	$bname   = mysqli_real_escape_string($conn,$_POST['bname']);
-	$website = mysqli_real_escape_string($conn,$_POST['website']);
-	$origin  = mysqli_real_escape_string($conn,$_POST['origin']);
-	$members = mysqli_real_escape_string($conn,$_POST['members']);
-	$imgurl  = 'fakeAvatar.png';
+	$vname   = mysqli_real_escape_string($conn,$_POST['vname']);
+	$vcity   = mysqli_real_escape_string($conn,$_POST['vcity']);
+	$vstate  = mysqli_real_escape_string($conn,$_POST['vstate']);
+	$maxcap  = (int) mysqli_real_escape_string($conn,$_POST['maxcap']);
 	
-	createArtist($conn,$bname,$website,$origin,$members,$imgurl);
+	createVenue($conn,$vname,$vcity,$vstate,$maxcap);
 	
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
@@ -82,21 +81,23 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 	
 	if ( empty($_SERVER['PATH_INFO'])) //only 1 item, return everything - will gets mess it up?
 	{
-		if( isset($_GET['bname']))
+		if( isset($_GET['vname']) && isset($_GET['vcity']) && isset($_GET['vstate']))
 			{ //do search by bname
 				//print 'HERE<br>';
-				$searchthis = mysqli_real_escape_string($conn,$_GET['bname']);
+				$vname  = mysqli_real_escape_string($conn,$_GET['vname']);
+				$vcity  = mysqli_real_escape_string($conn,$_GET['vcity']);
+				$vstate = mysqli_real_escape_string($conn,$_GET['vstate']);
 				//print_r($searchthis);
-				print artistSearch($conn,$searchthis);
+				print venueSearch($conn,$vname,$vcity,$vstate);
 			}
 		elseif ( isset($_GET['random']))
 			{ //get random number of values
-				print randomArtists($conn, (int) mysqli_real_escape_string($conn,$_GET['random']));
+				print randomVenues($conn, (int) mysqli_real_escape_string($conn,$_GET['random']));
 				
 			}
 		else
 		{
-			print getAllArtists($conn); //get all artists and return
+			print getAllVenues($conn); //get all artists and return
 		}
 		
 	}
@@ -104,7 +105,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 	{
 		//1) Check for id and 
 		$curid = (int) basename($_SERVER['PATH_INFO']);
-		print getArtistInfo($curid,$conn);
+		print getVenueInfo($curid,$conn);
 				
 	}
 	else
