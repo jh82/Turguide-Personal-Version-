@@ -1,6 +1,7 @@
 var Header = function(userSignedIn, controllerObj) {
 	
 	this.userSignedIn = userSignedIn;
+	this.floatingDivActive = false;
 	
 	 this.fillInHeader = function() {
     	var headerNode = $('header');
@@ -52,7 +53,7 @@ var Header = function(userSignedIn, controllerObj) {
     		currentObj.whenSignUpClicked();
     	});
 
-    	$('#loginButton').on('click', function() {
+    	$('#loginButton').on('click', function(event) {
     		currentObj.whenLoginClicked();
     	});
 		
@@ -63,6 +64,8 @@ var Header = function(userSignedIn, controllerObj) {
     	$('#logOff').on('click', function() {
     		currentObj.whenLogOffClicked();
     	});
+		
+		
     }
 
     this.whenTurGuideLogoClicked = function() {
@@ -86,7 +89,20 @@ var Header = function(userSignedIn, controllerObj) {
 
     this.whenLoginClicked = function() {
     	console.log('Login Clicked!');
-    	this.appendLogin();
+		if(!this.floatingDivActive) {
+			this.appendLogin();
+			this.floatingDivActive = true;
+		}
+    }
+	
+	this.whenLoginConfirmClicked = function() {
+    	console.log('Login Confirm Clicked!');
+    }
+	
+	this.whenLoginCancelClicked = function() {
+    	console.log('Login Cancel Clicked!');
+		$('#loginDiv').remove();
+		this.floatingDivActive = false;
     }
 	
 	this.whenAccountSettingsClicked = function() {
@@ -98,14 +114,26 @@ var Header = function(userSignedIn, controllerObj) {
     }
 
     this.appendLogin = function() {
+		var currentObj = this;
     	var loginFormDiv = '<div id="loginDiv" class="floatingDiv">\
     												<form action="">\
     													Username:<input type="text" name="username">\
     													Password:<input type="password" name="password">	\
     													Remember Me<input type="checkbox">\
-    													<button>Login</button>\
+    													<button id="loginConfirmButton">Login</button>\
+														<button id="loginCancelButton">X</button>\
     												</form>\
     											</div>';
     	$('header').append(loginFormDiv);
+	
+		$('#loginConfirmButton').on('click', function(event) {
+    		event.preventDefault();
+			currentObj.whenLoginConfirmClicked();
+    	});
+		
+		$('#loginCancelButton').on('click', function(event) {
+			event.preventDefault();
+    		currentObj.whenLoginCancelClicked();
+    	});
     }
 }

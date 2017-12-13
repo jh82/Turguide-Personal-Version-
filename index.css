@@ -54,6 +54,14 @@ main {
 
 .floatingDiv {
   position:absolute;
+  padding: 50px;
   top: 123px;
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(0, 144, 0, 0.3);
+  border-radius: 25px;
+  border: black 1px solid;
+  text-shadow: 0.20px 0.50px #000000;
+  /*color: #eff6ef;*/
+  color: #deedde;
+  font-size: 140%;
+  font-weight: bold;
 }

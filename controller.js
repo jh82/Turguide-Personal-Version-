@@ -17,6 +17,7 @@ var Controller = function() {
 	
 	this.clearPage = function() {
 		$('body').empty();
+		this.headerObj.floatingDivActive = false;
 	}
 	
 	this.loadHomePage = function() {
