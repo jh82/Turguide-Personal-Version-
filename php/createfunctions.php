@@ -54,7 +54,7 @@ function createUser($conn,$uname, $upassword, $fname, $lname, $home)
 	$stmt = $conn->prepare("
 		INSERT INTO Accounts (uname,password,fname,lname,home)
 		VALUES(?,?,?,?,?)");
-		$stmt->bind_param('sssss',$uname,$upassword,$fname,$lname,$home);
+		$stmt->bind_param('sssss',$uname,md5($upassword),$fname,$lname,$home);
 		if($stmt->execute())
 		{
 			

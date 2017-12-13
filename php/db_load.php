@@ -86,7 +86,7 @@ print_r( $conn->query("SELECT * FROM  FavVenues"));
 
 //load into Accounts
 print "Inserting fake accounts\n";
-$file_handle = fopen("fakeusers.csv", "r");
+$file_handle = fopen("../fakeusers.csv", "r");
 while (!feof($file_handle))
 {
 	$line = fgets($file_handle);
@@ -117,7 +117,7 @@ while (!feof($file_handle))
 		$stmt = $conn->prepare("
 		INSERT INTO Accounts (uname,password,fname,lname,home) 
 		VALUES(?,?,?,?,?)");
-		$stmt->bind_param('sssss',$uname,$password,$fname,$lname,$home);
+		$stmt->bind_param('sssss',$uname,md5($password),$fname,$lname,$home);
 		if($stmt->execute())
 		{
 			
@@ -134,7 +134,7 @@ print_r( $conn->query("SELECT * FROM  Accounts"));
 
 //load into Artists
 print "Inserting fake artists\n";
-$file_handle = fopen("fakebands.csv", "r");
+$file_handle = fopen("../fakebands.csv", "r");
 while (!feof($file_handle))
 {
 	$line = fgets($file_handle);
@@ -173,7 +173,7 @@ print_r( $conn->query("SELECT * FROM  Artists"));
 
 //load into Venues
 print "Inserting fake venues\n";
-$file_handle = fopen("fakevenues.csv", "r");
+$file_handle = fopen("../fakevenues.csv", "r");
 while (!feof($file_handle))
 {
 	$line = fgets($file_handle);
@@ -212,7 +212,7 @@ print_r( $conn->query("SELECT * FROM  Venues"));
 
 //load into Events
 print "Inserting fake events\n";
-$file_handle = fopen("fakeevents.csv", "r");
+$file_handle = fopen("../fakeevents.csv", "r");
 while (!feof($file_handle))
 {
 	$line = fgets($file_handle);
@@ -264,7 +264,7 @@ print_r( $conn->query("SELECT * FROM  Events"));
 
 //load into FavArtists
 print "Inserting fake favorite artists\n";
-$file_handle = fopen("fakefaveartists.csv", "r");
+$file_handle = fopen("../fakefaveartists.csv", "r");
 while (!feof($file_handle))
 {
 	$line = fgets($file_handle);
@@ -311,7 +311,7 @@ print_r( $conn->query("SELECT * FROM  FavArtists"));
 
 //load into FavVenues
 print "Inserting fake favorite venues\n";
-$file_handle = fopen("fakefavvenues.csv", "r");
+$file_handle = fopen("../fakefavvenues.csv", "r");
 while (!feof($file_handle))
 {
 	$line = fgets($file_handle);

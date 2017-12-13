@@ -185,12 +185,12 @@ function getEventInfo($evid,$server)
 function getUserInfo($conn,$uname,$upword)
 {
 	$userinfo;
-	
+	$hashedpass = md5($upword);
 	$result = $conn->query("
 		SELECT * 
 		FROM Accounts
 		WHERE Accounts.uname='$uname'
-		AND Accounts.password='$upword'	
+		AND Accounts.password='$hashedpass'	
 		LIMIT 1
 		");
 	if(!$result)
