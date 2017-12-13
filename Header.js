@@ -195,6 +195,9 @@ var Header = function(userSignedIn, controllerObj) {
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
+						console.log(xhr);
+						console.log(status);
+						console.log(error);
     				}
     		   });
 	}
