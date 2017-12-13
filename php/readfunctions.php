@@ -209,6 +209,7 @@ function getUserInfo($conn,$uname,$upword)
 		$userinfo->lname = $rarr['lname'];
 		$userinfo->home  = $rarr['home'];
 		$userinfo->accid = $rarr['accid'];
+		$userinfo->usereal = $rarr['userealname'];
 		
 	}
 	

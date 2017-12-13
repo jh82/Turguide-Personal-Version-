@@ -52,12 +52,12 @@ function createEvent($conn,$fkartist,$fkvid,$edate,$etime,$price,$head)
 	
 }
 
-function createUser($conn,$uname, $upassword, $fname, $lname, $home)
+function createUser($conn,$uname, $upassword, $fname, $lname, $home,$usereal)
 {
 	$stmt = $conn->prepare("
-		INSERT INTO Accounts (uname,password,fname,lname,home)
-		VALUES(?,?,?,?,?)");
-		$stmt->bind_param('sssss',$uname,md5($upassword),$fname,$lname,$home);
+		INSERT INTO Accounts (uname,password,fname,lname,home,userealname)
+		VALUES(?,?,?,?,?,?)");
+		$stmt->bind_param('sssssi',$uname,md5($upassword),$fname,$lname,$home,$usereal);
 		if($stmt->execute())
 		{
 			

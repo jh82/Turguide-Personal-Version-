@@ -31,7 +31,8 @@ uname VARCHAR(25) NOT NULL,
 password VARCHAR(100) NOT NULL,
 fname VARCHAR(25),
 lname  VARCHAR(25),
-home  VARCHAR(25)
+home  VARCHAR(25),
+userealname TINYINT(1)
 )"); //Creates Players db
 print "Start Accounts\n";
 print_r( $conn->query("SELECT * FROM  Accounts"));
@@ -99,6 +100,7 @@ while (!feof($file_handle))
 		$fname = $values[2];
 		$lname = $values[3];
 		$home  = $values[4]; //Should check if it has newline? Just displayed so don't matter
+		$usereal = (int) $values[5];
 		
 		//Make sure username doesn't already exist
 		$result = $conn->query("SELECT accid 
@@ -115,9 +117,9 @@ while (!feof($file_handle))
 		
 		//Now do the inserts
 		$stmt = $conn->prepare("
-		INSERT INTO Accounts (uname,password,fname,lname,home) 
-		VALUES(?,?,?,?,?)");
-		$stmt->bind_param('sssss',$uname,md5($password),$fname,$lname,$home);
+		INSERT INTO Accounts (uname,password,fname,lname,home,userealname) 
+		VALUES(?,?,?,?,?,?)");
+		$stmt->bind_param('sssssi',$uname,md5($password),$fname,$lname,$home,$usereal);
 		if($stmt->execute())
 		{
 			
