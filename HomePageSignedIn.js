@@ -44,7 +44,35 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     	$('#viewAllVenuesButton').on('click', function() {
     		currentObj.whenViewAllVenuesClicked();
     	});
+		
+		$('.starButtonArtist').on('click', function() {
+    		currentObj.whenStarButtonClickedArtist($(this));
+    	});
+		
+		$('.starButtonVenue').on('click', function() {
+    		currentObj.whenStarButtonClickedVenue($(this));
+    	});
 
+    }
+	
+	this.whenStarButtonClickedArtist = function(starButton) {
+    	var favoriteBool = starButton.data('favorited');
+		var artid = starButton.data('artid');
+
+		starButton.data('favorited', 0);
+		starButton.removeClass('favorite');
+		this.removeFaveAJAXCall(starButton.data('artid'));
+		
+    }
+	
+	this.whenStarButtonClickedVenue = function(starButton) {
+    	var favoriteBool = starButton.data('favorited');
+		var venid = starButton.data('venid');
+
+		starButton.data('favorited', 0);
+		starButton.removeClass('favorite');
+		this.removeFaveAJAXCall(starButton.data('venid'));
+		
     }
 
     this.whenViewAllArtistsClicked = function() {
@@ -87,7 +115,7 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<img src="fakeAvatar.png" class="circleViewport">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('<button class="starButton favorite" data-favorited="1" data-artid="'+jsonResult.artid+'">&#9733;</button><br>');
+		mpaDiv.append('<button class="starButtonArtist favorite" data-favorited="1" data-artid="'+jsonResult.artid+'">&#9733;</button><br>');
 		mpaDiv.addClass('AJAXDiv');
 		$('#favoriteArtists').append(mpaDiv);
 	}
@@ -124,7 +152,7 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>City:'+tempWebsite+'</li><li>State:'+tempOrigin+'</li><li>Capacity:'+tempMembers+'</li></ul>');
-		mpaDiv.append('<button class="starButton favorite" data-favorited="1" data-venid="'+jsonResult.venid+'">&#9733;</button><br>');
+		mpaDiv.append('<button class="starButtonVenue favorite" data-favorited="1" data-venid="'+jsonResult.venid+'">&#9733;</button><br>');
 		mpaDiv.addClass('AJAXDiv');
 		$('#favoriteVenues').append(mpaDiv);
 	}
@@ -170,5 +198,20 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<ul><li>Event Data:'+tempEventDate+'</li><li>Event Time:'+tempEventTime+'</li><li>Venue Name:'+tempVenueName+'</li><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Price:'+tempPrice+'</li></ul>');
 		
 		$('#eventsHappeningSoon').append(mpaDiv);
+	}
+	
+	this.removeFaveAJAXCall = function(artid) {
+		var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/php/userController.php/artists/"+artid+"?action=delete",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					alert("AJAX call successful!");
+						$('.starButton').removeClass('favorite');
+    				},
+    				error: function(xhr,status,error) {
+    					alert("AJAX call failed!");
+    				}
+    		   });
 	}
 }

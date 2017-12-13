@@ -29,7 +29,7 @@ var Header = function(userSignedIn, controllerObj) {
 		}
     	var accountPreviewDiv = $('#accountPreviewArea');
     	accountPreviewDiv.append('<img id="avatar" src="fakeAvatar.png">');
-    	accountPreviewDiv.append('<button id="accountSettings" class="header-button">Account Settings</button>');
+    	//accountPreviewDiv.append('<button id="accountSettings" class="header-button">Account Settings</button>');
     	accountPreviewDiv.append('<button id="logOff" class="header-button">Log Off</button>');
     }
 	
