@@ -160,12 +160,20 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 		}
 				
 	}
-	elseif((((int)$lastitem) > 0) && $secondlast=== 'artists') //last item is id
+	elseif((((int)$lastitem) > 0) && ($secondlast=== 'artists' || $secondlast=== 'venues')) //last item is id
 	{
 		$action = $_GET['action'];
-		if($action === 'delete')
+		if($action === 'delete' && $secondlast==='artists')
 		{
 			print deleteFavArtist($conn,(int) $_SESSION['accid'],(int)$lastitem);
+		}
+		elseif($action === 'delete' && $secondlast==='venues')
+		{
+			print deleteFavVenue($conn,(int) $_SESSION['accid'],(int)$lastitem);
+		}
+		else
+		{
+			print json_encode(false);
 		}
 		//not the right amount in the path - check
 	}
