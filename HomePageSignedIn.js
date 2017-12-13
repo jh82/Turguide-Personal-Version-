@@ -45,11 +45,11 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     		currentObj.whenViewAllVenuesClicked();
     	});
 		
-		$('.starButtonArtist').on('click', function() {
+		$('.starButtonArtist.favorite').on('click', function() {
     		currentObj.whenStarButtonClickedArtist($(this));
     	});
 		
-		$('.starButtonVenue').on('click', function() {
+		$('.starButtonVenue.favorite').on('click', function() {
     		currentObj.whenStarButtonClickedVenue($(this));
     	});
 
@@ -112,10 +112,10 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		var tempOrigin = jsonResult.origin;
 		var tempMembers = jsonResult.members;
 		
-		mpaDiv.append('<img src="fakeAvatar.png" class="circleViewport">');
+		mpaDiv.append('<img src="'+jsonResult.imgurl+'" class="circleViewport">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('<button class="starButtonArtist favorite" data-favorited="1" data-artid="'+jsonResult.artid+'">&#9733;</button><br>');
+		//mpaDiv.append('<button class="starButtonArtist favorite" data-favorited="1" data-artid="'+jsonResult.artid+'">&#9733;</button><br>');
 		mpaDiv.addClass('AJAXDiv');
 		$('#favoriteArtists').append(mpaDiv);
 	}
@@ -152,7 +152,7 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>City:'+tempWebsite+'</li><li>State:'+tempOrigin+'</li><li>Capacity:'+tempMembers+'</li></ul>');
-		mpaDiv.append('<button class="starButtonVenue favorite" data-favorited="1" data-venid="'+jsonResult.venid+'">&#9733;</button><br>');
+		 //mpaDiv.append('<button class="starButtonVenue favorite" data-favorited="1" data-venid="'+jsonResult.venid+'">&#9733;</button><br>');
 		mpaDiv.addClass('AJAXDiv');
 		$('#favoriteVenues').append(mpaDiv);
 	}
