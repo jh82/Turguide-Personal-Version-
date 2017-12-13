@@ -1,9 +1,12 @@
 var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, searchresult) {
 	
 	this.searchresult = searchresult;
+	this.currentFavorites;
 	
     this.pageReady = function() {
+		this.artistAJAXCall();
     	sharedPrepsObj.makeDOMReady();
+		
     	headerObj.fillInHeader();
 		
 		var mainElementsArray= [
@@ -88,11 +91,20 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
 		var tempWebsite = artistInfo.website;
 		var tempOrigin = artistInfo.origin;
 		var tempMembers = artistInfo.members;
+		var favoriteBool = 0;
+		this.currentFavorites.forEach(function(element) {
+			var parsedElement = JSON.parse(element);
+			if(artistInfo.artid==parsedElement.artid) {
+				favoriteBool = 1;
+			}
+		})
+		console.log(favoriteBool);
 		
 		mpaDiv.append('<img src="'+artistInfo.imgurl+'">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('<button class="starButton" data-artid="'+artistInfo.artid+'" data-favorited="0">&#9733;</button>'); //useless comment
+		mpaDiv.append('<button class="starButton" data-artid="'+artistInfo.artid+'" data-favorited="'+favoriteBool+'">&#9733;</button>');
+		if(favoriteBool) {$('.starButton').addClass('favorite');}
 	}
 	
 	this.addFaveAJAXCall = function(artid) {
@@ -122,6 +134,26 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
     					alert("AJAX call failed!");
     				}
     		   });
-		mpaDiv.append('&#9733;');
 	}
+	
+	this.artistAJAXCall = function() {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/php/userController.php/artists",
+    	       {	type: "GET",
+					async: false,
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					console.log("AJAX call successful!");
+						console.log(result);
+						currentObj.currentFavorites = result;
+    				},
+    				error: function(xhr,status,error) {
+    					alert("AJAX call failed!");
+					
+    				}
+    		   });
+    }
+	
+	
 }

@@ -82,7 +82,6 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('&#9733;');
 	}
 	
 	 this.searchAJAXCall = function(searchval) {
