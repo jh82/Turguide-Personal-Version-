@@ -59,7 +59,7 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     this.artistAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/php/jaunuserController.php/artists",
+    	$.ajax(url_base + "/php/userController.php/artists",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
@@ -94,7 +94,7 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	this.venueAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/php/jaunuserController.php/venues",
+    	$.ajax(url_base + "/php/userController.php/venues",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {

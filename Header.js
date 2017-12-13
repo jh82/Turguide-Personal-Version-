@@ -66,8 +66,6 @@ var Header = function(userSignedIn, controllerObj) {
     	$('#logOff').on('click', function() {
     		currentObj.whenLogOffClicked();
     	});
-		
-		
     }
 
     this.whenTurGuideLogoClicked = function() {
@@ -118,6 +116,19 @@ var Header = function(userSignedIn, controllerObj) {
 
 	this.whenSignUpConfirmClicked = function() {
     	console.log('Login Confirm Clicked!');
+		if($('#password').val()!=$('#passwordConfirm').val()) {
+			alert("Passwords do not match!!!!!!!!!!!!!");
+			return;
+		}
+		if (($('#username').val().indexOf(' ') > -1)||($('#password').val().indexOf(' ') > -1)) {
+			alert("No spaces allowed in username or password!!!!!!!!");
+			return;
+		}
+		if(($('#username').val()==undefined)||($('#password').val()==undefined)||($('#passwordConfirm').val()==undefined)) {
+			alert("Please input values for both username and password");
+			return;
+		}
+		this.signUpAJAXCall($('#username').val(), $('#password').val())
     }
 	
 	this.whenSignUpCancelClicked = function() {
@@ -219,6 +230,27 @@ var Header = function(userSignedIn, controllerObj) {
 						console.log(document.cookie);
 						currentObj.userSignedIn = false;
 						controllerObj.loadHomePage();
+    				},
+    				error: function(xhr,status,error) {
+    					console.log("AJAX call failed!");
+						console.log(xhr);
+						console.log(status);
+						console.log(error);
+    				}
+    		   });
+	}
+	
+	this.signUpAJAXCall = function(uname, pword) {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/php/userController.php",
+    	       {	type: "POST",
+    				dataType: "json",
+					data: {username:uname, password:pword},
+    				success: function(result, status, xhr) {
+    					console.log("AJAX call success!");
+						console.log(result);
+						currentObj.loginAJAXCall(uname, pword);
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");
