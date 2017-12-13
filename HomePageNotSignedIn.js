@@ -70,7 +70,11 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		var tempOrigin = jsonResult.origin;
 		var tempMembers = jsonResult.members;
 		
+<<<<<<< HEAD
 		mpaDiv.append('<img src="/'+jsonResult.imageurl+'">');
+=======
+		mpaDiv.append('<img src="'+jsonResult.imgurl+'" height=100 width=100>');
+>>>>>>> 5fb7e3ae361a1b3e87d4098c7beb7d9df097e96d
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');
