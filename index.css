@@ -132,8 +132,14 @@ main {
 .AJAXDiv {
 	background-color: rgba(61, 88, 143, 0.5);
 	border-radius: 25px;
+	display: grid;
+	grid-template-columns: 4fr 1fr;
+	grid-template-rows: 56px 900px 1fr auto;
+	
 }
 
 .circleViewport {
 	border-radius: 50%;
 }
+
+.
