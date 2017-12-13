@@ -83,6 +83,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 	
 	if ( empty($_SERVER['PATH_INFO'])) //only 1 item, return everything - will gets mess it up?
 	{
+		//No search for events
 
 		if ( isset($_GET['random']))
 			{ //get random number of values
