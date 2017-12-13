@@ -1,35 +1,35 @@
-Venue VM,City 1,ST1,970
-Venue VN,City 2,ST2,971
-Venue VO,City 3,ST3,972
-Venue VP,City 4,ST4,973
-Venue VQ,City 5,ST5,974
-Venue VR,City 6,ST6,975
-Venue VS,City 7,ST7,976
-Venue VT,City 8,ST8,977
-Venue VK,City 9,ST9,978
-Venue VL,City 10,ST10,979
-Venue VM,City 11,ST11,980
-Venue VN,City 12,ST12,981
-Venue VO,City 13,ST13,982
-Venue VP,City 14,ST14,983
-Venue VQ,City 15,ST15,984
-Venue VR,City 16,ST16,985
-Venue VS,City 17,ST17,986
-Venue VT,City 18,ST18,987
-Venue VK,City 19,ST19,988
-Venue VL,City 20,ST20,989
-Venue VM,City 21,ST21,990
-Venue VN,City 22,ST22,991
-Venue VO,City 23,ST23,992
-Venue VP,City 24,ST24,993
-Venue VQ,City 25,ST25,994
-Venue VR,City 26,ST26,995
-Venue VS,City 27,ST27,996
-Venue VT,City 28,ST28,997
-Venue VK,City 29,ST29,998
-Venue VL,City 30,ST30,999
-Venue VM,City 31,ST31,1000
-Venue VN,City 32,ST32,1001
+Cats Cradle,Chapel Hill,NC,457
+Local 506,Chapel Hill,NC,200
+Kings Raleigh,Raleigh,NC,240
+The Fillmore,Charlotte,NC,700
+Lincoln Theater,Washington,DC,650
+House of Blues,New Orleans,LA,800
+PNC Arena,Raleigh,NC,4500
+Red Rocks Ampitheatre,somewhere,AZ,1500
+Madison Square Garden,New York,NY,5000
+House of Blues,Mrytle Beach,SC,378
+Hollywood Bowl,Hollywood,CA,8000
+Radio City Music Hall,somewhere,elsewhere,3000
+Jones Beach Theater,Virginia Beach,VA,1500
+Gorge Amphitheatre,A Gorge,NA,2700
+The Haw River Ballroom,Saxapahwa,NC,400
+Von Braun Center Arena,Huntsville,AL,13760
+Carlson Center,Fairbanks,AK,6539
+Dickey-Stephens Park,North Little Rock,AR,7201
+The Forum,Inglewood,CA,7000
+The Independent,San Francisco,CA,500
+Ogden Theatre,Denver,CO,1600
+Gothic Theatre,Englewood,CO,999
+XL Center,Hartford,CN,19321
+The Anthem,Washington,DC,3700
+Amway Center,Orlando,FL,2100
+Sanford Stadium,Athena,GA,92000
+Infinite Energy Arena,Duluth,GA,13100
+Waikiki Shell,Honolulu,HA,8400
+Taco Bell Arena,Boise,ID,10000
+United Center,Chicago,IL,23500
+House of Blues,Chicago,IL,1300
+Lucas Oil Stadium,Indianapolis,IN,70000
 Venue VO,City 33,ST33,1002
 Venue VP,City 34,ST34,1003
 Venue VQ,City 35,ST35,1004
@@ -48,9 +48,3 @@ Venue VS,City 47,ST47,1016
 Venue VT,City 48,ST48,1017
 Venue VK,City 49,ST49,1018
 Venue O,City 50,ST50,1019
-Cats Cradle,Chapel Hill,NC,457
-Local 506,Chapel Hill NC,NC,200
-Kings Raleigh,Raleigh,NC,240
-The Fillmore,Charlotte,NC,700
-Lincoln Theater,Washington,DC,650
-House of Blues,New Orleans,LA,800
