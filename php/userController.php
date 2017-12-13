@@ -48,7 +48,8 @@ if ($conn->connect_error) {
 */
 
 
-$lastitem = end(explode('/',$_SERVER['PATH_TRANSLATED']));
+$lastitem = end(explode('/',$_SERVER['PATH_TRANSLATED'])); //The id in post, type in get
+$secondlast = explode('/',$_SERVER['PATH_TRANSLATED'])[count(explode('/',$_SERVER['PATH_TRANSLATED']))-2]; //type in post, nothing in get
 //print $lastitem;
 //print_r($lastitem);
 /*
@@ -72,24 +73,44 @@ print '<br>';
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
 	header('Content-type: application/json');
-	
-	//Check if uname already exists, it it does return false
-	$uname = $_POST['username'];
-	$password = $_POST['password'];
-	//print_r($uname);
-	//print_r($password);
-	$badresult = $conn->query("
-				SELECT COUNT(*)
-				FROM Accounts
-				WHERE Accounts.uname='$uname'");
-	$nummatch = $badresult->fetch_array()[0];
-	//print_r($nummatch);
-	if($nummatch>0) //query returns anything means username already exists
-	{ print json_encode(false); }
+	//print_r(explode('/',$_SERVER['PATH_TRANSLATED']));
+	//print_r($lastitem);
+	//print_r($secondlast);
+	//add new favorites row (venues or artists)
+	if ($secondlast === 'artists' || $secondlast === 'venues')
+	{
+		$fk_item = (int) $lastitem;
+		if($secondlast === 'artists')
+		{
+			//print 'HERE';
+			addFavoriteArtist($conn,(int) $_SESSION['accid'],$fk_item);
+			
+		}
+		else
+		{
+			addFavoriteVenue($conn,(int) $_SESSION['accid'],$fk_item);
+		}
+	}
 	else
 	{
-		createUser($conn,$uname,$password,null,null,null);
-		print json_encode(true);
+		//Check if uname already exists, it it does return false
+		$uname = $_POST['username'];
+		$password = $_POST['password'];
+		//print_r($uname);
+		//print_r($password);
+		$badresult = $conn->query("
+					SELECT COUNT(*)
+					FROM Accounts
+					WHERE Accounts.uname='$uname'");
+		$nummatch = $badresult->fetch_array()[0];
+		//print_r($nummatch);
+		if($nummatch>0) //query returns anything means username already exists
+		{ print json_encode(false); }
+		else
+		{
+			createUser($conn,$uname,$password,null,null,null);
+			print json_encode(true);
+		}
 	}
 	//singup / create user - and return successful
 	
