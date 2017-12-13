@@ -1,7 +1,7 @@
 .body {
 	/*background-color: #B5F2B4;*/
 	/*background-color:#697DDD;*/
-	background-color: #c1e7c0;
+	background-color: #b7e3b5;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #080F30;
 }
@@ -94,10 +94,11 @@ main {
 }
 
 .styledColumn {
-	background-color: #B5F2B4;
+	background-color: #c9eac8;
 	border-left: 1px solid black;
 	border-right: 1px solid black;
 	min-height: 100;
+	box-shadow: 0px 0px 100px rgba(100, 100, 100, 0.49);
 }
 
 .favorite {
@@ -119,4 +120,11 @@ main {
 	border:none;
 	background-color: #deedde;
 	border-radius: 5px;
+}
+
+.bodyText {
+	text-shadow: 0.20px 0.50px #000000;
+	/*color: #eff6ef;*/
+	color: #deedde;
+	font-weight: bold;
 }

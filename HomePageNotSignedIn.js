@@ -62,7 +62,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.createTestAJAXArtistDiv = function(jsonResult) {
 		console.log(jsonResult);
-		var mpaDiv = $('<div></div>');
+		var mpaDiv = $('<div class="bodyText"></div>');
 		mpaDiv.addClass('infoPanel');
 		var tempBandName = jsonResult.bandname;
 		//console.log(tempBandName);
@@ -70,10 +70,10 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		var tempOrigin = jsonResult.origin;
 		var tempMembers = jsonResult.members;
 		
+		mpaDiv.append('<img src="/'+jsonResult.imageurl+'">');
 		mpaDiv.append('<img src="'+jsonResult.imgurl+'" height=100 width=100>');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('&#9733;<br>');
 		
 		$('#randomArtist').append(mpaDiv);
 	}
@@ -105,7 +105,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.createTestAJAXVenuesDiv = function(jsonResult) {
 		console.log(jsonResult);
-		var mpaDiv = $('<div></div>');
+		var mpaDiv = $('<div class="bodyText"></div>');
 		mpaDiv.addClass('infoPanel');
 		var tempVenueName = jsonResult.vname;
 		//console.log(tempVenueName);
@@ -115,7 +115,6 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		
 		mpaDiv.append('<h1>'+tempVenueName+'</h1>');
 		mpaDiv.append('<ul><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Capacity:'+tempCapacity+'</li></ul>');
-		mpaDiv.append('&#9733;<br>');
 		
 		$('#randomVenue').append(mpaDiv);
 	}
@@ -148,7 +147,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.createTestAJAXEventsDiv = function(jsonResult) {
 		console.log(jsonResult);
-		var mpaDiv = $('<div></div>');
+		var mpaDiv = $('<div class="bodyText"></div>');
 		mpaDiv.addClass('infoPanel');
 		var tempEventDate = jsonResult.edate;
 		//console.log(tempBandName);
@@ -164,7 +163,6 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		
 		mpaDiv.append('<h1>'+tempEventDate+'</h1>');
 		mpaDiv.append('<ul><li>Event Time:'+tempEventTime+'</li><li>Venue:'+tempVenueName+'</li><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Price:'+tempPrice+'</li><li>Headliners:'+tempHeadliners+'</li><li>Other Bands:'+tempOtherBands+'</li></ul>');
-		mpaDiv.append('&#9733;<br>');
 		
 		$('#eventsRightNow').append(mpaDiv);
 	}
