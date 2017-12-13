@@ -167,7 +167,7 @@ function getEventInfo($evid,$server)
 		$outinfo->price = $rarr["price"];
 		$outinfo->headliners = $arrheadliners;
 		$outinfo->otherbands = $arrartists;
-		$outinfo->eventif = $eventid;
+		$outinfo->eventid = $eventid;
 		
 		//artists will be an array
 		//headliner will be a seperate field
