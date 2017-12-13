@@ -24,7 +24,7 @@ include_once 'getAll.php';
 include_once 'searchFunctions.php';
 include_once 'userFavorites.php';
 
-$accid = $_SESSION['accid'];
+$accid =  $_SESSION['accid'];
 
 $result = $conn->query("
 		SELECT FavVenues.fk_vid
@@ -104,6 +104,7 @@ $upresult = $conn->query("
 		//print_r($allup);
 $alljson = array();
 //$allup = array_filter($allup);
+$allup = array_unique($allup);
 for ( $i=0; $i<count($allup);$i++)	
 {
 	if ($allup[$i]!='') {$alljson[] = getEventInfo($allup[$i],$conn);}
