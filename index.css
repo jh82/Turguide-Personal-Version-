@@ -17,10 +17,12 @@
 
 .header-button {
 	border: none;
+	outline: none;
 	background: none;
 	text-shadow: 0.20px 0.50px #000000;
 	/*color: #eff6ef;*/
 	color: #deedde;
+	padding-top:14.5px;
 	font-size: 140%;
 	font-weight: bold;
 }
@@ -28,6 +30,25 @@
 	.header-button:hover {
 		color: #8cc08c
 	}
+
+.right-header-button {
+	position: relative;
+}	
+
+	.right-header-button:after {
+	  content:""; 
+	  background: black; 
+	  position: absolute; 
+	  bottom: 0; 
+	  left: 0; 
+	  height: 50%; 
+	  width: 1px;
+	  padding-bottom: 8px;
+	}
+	
+.centerHeaderDiv {
+	padding-left: 120px;
+}
 	
 main {
 	margin-top: 50px;

@@ -6,16 +6,18 @@ var Header = function(userSignedIn, controllerObj) {
 	 this.fillInHeader = function() {
     	var headerNode = $('header');
     	headerNode.append('<img id="turGuideLogo" src="sketchSmallLogo.png">');
-    	headerNode.append('<button id="artistsButton" class="header-button">Artists</button>');
-    	headerNode.append('<button id="venuesButton" class="header-button">Venues</button>');
+		headerNode.append('<div id="centerButtonsDiv" class="centerHeaderDiv"></div>');
+    	$('#centerButtonsDiv').append('<button id="artistsButton" class="header-button left-header-button">Artists</button>');
+    	$('#centerButtonsDiv').append('<button id="venuesButton" class="header-button right-header-button">Venues</button>');
+		headerNode.append('<div id="rightButtonsDiv"></div>');
 		
 		if(userSignedIn){
-			headerNode.append('<div id="accountPreviewArea"></div>');
+			$('#rightButtonsDiv').append('<div id="accountPreviewArea"></div>');
 			this.fillInAccountPreview();
 		}
 		else {
-			headerNode.append('<button id="signUpButton" class="header-button">Sign Up</button>');
-			headerNode.append('<button id="loginButton" class="header-button">Login</button>');
+			$('#rightButtonsDiv').append('<button id="signUpButton" class="header-button">Sign Up</button>');
+			$('#rightButtonsDiv').append('<button id="loginButton" class="header-button">Login</button>');
 		}
 		
 		this.setUpEventHandlers();
@@ -85,6 +87,10 @@ var Header = function(userSignedIn, controllerObj) {
 
     this.whenSignUpClicked = function() {
     	console.log('Sign Up Clicked!');
+		if(!this.floatingDivActive) {
+			this.appendSignUp();
+			this.floatingDivActive = true;
+		}
     }
 
     this.whenLoginClicked = function() {
@@ -102,6 +108,16 @@ var Header = function(userSignedIn, controllerObj) {
 	this.whenLoginCancelClicked = function() {
     	console.log('Login Cancel Clicked!');
 		$('#loginDiv').remove();
+		this.floatingDivActive = false;
+    }
+
+	this.whenSignUpConfirmClicked = function() {
+    	console.log('Login Confirm Clicked!');
+    }
+	
+	this.whenSignUpCancelClicked = function() {
+    	console.log('Login Cancel Clicked!');
+		$('#signUpDiv').remove();
 		this.floatingDivActive = false;
     }
 	
@@ -134,6 +150,30 @@ var Header = function(userSignedIn, controllerObj) {
 		$('#loginCancelButton').on('click', function(event) {
 			event.preventDefault();
     		currentObj.whenLoginCancelClicked();
+    	});
+    }
+	
+	this.appendSignUp = function() {
+		var currentObj = this;
+    	var loginFormDiv = '<div id="signUpDiv" class="floatingDiv">\
+    												<form action="">\
+    													Username:<input type="text" name="username">\
+    													Password:<input type="password" name="password">	\
+    													Confirm Password:<input type="password" name="password">\
+    													<button id="signUpConfirmButton">Sign Up</button>\
+														<button id="signUpCancelButton">X</button>\
+    												</form>\
+    											</div>';
+    	$('header').append(loginFormDiv);
+	
+		$('#signUpConfirmButton').on('click', function(event) {
+    		event.preventDefault();
+			currentObj.whenSignUpConfirmClicked();
+    	});
+		
+		$('#signUpCancelButton').on('click', function(event) {
+			event.preventDefault();
+    		currentObj.whenSignUpCancelClicked();
     	});
     }
 }
