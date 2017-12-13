@@ -42,9 +42,20 @@ if ($conn->connect_error) {
 	DELETE: delete
 		removes the artist from the based on id - only possible with ID
 */
-//$request = explode('/', trim($_SERVER['PATH_INFO'],'/'));
-//[0] should just be 'artist' and if [1] exists it's the id
-//print var_dump($_SERVER['REQUEST_METHOD']);
+
+
+$lastitem = pathinfo($_SERVER['PATH_INFO']);
+print_r('pathinfo:'.$_SERVER['PATH_INFO']);
+print '<br>';
+print_r($lastitem);
+print '<br> basename: ';
+print_r(((int) basename($_SERVER['PATH_INFO'])));
+print '<br> GET count: ';
+print_r(count($_GET));
+print '<br> GET vals';
+print_r($_GET);
+print '<br>';
+//print 'HERE';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -56,15 +67,15 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
 	//header('Content-type: application/json');
 	
-	if ( count($request)==0) //only 1 item, return everything - will gets mess it up?
+	if ( empty($_SERVER['PATH_INFO'])) //only 1 item, return everything - will gets mess it up?
 	{
 		print getAllArtists($conn);
 		//get all artists and return
 	}
-	elseif ( count($request) > 0)//2 items can be id or GET params
+	elseif ( ((int) basename($_SERVER['PATH_INFO'])) > 0 )//id here, must be greater than 0 can be id or GET params
 	{
 		//1) Check for id and 
-		if ( count($_GET)==0)
+		if ( count($_GET)==1)
 		{
 			$curid = (int) basename($_SERVER['PATH_INFO']);
 			print getArtistInfo($curid,$conn);

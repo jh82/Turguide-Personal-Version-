@@ -54,7 +54,7 @@ if ($conn->connect_error) {
 	
 	$info = getArtistInfo($artkey,$conn);
 	//print $info;
-	
+	header('Content-type: application/json');
 	print json_encode(array('artistinfo' => $info, 'events' => $upcoming)); 
 	//return json_encode(array('artistinfo' => $info, 'events' => $upcoming)); 
 	//TODO check how to actually return all these json objects efficiently

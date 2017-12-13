@@ -150,9 +150,9 @@ if ($conn->connect_error) {
 	{
 		$returnedvs[] = getVenueInfo($curvid,$conn);
 	}
-	
+	header('Content-type: application/json');
 	print json_encode(array('allvenues'=>$returnedvs));
-	return json_encode(array('allvenues'=>$returnedvs));
+	//return json_encode(array('allvenues'=>$returnedvs));
 }
 
 
