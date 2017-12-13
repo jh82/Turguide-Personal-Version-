@@ -32,7 +32,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     this.fillInMainLogo = function() {
     	var mainLogoNode = $('#mainLogo');
 		mainLogoNode.addClass('centeredColumn');
-    	mainLogoNode.append('<img src="türguideLogoFull.png">' );
+    	mainLogoNode.append('<img src="sketchFullLogo.png">' );
     }
 
     this.randArtistsAJAXCall = function() {

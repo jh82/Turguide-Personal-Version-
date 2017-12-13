@@ -1,4 +1,4 @@
-var VenueSearchPage = function(headerObj, sharedPrepsObj, controllerObj) {
+var VenueSearchPage = function(headerObj, sharedPrepsObj, controllerObj, searchResult) {
 
     this.pageReady = function() {
     	sharedPrepsObj.makeDOMReady();
@@ -20,11 +20,18 @@ var VenueSearchPage = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.fillInMainSearchDiv = function() {
     	var mainArtistsDiv = $('#mainSearchDiv');
+		var currentObj = this;
+		$('main').removeClass('centeredColumn');
+		$('main').addClass('centeredColumn');
+		mainArtistsDiv.addClass('flexVertical');
     	mainArtistsDiv.append('Search Venues: <input type="text" id="venueSearchTextbox">');
     	mainArtistsDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
     	mainArtistsDiv.append('<h1>Search Results</h1>');
     	mainArtistsDiv.append('<div id="foundVenueDiv"></div>');
-		this.createTestAJAXDiv
+		searchResult.forEach(function(element) {
+			parsedResult = JSON.parse(element);
+			currentObj.createTestAJAXDiv(parsedResult);
+		});
     }
 
     this.setUpEventHandlers = function() {
@@ -56,13 +63,12 @@ var VenueSearchPage = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.createTestAJAXDiv = function(jsonResult) {
 		console.log(jsonResult.artistinfo);
-		var artistInfo = JSON.parse(jsonResult.artistinfo);
 		var mpaDiv = $('#foundVenueDiv');
-		var tempBandName = artistInfo.bandname;
+		var tempBandName = jsonResult.vname;
 		console.log(tempBandName);
-		var tempWebsite = artistInfo.website;
-		var tempOrigin = artistInfo.origin;
-		var tempMembers = artistInfo.members;
+		var tempWebsite = jsonResult.vcity;
+		var tempOrigin = jsonResult.vstate;
+		var tempMembers = jsonResult.maxcap;
 		
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');

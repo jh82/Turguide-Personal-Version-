@@ -15,10 +15,6 @@
 	border-bottom: 1px solid black;
 }
 
-main {
-	margin-top: 50px;
-}
-
 .header-button {
 	border: none;
 	background: none;
@@ -29,8 +25,12 @@ main {
 	font-weight: bold;
 }
 
-.header-button:hover {
-	color: #8cc08c
+	.header-button:hover {
+		color: #8cc08c
+	}
+	
+main {
+	margin-top: 50px;
 }
 
 .centeredColumn {

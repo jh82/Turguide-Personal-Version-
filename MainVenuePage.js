@@ -89,16 +89,20 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 
     this.setUpEventHandlers = function() {
 		var currentObj = this;
-    	$('#artistSearchButton').on('click', function() {
+    	$('#venueSearchButton').on('click', function() {
     		currentObj.whenSearchButtonClicked();
     	});
     }
 
     this.whenSearchButtonClicked = function() {
     	console.log('Search Button Clicked!');
-		var nameVal = $('#artistNameTextbox').val();
-		var cityVal = $('#artistCityTextbox').val();
-		var stateVal = $('#artistStateTextbox').val();
+		var nameVal = "";
+		nameVal = $('#venueNameTextbox').val();
+		var cityVal = "";
+		cityVal = $('#venueCityTextbox').val();
+		var stateVal = "";
+		stateVal = $('#venueStateTextbox').val();
+		
 		this.searchAJAXCall(nameVal, cityVal, stateVal);
     }
 
@@ -145,7 +149,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 	 this.searchAJAXCall = function(nameVal, cityVal, stateVal) {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/artistsearch.php?vname="+encodeURIComponent(nameVal)+"&vcity="+encodeURIComponent(cityVal)+"&vstate="+encodeURIComponent(stateVal)+"",
+    	$.ajax(url_base + "/venuesearch.php?vname="+encodeURIComponent(nameVal)+"&vcity="+encodeURIComponent(cityVal)+"&vstate="+encodeURIComponent(stateVal)+"",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {

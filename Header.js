@@ -4,7 +4,7 @@ var Header = function(userSignedIn, controllerObj) {
 	
 	 this.fillInHeader = function() {
     	var headerNode = $('header');
-    	headerNode.append('<img id="turGuideLogo" src="türguideLogo.png">');
+    	headerNode.append('<img id="turGuideLogo" src="sketchSmallLogo.png">');
     	headerNode.append('<button id="artistsButton" class="header-button">Artists</button>');
     	headerNode.append('<button id="venuesButton" class="header-button">Venues</button>');
 		
