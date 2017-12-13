@@ -12,7 +12,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 		var titlesArray = [
 			{divNode:$('#mainVenueDiv'),titleString:'Main Venue'}
 		];
-    	sharedPrepsObj.fillInAllTitles(titlesArray);
+    	//sharedPrepsObj.fillInAllTitles(titlesArray);
 		
     	this.fillInMainVenueDiv();
 		this.fillInMapCanvas();
@@ -21,7 +21,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 
     this.fillInMainVenueDiv = function() {
     	var mainVenueDiv = $('#mainVenueDiv');
-        mainVenueDiv.append('<canvas id="mapCanvas" width="4000" height="3300"></canvas>'); //1536 768
+        mainVenueDiv.append('<canvas id="mapCanvas" width="1720" height="780"></canvas>'); //1536 768
     	mainVenueDiv.append('Search Venue Name:<input type="text" id="venueNameTextbox">');
 		mainVenueDiv.append('Search Venue City:<input type="text" id="venueCityTextbox">');
 		mainVenueDiv.append('Search Venue State:<input type="text" id="venueStateTextbox">');
