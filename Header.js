@@ -138,8 +138,8 @@ var Header = function(userSignedIn, controllerObj) {
 		var currentObj = this;
     	var loginFormDiv = '<div id="loginDiv" class="floatingDiv">\
     												<form action="">\
-    													Username:<input type="text" name="username">\
-    													Password:<input type="password" name="password">	\
+    													Username:<input type="text" name="username" id="username">\
+    													Password:<input type="password" name="password" id="password">	\
     													Remember Me<input type="checkbox">\
     													<button id="loginConfirmButton">Login</button>\
 														<button id="loginCancelButton">X</button>\
