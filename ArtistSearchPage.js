@@ -39,11 +39,29 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
     	$('#artistSearchButton').on('click', function() {
     		currentObj.whenSearchButtonClicked();
     	});
+		
+		$('.starButton').on('click', function() {
+    		currentObj.whenStarButtonClicked($(this));
+    	});
     }
 
     this.whenSearchButtonClicked = function() {
     	console.log('Search Button Clicked!');
     }
+	
+	this.whenStarButtonClicked = function(currentButton) {
+		console.log('Star Button Clicked!');
+		if(currentButton.data('favorited')==0) {
+			currentButton.data('favorited', 1);
+			currentButton.addClass('favorited');
+			this.addFaveAJAXCall(currentButton.data('artid'));
+		}
+		else if (currentButton.data('favorited')==1) {
+			currentButton.data('favorited', 0);
+			currentButton.addClass('nonfavorited');
+			this.removeFaveAJAXCall(currentButton.data('artid'));
+		}
+	}
 
     this.testAJAXCall = function() {
     	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
@@ -72,6 +90,35 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('&#9733;');
+		mpaDiv.append('<button class="starButton" data-artid="'+artistInfo.artid+'" data-favorited="0">&#9733;</button>');
+	}
+	
+	this.addFaveAJAXCall = function(artid) {
+		var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/php/userController.php/artists",
+    	       {	type: "POST",
+    				dataType: "json",
+					data: {artid: artid},
+    				success: function(result, status, xhr) {
+    					alert("AJAX call successful!");
+    				},
+    				error: function(xhr,status,error) {
+    					alert("AJAX call failed!");
+    				}
+    		   });
+	}
+	
+	this.removeFaveAJAXCall = function(artid) {
+		var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/php/userController.php/artists/"+artid+"",
+    	       {	type: "DELETE",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					alert("AJAX call successful!");
+    				},
+    				error: function(xhr,status,error) {
+    					alert("AJAX call failed!");
+    				}
+    		   });
 	}
 }
