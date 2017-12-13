@@ -52,9 +52,9 @@ var Controller = function() {
 		mainVenuePageObj.pageReady();
 	}
 	
-	this.loadArtistSearchPage = function(searchResult) {
+	this.loadArtistSearchPage = function(searchResult, mainArtistPageObj) {
 		this.clearPage();
-		var artistSearchPageObj = new ArtistSearchPage(this.headerObj, this.sharedPrepsObj, this, searchResult);
+		var artistSearchPageObj = new ArtistSearchPage(this.headerObj, this.sharedPrepsObj, this, searchResult, mainArtistPageObj);
 		artistSearchPageObj.pageReady();
 	}
 	

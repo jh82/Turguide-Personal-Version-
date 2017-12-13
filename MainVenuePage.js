@@ -15,17 +15,21 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
     	//sharedPrepsObj.fillInAllTitles(titlesArray);
 		
     	this.fillInMainVenueDiv();
-		this.fillInMapCanvas();
+		//this.fillInMapCanvas();
     	this.setUpEventHandlers();
+		this.randVenuesAJAXCall();
     }
 
     this.fillInMainVenueDiv = function() {
     	var mainVenueDiv = $('#mainVenueDiv');
-        mainVenueDiv.append('<canvas id="mapCanvas" width="1720" height="780"></canvas>'); //1536 768
-    	mainVenueDiv.append('Search Venue Name:<input type="text" id="venueNameTextbox">');
-		mainVenueDiv.append('Search Venue City:<input type="text" id="venueCityTextbox">');
-		mainVenueDiv.append('Search Venue State:<input type="text" id="venueStateTextbox">');
-    	mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
+        //mainVenueDiv.append('<canvas id="mapCanvas" width="1720" height="780"></canvas>'); //1536 768
+		if(headerObj.userSignedIn) {
+			mainVenueDiv.append('Search Venue Name:<input type="text" id="venueNameTextbox">');
+			mainVenueDiv.append('Search Venue City:<input type="text" id="venueCityTextbox">');
+			mainVenueDiv.append('Search Venue State:<input type="text" id="venueStateTextbox">');
+			mainVenueDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
+		}
+		$('main').addClass('verticalFlex');
     }
 	
 	this.fillInMapCanvas = function() {
@@ -84,7 +88,6 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 		ctx.drawImage(stateImageArray[47], 1680, 670);//west virginia
 		ctx.drawImage(stateImageArray[48], 1220, 340);//wisconsin
 		ctx.drawImage(stateImageArray[49], 460, 760);//wyoming
-		
 	}
 
     this.setUpEventHandlers = function() {
@@ -131,21 +134,6 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
     		   });
     }
 	
-	this.createTestAJAXDiv = function(jsonResult) {
-		console.log(jsonResult);
-		var mpaDiv = $('#mostPopularArtistsDiv');
-		var tempBandName = jsonResult.bandname;
-		console.log(tempBandName);
-		var tempWebsite = jsonResult.website;
-		var tempOrigin = jsonResult.origin;
-		var tempMembers = jsonResult.members;
-		
-		mpaDiv.append('<img src="fakeAvatar.png">');
-		mpaDiv.append('<h1>'+tempBandName+'</h1>');
-		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('&#9733;');
-	}
-	
 	 this.searchAJAXCall = function(nameVal, cityVal, stateVal) {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
@@ -163,4 +151,45 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
     				}
     		   });
     }
+	
+	this.randVenuesAJAXCall = function() {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/php/venueController.php?random=10",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					console.log("AJAX call successful!");
+						console.log(result);
+						var parsedResult = undefined;
+						result.forEach(function(element) {
+							parsedResult = JSON.parse(element);
+							currentObj.createTestAJAXVenuesDiv(parsedResult);
+						});
+						
+						//currentObj.createTestAJAXDiv(result.ranartists[0]);
+						
+						console.log(parsedResult.bandname);
+    				},
+    				error: function(xhr,status,error) {
+    					console.log("AJAX call failed!");
+    				}
+    		   });
+    }
+	
+	this.createTestAJAXVenuesDiv = function(jsonResult) {
+		console.log(jsonResult);
+		var mpaDiv = $('<div class="bodyText AJAXDiv"></div>');
+		mpaDiv.addClass('infoPanel');
+		var tempVenueName = jsonResult.vname;
+		//console.log(tempVenueName);
+		var tempCity = jsonResult.vcity;
+		var tempState = jsonResult.vstate;
+		var tempCapacity = jsonResult.maxcap;
+		
+		mpaDiv.append('<h1>'+tempVenueName+'</h1>');
+		mpaDiv.append('<ul><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Capacity:'+tempCapacity+'</li></ul>');
+		
+		$('#mainVenueDiv').append(mpaDiv);
+	}
 }

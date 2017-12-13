@@ -153,7 +153,6 @@ var Header = function(userSignedIn, controllerObj) {
     												<form action="">\
     													Username<input type="text" name="username" id="username" class="textInput">\
     													Password<input type="password" name="password" id="password" class="textInput">	\
-    													Remember Me<input type="checkbox" class="checkbox">\
     													<button id="loginConfirmButton" class="header-button">Login</button>\
 														<button id="loginCancelButton" class="header-button cancel">X</button>\
     												</form>\

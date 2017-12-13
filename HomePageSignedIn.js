@@ -12,12 +12,12 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     	sharedPrepsObj.makeMainReady(mainElementsArray);
 		
 		var titlesArray = [
-			{divNode:$('#eventsHappeningSoon'),titleString:'Events Happening Right Now'},
+			{divNode:$('#eventsHappeningSoon'),titleString:'Events Happening Soon'},
 			{divNode:$('#favoriteArtists'),titleString:'Favorite Artists'},
 			{divNode:$('#favoriteVenues'),titleString:'Favorite Venues'}
 		];
     	sharedPrepsObj.fillInAllTitles(titlesArray);
-		
+		$('main').addClass('threeColumns');
     	this.fillInFavoriteArtists();
     	this.fillInFavoriteVenues();
     	this.setUpEventHandlers();
@@ -76,17 +76,19 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.createArtistAJAXDiv = function(jsonResult) {
 		console.log(jsonResult);
-		var mpaDiv = $('#favoriteArtists');
+		var mpaDiv = $('<div></div>');
 		var tempBandName = jsonResult.bandname;
 		console.log(tempBandName);
 		var tempWebsite = jsonResult.website;
 		var tempOrigin = jsonResult.origin;
 		var tempMembers = jsonResult.members;
 		
-		mpaDiv.append('<img src="fakeAvatar.png">');
+		mpaDiv.append('<img src="fakeAvatar.png" class="circleViewport">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('<button class="starButton favorite" data-favorited="1" data-artid="'+jsonResult.artid+'">&#9733;</button>');
+		mpaDiv.append('<button class="starButton favorite" data-favorited="1" data-artid="'+jsonResult.artid+'">&#9733;</button><br>');
+		mpaDiv.addClass('AJAXDiv');
+		$('#favoriteArtists').append(mpaDiv);
 	}
 	
 	this.venueAJAXCall = function() {
@@ -111,16 +113,18 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	
 	this.createVenueAJAXDiv = function(jsonResult) {
 		console.log(jsonResult.artistinfo);
-		var mpaDiv = $('#favoriteVenues');
+		var mpaDiv = $('<div></div>');
 		var tempBandName = jsonResult.vname;
 		console.log(tempBandName);
 		var tempWebsite = jsonResult.vcity;
 		var tempOrigin = jsonResult.vstate;
 		var tempMembers = jsonResult.maxcap;
 		
-		mpaDiv.append('<img src="fakeAvatar.png">');
+		
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
-		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('&#9733;');
+		mpaDiv.append('<ul><li>City:'+tempWebsite+'</li><li>State:'+tempOrigin+'</li><li>Capacity:'+tempMembers+'</li></ul>');
+		mpaDiv.append('<button class="starButton favorite" data-favorited="1" data-venid="'+jsonResult.venid+'">&#9733;</button><br>');
+		mpaDiv.addClass('AJAXDiv');
+		$('#favoriteVenues').append(mpaDiv);
 	}
 }

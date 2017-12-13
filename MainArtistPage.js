@@ -14,7 +14,6 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 		];
     	sharedPrepsObj.fillInAllTitles(titlesArray);
 		
-		
 		$("main").addClass('centeredColumn');
 		$("#mainArtistsDiv").addClass('flexVertical');
 		$("#mainArtistsDiv").addClass('styledColumn');
@@ -25,8 +24,10 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.fillInMainArtistsDiv = function() {
     	var mainArtistsDiv = $('#mainArtistsDiv');
-    	mainArtistsDiv.append('Search Artists: <input type="text" id="artistSearchTextbox">');
-    	mainArtistsDiv.append('<button id="artistSearchButton">&#x1F50D;</button>');
+		if(headerObj.userSignedIn) {
+			mainArtistsDiv.append('Search Artists: <input type="text" id="artistSearchTextbox">');
+			mainArtistsDiv.append('<button id="artistSearchButton">&#x1F50D;</button>');
+		}
     	mainArtistsDiv.append('<h1>Most Popular Artists</h1>');
     	mainArtistsDiv.append('<div id="mostPopularArtistsDiv"></div>');
     }
@@ -93,7 +94,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
     				success: function(result, status, xhr) {
 						console.log("AJAX call successful!");
 						console.log(result);
-						controllerObj.loadArtistSearchPage(result);
+						controllerObj.loadArtistSearchPage(result, this);
     				},
     				error: function(xhr,status,error) {
     					console.log("AJAX call failed!");

@@ -1,4 +1,4 @@
-var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, searchresult) {
+var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, searchresult, mainArtistPageObj) {
 	
 	this.searchresult = searchresult;
 	this.currentFavorites;
@@ -29,9 +29,9 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
 		$('main').addClass('centeredColumn');
 		mainArtistsDiv.addClass('flexVertical');
 		mainArtistsDiv.addClass('styledColumn');
-    	mainArtistsDiv.append('Search Artists: <input type="text" id="artistSearchTextbox">');
-    	mainArtistsDiv.append('<button id="artistSearchButton">&#x1F50D;</button>');
-    	mainArtistsDiv.append('<h1>Search Results</h1>');
+    	//mainArtistsDiv.append('Search Artists: <input type="text" id="artistSearchTextbox">');
+    	//mainArtistsDiv.append('<button id="artistSearchButton">&#x1F50D;</button>');
+    	//mainArtistsDiv.append('<h1>Search Results</h1>');
     	mainArtistsDiv.append('<div id="foundArtistsDiv"></div>');
 		this.createTestAJAXDiv(this.searchresult);
     }
@@ -50,6 +50,7 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
 
     this.whenSearchButtonClicked = function() {
     	console.log('Search Button Clicked!');
+		mainArtistPageObj.whenSearchButtonClicked();
     }
 	
 	this.whenStarButtonClicked = function(starButton) {
@@ -63,7 +64,7 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
 		}
 		else if(favoriteBool==1){
 			starButton.data('favorited', 0);
-			starButton.addClass('favorite');
+			starButton.removeClass('favorite');
 			this.removeFaveAJAXCall(starButton.data('artid'));
 		}
     }
@@ -129,6 +130,7 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
     				dataType: "json",
     				success: function(result, status, xhr) {
     					alert("AJAX call successful!");
+						$('.starButton').removeClass('favorite');
     				},
     				error: function(xhr,status,error) {
     					alert("AJAX call failed!");

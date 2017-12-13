@@ -20,13 +20,13 @@ var AccountSettings = function(headerObj, sharedPrepsObj, controllerObj) {
 
     this.fillInAccountSettings = function() {
     	var accountSettingsDiv = $('#accountSettingsCentral');
-    	accountSettingsDiv.append('<img id="avatarInContent" src="fakeAvatar.png">');
-    	accountSettingsDiv.append('<button id="changePassword">Change Password</button>');
+    	//accountSettingsDiv.append('<img id="avatarInContent" src="fakeAvatar.png">');
+    	//accountSettingsDiv.append('<button id="changePassword">Change Password</button>');
     	accountSettingsDiv.append('First Name:<input type="text"">');
     	accountSettingsDiv.append('Last Name:<input type="text"">');
     	accountSettingsDiv.append('<input type="checkbox">Use Real Name?');
     	accountSettingsDiv.append('<button id="submitChangesButton">Submit Changes</button>');
-    	accountSettingsDiv.append('<button id="deleteAccountButton">Delete Account</button>');
+    	//accountSettingsDiv.append('<button id="deleteAccountButton">Delete Account</button>');
     }
 
     this.setUpEventHandlers = function() {
