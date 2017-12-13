@@ -23,6 +23,7 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     	this.setUpEventHandlers();
 		this.artistAJAXCall();
 		this.venueAJAXCall();
+		this.soonEventsAJAX();
     }
 
     this.fillInFavoriteArtists = function() {
@@ -126,5 +127,48 @@ var HomePageSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		mpaDiv.append('<button class="starButton favorite" data-favorited="1" data-venid="'+jsonResult.venid+'">&#9733;</button><br>');
 		mpaDiv.addClass('AJAXDiv');
 		$('#favoriteVenues').append(mpaDiv);
+	}
+	
+	this.soonEventsAJAX = function() {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/php/next2weeks.php",
+    	       {	type: "GET",
+    				dataType: "json",
+    				success: function(result, status, xhr) {
+    					console.log("AJAX call successful!");
+						console.log(result);
+						result.forEach(function(element) {
+							var parsedResult = JSON.parse(element);
+							currentObj.createTestAJAXEventsDiv(parsedResult);
+						});
+    				},
+    				error: function(xhr,status,error) {
+    					alert("AJAX call failed!");
+    				}
+    		   });
+	}
+	
+	this.createTestAJAXEventsDiv = function(jsonResult) {
+		console.log(jsonResult);
+		var mpaDiv = $('<div class="bodyText AJAXDiv"></div>');
+		mpaDiv.addClass('infoPanel');
+		var tempEventDate = jsonResult.edate;
+		//console.log(tempBandName);
+		var tempEventTime = jsonResult.etime;
+		var tempVenueName = jsonResult.vname;
+		var tempCity = jsonResult.vcity;
+		var tempState = jsonResult.vstate;
+		var tempPrice = jsonResult.price;
+		var tempHeadliners = "";
+		tempHeadliners = jsonResult.headliners[0];
+		var tempOtherBands = "";
+		tempOtherBands = jsonResult.otherbands[0];
+		
+		if(tempHeadliners!=undefined){mpaDiv.append('<h1>'+tempHeadliners+'</h1>');}
+		if(tempOtherBands!=undefined){mpaDiv.append('<h4>'+tempOtherBands+'</h4>');}
+		mpaDiv.append('<ul><li>Event Data:'+tempEventDate+'</li><li>Event Time:'+tempEventTime+'</li><li>Venue Name:'+tempVenueName+'</li><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Price:'+tempPrice+'</li></ul>');
+		
+		$('#eventsHappeningSoon').append(mpaDiv);
 	}
 }
