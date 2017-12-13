@@ -5,7 +5,7 @@ var Header = function(userSignedIn, controllerObj) {
 	
 	 this.fillInHeader = function() {
     	var headerNode = $('header');
-    	headerNode.append('<img id="turGuideLogo" src="sketchSmallLogo.png">');
+    	headerNode.append('<img id="turGuideLogo" src="sketchSmallLogo-transparent.png">');
 		headerNode.append('<div id="centerButtonsDiv" class="centerHeaderDiv"></div>');
     	$('#centerButtonsDiv').append('<button id="artistsButton" class="header-button left-header-button">Artists</button>');
     	$('#centerButtonsDiv').append('<button id="venuesButton" class="header-button right-header-button">Venues</button>');
@@ -154,8 +154,8 @@ var Header = function(userSignedIn, controllerObj) {
     													Username:<input type="text" name="username" id="username">\
     													Password:<input type="password" name="password" id="password">	\
     													Remember Me<input type="checkbox">\
-    													<button id="loginConfirmButton">Login</button>\
-														<button id="loginCancelButton">X</button>\
+    													<button id="loginConfirmButton" class="header-button">Login</button>\
+														<button id="loginCancelButton" class="header-button">X</button>\
     												</form>\
     											</div>';
     	$('header').append(loginFormDiv);
@@ -178,8 +178,8 @@ var Header = function(userSignedIn, controllerObj) {
     													Username:<input type="text" name="username" id="username">\
     													Password:<input type="password" name="password" id="password">	\
     													Confirm Password:<input type="password" name="password" id="passwordConfirm">\
-    													<button id="signUpConfirmButton">Sign Up</button>\
-														<button id="signUpCancelButton">X</button>\
+    													<button id="signUpConfirmButton" class="header-button">Sign Up</button>\
+														<button id="signUpCancelButton" class="header-button">X</button>\
     												</form>\
     											</div>';
     	$('header').append(loginFormDiv);

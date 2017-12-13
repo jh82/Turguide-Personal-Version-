@@ -1,6 +1,7 @@
 .body {
-	background-color: #B5F2B4;
+	/*background-color: #B5F2B4;*/
 	/*background-color:#697DDD;*/
+	background-color: #c1e7c0;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #080F30;
 }
@@ -90,8 +91,12 @@ main {
 }
 
 .styledColumn {
-	background-color: #83c982;
+	background-color: #B5F2B4;
 	border-left: 1px solid black;
 	border-right: 1px solid black;
 	min-height: 100;
+}
+
+.favorite {
+	color: yellow;
 }
