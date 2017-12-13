@@ -36,10 +36,11 @@ if ($conn->connect_error) {
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-
+print json_encode($username);
+print json_encode($password);
 if (check_password($conn,$username, $password)) {
   header('Content-type: application/json');
-
+  
   // Generate authorization cookie
   $_SESSION['username'] = $username;
   $_SESSION['authsalt'] = time();
@@ -47,7 +48,7 @@ if (check_password($conn,$username, $password)) {
   $auth_cookie_val = md5($_SESSION['username'] . $_SERVER['REMOTE_ADDR'] . $_SESSION['authsalt']);
 
   setcookie('LOGIN_AUTH', $auth_cookie_val, 0, '/', 'wwwp.cs.unc.edu', true);
-  
+  print "Cookie set";
   //save accid in session state
   $hashedpass = md5($password);
   $result = $conn->query("
@@ -58,7 +59,7 @@ if (check_password($conn,$username, $password)) {
 		LIMIT 1
 		");
   $_SESSION['accid'] = $result->fetch_assoc()['accid'];
-  
+  print "accid session set";
   print(json_encode(true));
 
 } else {
@@ -71,6 +72,6 @@ if (check_password($conn,$username, $password)) {
   print(json_encode(false));
 }
 
-conn->close();
+$conn->close();
 
 ?>
