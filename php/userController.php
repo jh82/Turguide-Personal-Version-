@@ -49,7 +49,7 @@ if ($conn->connect_error) {
 
 
 $lastitem = end(explode('/',$_SERVER['PATH_TRANSLATED'])); //The id in post, type in get
-$secondlast = explode('/',$_SERVER['PATH_TRANSLATED'])[count(explode('/',$_SERVER['PATH_TRANSLATED']))-2]; //type in post, nothing in get
+//$secondlast = explode('/',$_SERVER['PATH_TRANSLATED'])[count(explode('/',$_SERVER['PATH_TRANSLATED']))-2]; //type in post, nothing in get
 //print $lastitem;
 //print_r($lastitem);
 /*
@@ -77,18 +77,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	//print_r($lastitem);
 	//print_r($secondlast);
 	//add new favorites row (venues or artists)
-	if ($secondlast === 'artists' || $secondlast === 'venues')
+	if ($lastitem === 'artists' || $lastitem === 'venues')
 	{
-		$fk_item = (int) $lastitem;
-		if($secondlast === 'artists')
+		//$fk_item = (int) $lastitem;
+		if($lastitem === 'artists')
 		{
 			//print 'HERE';
-			addFavoriteArtist($conn,(int) $_SESSION['accid'],$fk_item);
+			addFavoriteArtist($conn,(int) $_SESSION['accid'],(int) $_POST['artid']);
 			
 		}
 		else
 		{
-			addFavoriteVenue($conn,(int) $_SESSION['accid'],$fk_item);
+			addFavoriteVenue($conn,(int) $_SESSION['accid'],(int) $_POST['venid']);
 		}
 	}
 	else
@@ -167,6 +167,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'PUT')
 {
+	//Password is assumed to not be set
 	//update user info
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE')
