@@ -14,6 +14,7 @@ include_once 'readfunctions.php';
 include_once 'updateFunctions.php';
 include_once 'deletefunctions.php';
 include_once 'randomfunctions.php';
+include_once 'getAll.php';
 
 $servername = 'classroom.cs.unc.edu';
 $username   = 'gibsonb';
@@ -57,7 +58,7 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 	
 	if ( count($request)==0) //only 1 item, return everything - will gets mess it up?
 	{
-		print "TEST  WORK";
+		print getAllArtists($conn);
 		//get all artists and return
 	}
 	elseif ( count($request) > 0)//2 items can be id or GET params
