@@ -86,7 +86,7 @@ var Header = function(userSignedIn, controllerObj) {
 
     this.whenLoginClicked = function() {
     	console.log('Login Clicked!');
-    	this.replaceLogin();
+    	this.appendLogin();
     }
 	
 	this.whenAccountSettingsClicked = function() {
@@ -97,8 +97,8 @@ var Header = function(userSignedIn, controllerObj) {
     	console.log('Log Off Clicked!');
     }
 
-    this.replaceLogin = function() {
-    	var loginFormDiv = '<div id="loginDiv">\
+    this.appendLogin = function() {
+    	var loginFormDiv = '<div id="loginDiv" class="floatingDiv">\
     												<form action="">\
     													Username:<input type="text" name="username">\
     													Password:<input type="password" name="password">	\
@@ -106,6 +106,6 @@ var Header = function(userSignedIn, controllerObj) {
     													<button>Login</button>\
     												</form>\
     											</div>';
-    	$('#loginButton').replaceWith(loginFormDiv);
+    	$('header').append(loginFormDiv);
     }
 }

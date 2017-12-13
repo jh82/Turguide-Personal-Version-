@@ -38,7 +38,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
     this.randArtistsAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/randomartists.php",
+    	$.ajax(url_base + "/php/artistController.php?random=10",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
@@ -81,7 +81,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 	this.randVenuesAJAXCall = function() {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/randomvenues.php",
+    	$.ajax(url_base + "/php/venueController.php?random=10",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {

@@ -149,7 +149,7 @@ var MainVenuePage = function(headerObj, sharedPrepsObj, controllerObj, stateImag
 	 this.searchAJAXCall = function(nameVal, cityVal, stateVal) {
 		var currentObj = this;
     	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
-    	$.ajax(url_base + "/venuesearch.php?vname="+encodeURIComponent(nameVal)+"&vcity="+encodeURIComponent(cityVal)+"&vstate="+encodeURIComponent(stateVal)+"",
+    	$.ajax(url_base + "/php/venueController.php?vname="+encodeURIComponent(nameVal)+"&vcity="+encodeURIComponent(cityVal)+"&vstate="+encodeURIComponent(stateVal)+"",
     	       {	type: "GET",
     				dataType: "json",
     				success: function(result, status, xhr) {
