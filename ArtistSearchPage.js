@@ -72,7 +72,7 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
-		mpaDiv.append('<button class="starButton" data-artid="'+artistInfo.artid+'" data-favorited="0">&#9733;</button>');
+		mpaDiv.append('<button class="starButton" data-artid="'+artistInfo.artid+'" data-favorited="0">&#9733;</button>'); //useless comment
 	}
 	
 	this.addFaveAJAXCall = function(artid) {
