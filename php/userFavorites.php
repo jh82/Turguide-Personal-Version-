@@ -2,6 +2,8 @@
 
 include_once 'readfunctions.php';
 
+
+
 function allUserVenues($conn,$accid)
 {
 	$result = $conn->query("
@@ -67,16 +69,15 @@ function allUserArtists($conn,$accid)
 		//TODO for random values, use LIMIT 10 and ORDER BY NEWID()
 	
 	$allfavartists = $result->fetch_array(); //CHECK
-	//print $allfavartists;
+	//print 'All fave artists: ';
+	//print_r($allfavartists);
 	
 	
 	$allartistinfo = array();
 	
-	foreach( $allfavartists as $tempartid)
-	{
-		
-		$allartistinfo[] = getArtistInfo($tempartid,$conn);
-	}
+	while ($row = $result->fetch_assoc()) {
+        $allartistinfo[] = getArtistInfo($row["fk_artid"],$conn);
+    }
 	
 	
 	return json_encode($allartistinfo);
