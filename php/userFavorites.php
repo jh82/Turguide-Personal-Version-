@@ -20,11 +20,9 @@ function allUserVenues($conn,$accid)
 	
 	$allvenueinfo = array();
 	
-	foreach( $allfavvenues as $tempvenid)
-	{
-		
-		$allvenueinfo[] = getVenueInfo($tempvenid,$conn);
-	}
+	while ($row = $result->fetch_assoc()) {
+        $allvenueinfo[] = getVenueInfo($row["fk_vid"],$conn);
+    }
 	
 	return json_encode($allvenueinfo);
 }
@@ -50,11 +48,9 @@ function randomUserVenues($conn,$accid,$amount)
 	$allvenueinfo = array();
 	
 	
-	foreach( $allfavvenues as $tempvenid)
-	{
-		$allvenueinfo[] = getVenueInfo($tempvenid,$conn);
-	}
-	
+	while ($row = $result->fetch_assoc()) {
+        $allvenueinfo[] = getVenueInfo($row["fk_vid"],$conn);
+    }
 	return json_encode($allvenueinfo);
 }
 
@@ -101,11 +97,9 @@ function randomUserArtists($conn,$accid,$amount)
 	
 	$allartistinfo = array();
 	
-	foreach( $allfavartists as $tempartid)
-	{
-		
-		$allartistinfo[] = getArtistInfo($tempartid,$conn);
-	}
+	while ($row = $result->fetch_assoc()) {
+        $allartistinfo[] = getArtistInfo($row["fk_artid"],$conn);
+    }
 	
 	
 	return json_encode($allartistinfo);
