@@ -39,10 +39,30 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
     	$('#artistSearchButton').on('click', function() {
     		currentObj.whenSearchButtonClicked();
     	});
+		
+		$('.starButton').on('click', function() {
+    		currentObj.whenStarButtonClicked($(this));
+    	});
     }
 
     this.whenSearchButtonClicked = function() {
     	console.log('Search Button Clicked!');
+    }
+	
+	this.whenStarButtonClicked = function(starButton) {
+    	var favoriteBool = starButton.data('favorited');
+		var artid = starButton.data('artid');
+		
+		if(favoriteBool==0){
+			starButton.data('favorited', 1);
+			starButton.addClass('favorite');
+			this.addFaveAJAXCall(starButton.data('artid'));
+		}
+		else if(favoriteBool==1){
+			starButton.data('favorited', 0);
+			starButton.addClass('favorite');
+			this.removeFaveAJAXCall(starButton.data('artid'));
+		}
     }
 
     this.testAJAXCall = function() {
