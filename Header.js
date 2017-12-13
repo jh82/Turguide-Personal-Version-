@@ -117,14 +117,14 @@ var Header = function(userSignedIn, controllerObj) {
 	this.whenSignUpConfirmClicked = function() {
     	console.log('Sign Up Confirm Clicked!');
 		if($('#password').val()!=$('#passwordConfirm').val()) {
-			alert("Passwords do not match!!!!!!!!!!!!!");
+			alert("Passwords do not match");
 			return;
 		}
 		if (($('#username').val().indexOf(' ') > -1)||($('#password').val().indexOf(' ') > -1)) {
-			alert("No spaces allowed in username or password!!!!!!!!");
+			alert("No spaces allowed in username or password");
 			return;
 		}
-		if(($('#username').val()==undefined)||($('#password').val()==undefined)||($('#passwordConfirm').val()==undefined)) {
+		if(($('#username').val()=="")||($('#password').val()=="")||($('#passwordConfirm').val()=="")) {
 			alert("Please input values for both username and password");
 			return;
 		}

@@ -128,3 +128,12 @@ main {
 	color: #deedde;
 	font-weight: bold;
 }
+
+.AJAXDiv {
+	background-color: rgba(61, 88, 143, 0.5);
+	border-radius: 25px;
+}
+
+.circleViewport {
+	border-radius: 50%;
+}
