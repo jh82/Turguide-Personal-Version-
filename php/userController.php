@@ -49,7 +49,7 @@ if ($conn->connect_error) {
 
 
 $lastitem = end(explode('/',$_SERVER['PATH_TRANSLATED'])); //The id in post, type in get
-//$secondlast = explode('/',$_SERVER['PATH_TRANSLATED'])[count(explode('/',$_SERVER['PATH_TRANSLATED']))-2]; //type in post, nothing in get
+$secondlast = explode('/',$_SERVER['PATH_TRANSLATED'])[count(explode('/',$_SERVER['PATH_TRANSLATED']))-2]; //type in post, nothing in get
 //print $lastitem;
 //print_r($lastitem);
 /*
@@ -83,12 +83,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 		if($lastitem === 'artists')
 		{
 			//print 'HERE';
-			addFavoriteArtist($conn,(int) $_SESSION['accid'],(int) $_POST['artid']);
+			print addFavoriteArtist($conn,(int) $_SESSION['accid'],(int) $_POST['artid']);
 			
 		}
 		else
 		{
-			addFavoriteVenue($conn,(int) $_SESSION['accid'],(int) $_POST['venid']);
+			print addFavoriteVenue($conn,(int) $_SESSION['accid'],(int) $_POST['venid']);
 		}
 	}
 	else

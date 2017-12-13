@@ -11,9 +11,10 @@ function createArtist($conn,$bname,$website,$origin,$members,$imgurl)
 			
 		}
 		else{
-			print 'Artist insert failure\n';
+			return json_encode(false);
 		}
 		$stmt->close();
+		return json_encode(true);
 }
 
 function createVenue($conn,$vname,$vcity,$vstate,$maxcap)
@@ -27,9 +28,10 @@ function createVenue($conn,$vname,$vcity,$vstate,$maxcap)
 			
 		}
 		else{
-			print 'create Venue failure\n';
+			return json_encode(false);
 		}
 		$stmt->close();
+		return json_encode(true);
 }
 
 function createEvent($conn,$fkartist,$fkvid,$edate,$etime,$price,$head)
@@ -43,9 +45,10 @@ function createEvent($conn,$fkartist,$fkvid,$edate,$etime,$price,$head)
 			
 		}
 		else{
-			print 'Event insert failure\n';
+			return json_encode(false);
 		}
 		$stmt->close();
+		return json_encode(true);
 	
 }
 
@@ -60,9 +63,10 @@ function createUser($conn,$uname, $upassword, $fname, $lname, $home)
 			
 		}
 		else{
-			print 'Account insert failure\n';
+			return json_encode(false);
 		}
 		$stmt->close();
+		return json_encode(true);
 	
 }
 
@@ -78,9 +82,10 @@ function addFavoriteArtist($conn,$accid,$artid)
 		
 	}
 	else{
-		print 'Favorite artist insert failure\n';
+		return json_encode(false);
 	}
 	$stmt->close();
+	return json_encode(true);
 }
 
 function addFavoriteVenue($conn,$accid,$venid)
@@ -94,9 +99,10 @@ function addFavoriteVenue($conn,$accid,$venid)
 		
 	}
 	else{
-		print 'Favorite venue insert failure\n';
+		return json_encode(false);
 	}
 	$stmt->close();
+	return json_encode(true);
 }
 
 

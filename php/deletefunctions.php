@@ -6,9 +6,9 @@ function deleteArtist($conn,$artid)
 		DELETE FROM Artists
 		WHERE Artists.artid=$artid
 		");
-	if(!$result){print "Artist not deleted - failure";}
+	if(!$result){return json_encode(false);}
 	
-	return;
+	return json_encode(true);
 }
 
 function deleteEvent($conn,$evid)
@@ -17,9 +17,9 @@ function deleteEvent($conn,$evid)
 		DELETE FROM Events
 		WHERE Events.evid=$evid
 		");
-	if(!$result){print "Event not deleted - failure";}
+	if(!$result){return json_encode(false);}
 	
-	return;
+	return json_encode(true);
 }
 
 function deleteVenue($conn,$venid)
@@ -28,9 +28,9 @@ function deleteVenue($conn,$venid)
 		DELETE FROM Venues
 		WHERE Venues.vid=$venid
 		");
-	if(!$result){print "Venue not deleted - failure";}
+	if(!$result){return json_encode(false);}
 	
-	return;
+	return json_encode(true);
 }
 
 function deleteUser($conn,$accid)
@@ -39,9 +39,9 @@ function deleteUser($conn,$accid)
 		DELETE FROM Accounts
 		WHERE Accounts.accid=$accid
 		");
-	if(!$result){print "Account not deleted - failure";}
+	if(!$result){return json_encode(false);}
 	
-	return;
+	return json_encode(true);
 	
 }
 
@@ -54,7 +54,8 @@ function deleteFavArtist($conn,$accid,$artid)
 		WHERE FavArtists.fk_accid=$accid
 		AND FavArtists.fk_artid=$artid
 		");
-	if(!$result){print "fav artist not deleted - failure";}
+	if(!$result){return json_encode(false);}
+	return json_encode(true);
 }
 
 function deleteFavVenue($conn,$accid,$venid)
@@ -64,7 +65,8 @@ function deleteFavVenue($conn,$accid,$venid)
 		WHERE FavVenues.fk_accid=$accid
 		AND FavVenues.fk_vid=$venid
 		");
-	if(!$result){print "fav venue not deleted - failure";}
+	if(!$result){return json_encode(true);}
+	return json_encode(true);
 }
 
 
