@@ -1,5 +1,6 @@
 .body {
 	background-color: #B5F2B4;
+	/*background-color:#697DDD;*/
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: #080F30;
 }
@@ -13,6 +14,7 @@
 	display: flex;
 	justify-content: space-around;
 	border-bottom: 1px solid black;
+	box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
 }
 
 .header-button {
@@ -85,4 +87,11 @@ main {
   color: #deedde;
   font-size: 140%;
   font-weight: bold;
+}
+
+.styledColumn {
+	background-color: #83c982;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	min-height: 100;
 }

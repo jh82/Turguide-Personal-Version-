@@ -19,15 +19,16 @@ var VenueSearchPage = function(headerObj, sharedPrepsObj, controllerObj, searchR
     }
 
     this.fillInMainSearchDiv = function() {
-    	var mainArtistsDiv = $('#mainSearchDiv');
+    	var mainVenuesDiv = $('#mainSearchDiv');
 		var currentObj = this;
 		$('main').removeClass('centeredColumn');
 		$('main').addClass('centeredColumn');
-		mainArtistsDiv.addClass('flexVertical');
-    	mainArtistsDiv.append('Search Venues: <input type="text" id="venueSearchTextbox">');
-    	mainArtistsDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
-    	mainArtistsDiv.append('<h1>Search Results</h1>');
-    	mainArtistsDiv.append('<div id="foundVenueDiv"></div>');
+		mainVenuesDiv.addClass('flexVertical');
+		mainVenuesDiv.addClass('styledColumn');
+    	mainVenuesDiv.append('Search Venues: <input type="text" id="venueSearchTextbox">');
+    	mainVenuesDiv.append('<button id="venueSearchButton">&#x1F50D;</button>');
+    	mainVenuesDiv.append('<h1>Search Results</h1>');
+    	mainVenuesDiv.append('<div id="foundVenueDiv"></div>');
 		searchResult.forEach(function(element) {
 			parsedResult = JSON.parse(element);
 			currentObj.createTestAJAXDiv(parsedResult);

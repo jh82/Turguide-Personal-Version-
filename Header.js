@@ -103,6 +103,11 @@ var Header = function(userSignedIn, controllerObj) {
 	
 	this.whenLoginConfirmClicked = function() {
     	console.log('Login Confirm Clicked!');
+		var uname = "";
+		var pword = "";
+		uname = $('#username').val();
+		pword = $('#password').val();
+		this.loginAJAXCall(uname, pword);
     }
 	
 	this.whenLoginCancelClicked = function() {
@@ -157,9 +162,9 @@ var Header = function(userSignedIn, controllerObj) {
 		var currentObj = this;
     	var loginFormDiv = '<div id="signUpDiv" class="floatingDiv">\
     												<form action="">\
-    													Username:<input type="text" name="username">\
-    													Password:<input type="password" name="password">	\
-    													Confirm Password:<input type="password" name="password">\
+    													Username:<input type="text" name="username" id="username">\
+    													Password:<input type="password" name="password" id="password">	\
+    													Confirm Password:<input type="password" name="password" id="passwordConfirm">\
     													<button id="signUpConfirmButton">Sign Up</button>\
 														<button id="signUpCancelButton">X</button>\
     												</form>\
@@ -176,4 +181,21 @@ var Header = function(userSignedIn, controllerObj) {
     		currentObj.whenSignUpCancelClicked();
     	});
     }
+	
+	this.loginAJAXCall = function(uname, pword) {
+		var currentObj = this;
+    	var url_base = "https://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
+    	$.ajax(url_base + "/php/login.php",
+    	       {	type: "POST",
+    				dataType: "json",
+					data: {username:uname, password:pword},
+    				success: function(result, status, xhr) {
+    					console.log("AJAX call success!");
+						
+    				},
+    				error: function(xhr,status,error) {
+    					console.log("AJAX call failed!");
+    				}
+    		   });
+	}
 }

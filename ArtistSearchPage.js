@@ -25,6 +25,7 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
 		$('main').removeClass('centeredColumn');
 		$('main').addClass('centeredColumn');
 		mainArtistsDiv.addClass('flexVertical');
+		mainArtistsDiv.addClass('styledColumn');
     	mainArtistsDiv.append('Search Artists: <input type="text" id="artistSearchTextbox">');
     	mainArtistsDiv.append('<button id="artistSearchButton">&#x1F50D;</button>');
     	mainArtistsDiv.append('<h1>Search Results</h1>');

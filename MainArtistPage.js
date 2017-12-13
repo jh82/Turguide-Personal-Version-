@@ -17,6 +17,7 @@ var MainArtistPage = function(headerObj, sharedPrepsObj, controllerObj) {
 		
 		$("main").addClass('centeredColumn');
 		$("#mainArtistsDiv").addClass('flexVertical');
+		$("#mainArtistsDiv").addClass('styledColumn');
     	this.fillInMainArtistsDiv();
     	this.setUpEventHandlers();
 		this.randArtistsAJAXCall();
