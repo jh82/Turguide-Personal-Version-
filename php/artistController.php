@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 	$website = mysqli_real_escape_string($conn,$_POST['website']);
 	$origin  = mysqli_real_escape_string($conn,$_POST['origin']);
 	$members = mysqli_real_escape_string($conn,$_POST['members']);
-	$imgurl  = 'img/fakeAvatar.png';
+	$imgurl  = 'img/fakeAvatar.png'; //Assumed to not exist, 'so that we can evaluate the image later manually'
 	
 	print createArtist($conn,$bname,$website,$origin,$members,$imgurl);
 	

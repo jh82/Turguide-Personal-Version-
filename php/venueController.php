@@ -66,7 +66,7 @@ print '<br>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-	print_r(var_dump($_POST));
+	//print_r(var_dump($_POST));
 	$vname   = mysqli_real_escape_string($conn,$_POST['vname']);
 	$vcity   = mysqli_real_escape_string($conn,$_POST['vcity']);
 	$vstate  = mysqli_real_escape_string($conn,$_POST['vstate']);

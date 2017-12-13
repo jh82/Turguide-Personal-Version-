@@ -160,8 +160,13 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 		}
 				
 	}
-	else
+	elseif(((int)$lastitem) > 0) && $secondlast=== 'artists' //last item is id
 	{
+		$action = $_GET['action'];
+		if($action === 'delete')
+		{
+			print deleteFavArtist($conn,(int) $_SESSION['accid'],(int)$lastitem);
+		}
 		//not the right amount in the path - check
 	}
 }
