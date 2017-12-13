@@ -70,7 +70,7 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		var tempOrigin = jsonResult.origin;
 		var tempMembers = jsonResult.members;
 		
-		mpaDiv.append('<img src="fakeAvatar.png">');
+		mpaDiv.append('<img src="'+jsonResult.imageurl+'">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');
@@ -113,7 +113,6 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		var tempState = jsonResult.vstate;
 		var tempCapacity = jsonResult.maxcap;
 		
-		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempVenueName+'</h1>');
 		mpaDiv.append('<ul><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Capacity:'+tempCapacity+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');
@@ -163,7 +162,6 @@ var HomePageNotSignedIn = function(headerObj, sharedPrepsObj, controllerObj) {
 		var tempOtherBands = "";
 		tempOtherBands = jsonResult.otherbands[0];
 		
-		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempEventDate+'</h1>');
 		mpaDiv.append('<ul><li>Event Time:'+tempEventTime+'</li><li>Venue:'+tempVenueName+'</li><li>City:'+tempCity+'</li><li>State:'+tempState+'</li><li>Price:'+tempPrice+'</li><li>Headliners:'+tempHeadliners+'</li><li>Other Bands:'+tempOtherBands+'</li></ul>');
 		mpaDiv.append('&#9733;<br>');

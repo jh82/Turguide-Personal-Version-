@@ -151,9 +151,9 @@ var Header = function(userSignedIn, controllerObj) {
 		var currentObj = this;
     	var loginFormDiv = '<div id="loginDiv" class="floatingDiv">\
     												<form action="">\
-    													Username:<input type="text" name="username" id="username" class="textInput">\
-    													Password:<input type="password" name="password" id="password" class="textInput">	\
-    													Remember Me<input type="checkbox">\
+    													Username<input type="text" name="username" id="username" class="textInput">\
+    													Password<input type="password" name="password" id="password" class="textInput">	\
+    													Remember Me<input type="checkbox" class="checkbox">\
     													<button id="loginConfirmButton" class="header-button">Login</button>\
 														<button id="loginCancelButton" class="header-button cancel">X</button>\
     												</form>\
@@ -175,9 +175,9 @@ var Header = function(userSignedIn, controllerObj) {
 		var currentObj = this;
     	var loginFormDiv = '<div id="signUpDiv" class="floatingDiv">\
     												<form action="">\
-    													Username:<input type="text" name="username" id="username" class="textInput">\
-    													Password:<input type="password" name="password" id="password" class="textInput">	\
-    													Confirm Password:<input type="password" name="password" id="passwordConfirm" class="textInput">\
+    													Username<input type="text" name="username" id="username" class="textInput">\
+    													Password<input type="password" name="password" id="password" class="textInput">	\
+    													Confirm Password<input type="password" name="password" id="passwordConfirm" class="textInput">\
     													<button id="signUpConfirmButton" class="header-button">Sign Up</button>\
 														<button id="signUpCancelButton" class="header-button cancel" can>X</button>\
     												</form>\
