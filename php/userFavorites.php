@@ -12,8 +12,8 @@ function allUserVenues($conn,$accid)
 		
 		//TODO for random values, use LIMIT 10 and ORDER BY NEWID()
 	
-	$allfavvenues = $result->fetch_array()[0]; //CHECK
-	print $allfavvenues;
+	$allfavvenues = $result->fetch_array(); //CHECK
+	//print $allfavvenues;
 	
 	
 	$allvenueinfo = array();
@@ -29,25 +29,27 @@ function allUserVenues($conn,$accid)
 
 function randomUserVenues($conn,$accid,$amount)
 {
+	
+	//print "THIS";
 	$result = $conn->query("
-		SELECT FavVenues.fk_vid
+		SELECT DISTINCT FavVenues.fk_vid
 		FROM FavVenues
 		WHERE FavVenues.fk_accid=$accid
+		ORDER BY RAND()
 		LIMIT $amount
-		ORDER BY NEWID()
 		");
-		
+	//print_r( count($result));
 		//TODO for random values, use LIMIT 10 and ORDER BY NEWID()
 	
-	$allfavvenues = $result->fetch_array()[0]; //CHECK
-	print $allfavvenues;
+	$allfavvenues = $result->fetch_array(); //CHECK
+	//print $allfavvenues;
 	
 	
 	$allvenueinfo = array();
 	
+	
 	foreach( $allfavvenues as $tempvenid)
 	{
-		
 		$allvenueinfo[] = getVenueInfo($tempvenid,$conn);
 	}
 	
@@ -64,8 +66,8 @@ function allUserArtists($conn,$accid)
 		
 		//TODO for random values, use LIMIT 10 and ORDER BY NEWID()
 	
-	$allfavartists = $result->fetch_array()[0]; //CHECK
-	print $allfavartists;
+	$allfavartists = $result->fetch_array(); //CHECK
+	//print $allfavartists;
 	
 	
 	$allartistinfo = array();
@@ -86,14 +88,14 @@ function randomUserArtists($conn,$accid,$amount)
 		SELECT FavArtists.fk_artid
 		FROM FavArtists
 		WHERE FavArtists.fk_accid=$accid
+		ORDER BY RAND()
 		LIMIT $amount
-		ORDER BY NEWID()
 		");
 		
 		//TODO for random values, use LIMIT 10 and ORDER BY NEWID()
 	
-	$allfavartists = $result->fetch_array()[0]; //CHECK
-	print $allfavartists;
+	$allfavartists = $result->fetch_array(); //CHECK
+	//print $allfavartists;
 	
 	
 	$allartistinfo = array();

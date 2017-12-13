@@ -48,7 +48,9 @@ if ($conn->connect_error) {
 */
 
 
-$lastitem = pathinfo($_SERVER['PATH_INFO']);
+$lastitem = end(explode('/',$_SERVER['PATH_TRANSLATED']));
+//print $lastitem;
+//print_r($lastitem);
 /*
 print_r('pathinfo:'.$_SERVER['PATH_INFO']);
 print '<br>';
@@ -74,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
-	//require_once('authenticate.php'); //user must be logged in to continue
+	require_once('authenticate.php'); //user must be logged in to continue
 	
 	header('Content-type: application/json');
 	
@@ -82,20 +84,38 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 	{
 		
 	}
-	elseif ( (basename($_SERVER['PATH_INFO'])) === 'venues' || (basename($_SERVER['PATH_INFO'])) === 'artists' )//asking for all favorite artists or venues
+	elseif ( $lastitem === 'venues' || $lastitem === 'artists' )//asking for all favorite artists or venues
 	{
-		header('Content-type: application/json');
+		//print "HERE";
+		//header('Content-type: application/json');
 		
-		$type = basename($_SERVER['PATH_INFO']);
-		if($type==='venues')
+		
+		if($lastitem === 'venues')
 		{
-			//get venues
-			print allUserVenues($conn,1);//$_SESSION['accid']);
+			if ( isset($_GET['random']))
+			{
+				//print "NOW HERE";
+				//print_r($_GET['random']);
+				print randomUserVenues($conn,(int) $_SESSION['accid'],(int) $_GET['random']);
+			}
+			else //get venues
+			{
+				print allUserVenues($conn,$_SESSION['accid']);
+			}
 		}
 		else
 		{
+			//print "HERE";
+			if ( isset($_GET['random']))
+			{
+				//print "NOW HERE";
+				//print_r($_GET['random']);
+				print randomUserArtists($conn,(int) $_SESSION['accid'],(int) $_GET['random']);
+			}
+			else{
 			//get artists
-			print allUserArtists($conn,1);//$_SESSION['accid']);
+				print allUserArtists($conn,(int)$_SESSION['accid']);
+			}
 		}
 				
 	}
