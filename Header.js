@@ -124,7 +124,7 @@ var Header = function(userSignedIn, controllerObj) {
 			alert("No spaces allowed in username or password!!!!!!!!");
 			return;
 		}
-		if(($('#username').val()=="")||($('#password').val()=="")||($('#passwordConfirm').val()=="")) {
+		if(($('#username').val()==undefined)||($('#password').val()==undefined)||($('#passwordConfirm').val()==undefined)) {
 			alert("Please input values for both username and password");
 			return;
 		}

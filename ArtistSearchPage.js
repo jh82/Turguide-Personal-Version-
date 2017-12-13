@@ -39,29 +39,11 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
     	$('#artistSearchButton').on('click', function() {
     		currentObj.whenSearchButtonClicked();
     	});
-		
-		$('.starButton').on('click', function() {
-    		currentObj.whenStarButtonClicked($(this));
-    	});
     }
 
     this.whenSearchButtonClicked = function() {
     	console.log('Search Button Clicked!');
     }
-	
-	this.whenStarButtonClicked = function(currentButton) {
-		console.log('Star Button Clicked!');
-		if(currentButton.data('favorited')==0) {
-			currentButton.data('favorited', 1);
-			currentButton.addClass('favorited');
-			this.addFaveAJAXCall(currentButton.data('artid'));
-		}
-		else if (currentButton.data('favorited')==1) {
-			currentButton.data('favorited', 0);
-			currentButton.addClass('nonfavorited');
-			this.removeFaveAJAXCall(currentButton.data('artid'));
-		}
-	}
 
     this.testAJAXCall = function() {
     	var url_base = "http://wwwp.cs.unc.edu/Courses/comp426-f17/users/gibsonb/finalproj";
@@ -90,6 +72,7 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
 		mpaDiv.append('<img src="fakeAvatar.png">');
 		mpaDiv.append('<h1>'+tempBandName+'</h1>');
 		mpaDiv.append('<ul><li>Website:'+tempWebsite+'</li><li>Origin:'+tempOrigin+'</li><li>Members:'+tempMembers+'</li></ul>');
+<<<<<<< HEAD
 		mpaDiv.append('<button class="starButton" data-artid="'+artistInfo.artid+'" data-favorited="0">&#9733;</button>');
 	}
 	
@@ -120,5 +103,8 @@ var ArtistSearchPage = function(headerObj, sharedPrepsObj, controllerObj, search
     					alert("AJAX call failed!");
     				}
     		   });
+=======
+		mpaDiv.append('&#9733;');
+>>>>>>> c528c1d0996046ccbb844d0870bd462e6e228bf5
 	}
 }
