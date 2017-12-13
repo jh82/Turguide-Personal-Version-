@@ -1,6 +1,6 @@
 <?php
 
-include_once 'readfunctions.php'
+include_once 'readfunctions.php';
 
 function venueSearch($conn, $vname, $vcity, $vstate)
 {
@@ -146,8 +146,7 @@ function venueSearch($conn, $vname, $vcity, $vstate)
 
 function artistSearch($conn,$searchval)
 {
-	
-	$searchval = mysqli_real_escape_string($conn, $_GET['searchval']);
+	//print($searchval);
 	//CHECK - artist will need to be modified to return more than 1 artist with same name
 	$result = $conn->query("
 		SELECT *

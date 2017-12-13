@@ -15,6 +15,7 @@ include_once 'updateFunctions.php';
 include_once 'deletefunctions.php';
 include_once 'randomfunctions.php';
 include_once 'getAll.php';
+include_once 'searchFunctions.php';
 
 $servername = 'classroom.cs.unc.edu';
 $username   = 'gibsonb';
@@ -55,6 +56,10 @@ print_r(count($_GET));
 print '<br> GET vals';
 print_r($_GET);
 print '<br>';
+print_r(isset($_GET['bname']));
+print '<br>';
+print_r( $_GET['bname']);
+print '<br>';
 //print 'HERE';
 
 
@@ -65,34 +70,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 {
-	//header('Content-type: application/json');
+	header('Content-type: application/json');
 	
 	if ( empty($_SERVER['PATH_INFO'])) //only 1 item, return everything - will gets mess it up?
 	{
-		print getAllArtists($conn);
-		//get all artists and return
+		if( isset($_GET['bname']))
+			{ //do search by bname
+				print 'HERE<br>';
+				$searchthis = $_GET['bname'];
+				print_r($searchthis);
+				print artistSearch($conn,$searchthis);
+			}
+		elseif ( isset($_GET['random']))
+			{ //get random number of values
+				print randomArtists($conn, (int) $_GET['random']);
+				
+			}
+		else
+		{
+			print getAllArtists($conn); //get all artists and return
+		}
+		
 	}
 	elseif ( ((int) basename($_SERVER['PATH_INFO'])) > 0 )//id here, must be greater than 0 can be id or GET params
 	{
 		//1) Check for id and 
-		if ( count($_GET)==1)
-		{
-			$curid = (int) basename($_SERVER['PATH_INFO']);
-			print getArtistInfo($curid,$conn);
-		}
-		else
-		{
-			//Now check to see if it's bname (search) or random (random number of ones)
-			if( isset($_GET['bname']))
-			{ //do search by bname
-				print artistSearch($conn, mysqli_real_escape_string($_GET['bname']));
-			}
-			elseif ( isset($_GET['random']))
-			{ //get random number of values
-				print randomArtists($conn, (int) mysqli_real_escape_string($_GET['random']));
-				
-			}
-		}
+		$curid = (int) basename($_SERVER['PATH_INFO']);
+		print getArtistInfo($curid,$conn);
 				
 	}
 	else
