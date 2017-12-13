@@ -25,7 +25,7 @@ function updateAccount($conn,$accid,$newfname,$newlname,$newhome)
 						SET Accounts.fname=$newfname
 						WHERE Accounts.accid=$accid");
 		if(!$result)
-		{ print 'update failure 1'; }
+		{ return json_encode(false); }
 	}
 	elseif($newfname==='' && $newhome==='')
 	{
@@ -34,7 +34,7 @@ function updateAccount($conn,$accid,$newfname,$newlname,$newhome)
 						SET Accounts.lname=$newlname
 						WHERE Accounts.accid=$accid");
 		if(!$result)
-		{ print 'update failure 2'; }
+		{ return json_encode(false); }
 	}
 	elseif($newfname==='' && $newlname==='')
 	{
@@ -43,7 +43,7 @@ function updateAccount($conn,$accid,$newfname,$newlname,$newhome)
 						SET Accounts.home=$newhome
 						WHERE Accounts.accid=$accid");
 		if(!$result)
-		{ print 'update failure 3'; }
+		{ return json_encode(false); }
 	}
 	elseif($newhome==='')
 	{
@@ -52,7 +52,7 @@ function updateAccount($conn,$accid,$newfname,$newlname,$newhome)
 						SET Accounts.lname=$newlname, Accounts.fname=$newfname
 						WHERE Accounts.accid=$accid");
 		if(!$result)
-		{ print 'update failure 4'; }
+		{ return json_encode(false); }
 	}
 	elseif($newlname==='')
 	{
@@ -61,7 +61,7 @@ function updateAccount($conn,$accid,$newfname,$newlname,$newhome)
 						SET Accounts.fname=$newfname, Accounts.home=$newhome
 						WHERE Accounts.accid=$accid");
 		if(!$result)
-		{ print 'update failure 5'; }
+		{ return json_encode(false); }
 	}
 	elseif($newfname==='')
 	{
@@ -70,7 +70,7 @@ function updateAccount($conn,$accid,$newfname,$newlname,$newhome)
 						SET Accounts.lname=$newlname, Accounts.home=$newhome
 						WHERE Accounts.accid=$accid");
 		if(!$result)
-		{ print 'update failure 6'; }
+		{ return json_encode(false); }
 	}
 	else
 	{
@@ -79,8 +79,9 @@ function updateAccount($conn,$accid,$newfname,$newlname,$newhome)
 						SET Accounts.lname=$newlname, Accounts.home=$newhome, Accounts.fname=$newfname
 						WHERE Accounts.accid=$accid");
 		if(!$result)
-		{ print 'update failure 7'; }
+		{ return json_encode(false); }
 	}
+	return json_encode(true);
 	
 
 

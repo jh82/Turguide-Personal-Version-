@@ -167,8 +167,19 @@ elseif ($_SERVER['REQUEST_METHOD'] === 'GET')
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'PUT')
 {
+	require_once('authenticate.php'); //user must be logged in to continue
+	
+	header('Content-type: application/json');
 	//Password is assumed to not be set
 	//update user info
+	parse_str(file_get_contents("php://input"),$post_vars);
+	$newhome  = $post_vars['home'];
+	$newfname = $post_vars['fname'];
+	$newlname = $post_vars['lname'];
+	//$newpassword = $post_vars['password'];
+	
+	print updateAccount($conn, (int) $_SESSION['accid'],$newfname,$newlname,$newhome);
+	
 }
 elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE')
 {
