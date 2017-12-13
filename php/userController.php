@@ -71,6 +71,24 @@ print '<br>';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
+	//Check if uname already exists, it it does return false
+	$uname = $_POST['username'];
+	$password = $_POST['password'];
+	//print_r($uname);
+	//print_r($password);
+	$badresult = $conn->query("
+				SELECT COUNT(*)
+				FROM Accounts
+				WHERE Accounts.uname='$uname'");
+	$nummatch = $badresult->fetch_array()[0];
+	//print_r($nummatch);
+	if($nummatch>0) //query returns anything means username already exists
+	{ print json_encode(false); }
+	else
+	{
+		createUser($conn,$uname,$password,null,null,null);
+		print json_encode(true);
+	}
 	//singup / create user - and return successful
 	
 }
